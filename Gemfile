@@ -71,3 +71,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn'
 end
+
+# firstGemInstall
+gem 'jquery-rails'
+gem "haml-rails"
+gem "font-awesome-sass"
+gem "carrierwave"
+gem "mini_magick"
+gem "devise"
