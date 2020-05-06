@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: fleamarket_sample_74f_production
-  username: fleamarket_sample_74f
-  password: <%= ENV['FLEAMARKET_SAMPLE_74F_DATABASE_PASSWORD'] %>
+  username: root #rootに変更
+  password: <%= ENV['DATABASE_PASSWORD'] %> #chat-spadeで使った変数
+  socket: /var/lib/mysql/mysql.sock #必須の指定
