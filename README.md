@@ -1,24 +1,146 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Contents
 
-Things you may want to cover:
+## Team
 
-* Ruby version
+fleamarket_sample_74f
+Team develogging
+Menber：４ persons
 
-* System dependencies
+## App
 
-* Configuration
+Flea Market app
 
-* Database creation
+## Delivery
 
-* Database initialization
+3 weeks
 
-* How to run the test suite
+## Tecknology
 
-* Services (job queues, cache servers, search engines, etc.)
+- Ruby
+  - 2.5.1p57 (2018-03-29 revision 63029)
+- Rails
+- Javascript
+- HTML/HAML
+- CSS/SCSS
+- Git
+  - 2.26.0
+- MySQL
+- AWS
 
-* Deployment instructions
+# DB 設計
 
-* ...
+## users Table
+
+| Column   | Type   | Options                   |
+| -------- | ------ | ------------------------- |
+| nickName | string | null: false               |
+| email    | string | null: false, unique: true |
+| password | string | null: false               |
+
+### Association
+
+- has_one :identification
+- has_many :goods
+- has_many :deliveryAddresses
+- has_many :creditCards
+
+## identifications Table
+
+| Column         | Type    | Options           |
+| -------------- | ------- | ----------------- |
+| user_id        | integer | foreign_key: true |
+| familyName     | string  | null: false       |
+| firstName      | string  | null: false       |
+| familyNameKana | string  | null: false       |
+| firstNameKana  | string  | null: false       |
+| birthYear      | date    | null: false       |
+| birthMonth     | date    | null: false       |
+| birthDay       | date    | null: false       |
+| userImage      | string  |                   |
+| introduction   | text    |                   |
+
+### Association
+
+- belongs_to :user
+
+## creditCards Table
+
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| user_id        | integer | null: false, foreign_key: true |
+| cardNumber     | integer | null: false, unique: true      |
+| effectiveMonth | integer | null: false                    |
+| effectiveYear  | integer | null: false                    |
+| securityCode   | integer | null: false                    |
+
+### Association
+
+- belongs_to :user
+
+## deliveryAddresses Table
+
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| user_id        | integer | null: false, foreign_key: true |
+| familyName     | string  | null: false                    |
+| firstName      | string  | null: false                    |
+| familyNameKana | string  | null: false                    |
+| firstNameKana  | string  | null: false                    |
+| postCode       | integer | null: false                    |
+| prefecture     | string  | null: false                    |
+| city           | string  | null: false                    |
+| address        | string  | null: false                    |
+| buildingName   | string  |                                |
+| telNumber      | integer |                                |
+
+### Association
+
+- belongs_to :user
+
+## goods Table
+
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| user_id        | integer | null: false, foreign_key: true |
+| goodsName      | string  | null: false                    |
+| explanation    | text    | null: false                    |
+| category_id    | integer | null: false, foreign_key: true |
+| brand          | string  |                                |
+| goodsCondition | string  | null: false                    |
+| deliveryFee    | string  | null: false                    |
+| prefecture     | string  | null: false                    |
+| deliveryDay_id | string  | null: false                    |
+| price          | integer | null: false                    |
+
+### Association
+
+- belongs_to :user
+- has_many :pictures
+- has_many :categories
+
+## pictures Table
+
+| Column     | Type    | Options                       |
+| ---------- | ------- | ----------------------------- |
+| goods_id   | integer | null: false,foreign_key: true |
+| goodsImage | string  | null: false                   |
+
+### Association
+
+- belongs_to :good
+
+## categories Table
+
+| Column       | Type   | Options |
+| ------------ | ------ | ------- |
+| categoryName | string |         |
+
+### Association
+
+- has_many :goods
+
+---
+
+###### [WIP] .....
