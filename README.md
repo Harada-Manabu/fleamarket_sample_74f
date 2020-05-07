@@ -111,7 +111,7 @@ Flea Market app
 | goodsCondition | string  | null: false                    |
 | deliveryFee    | string  | null: false                    |
 | prefecture     | string  | null: false                    |
-| deliveryDay_id | string  | null: false                    |
+| deliveryDay    | string  | null: false                    |
 | price          | integer | null: false                    |
 
 ### Association
