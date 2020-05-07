@@ -1,3 +1,30 @@
 .showGoods {
-  background-color: orange;
+  &__showGoodsBody {
+    &__showGoodsBodyMain {
+      &__showGoodsBodyMainSelect {
+        background-color: red;
+      }
+      &__showGoodsBodyMainComment {
+        background-color: green;
+      }
+      &__showGoodsBodyMainOtherItem {
+        background-color: blue;
+      }
+      &__showGoodsBodyMainSNS {
+        background-color: yellow;
+      }
+      &__showGoodsBodyMainRelatedItem {
+        background-color: pink;
+      }
+      &__showGoodsBodyMainItemName {
+        background-color: purple;
+      }
+      &__showGoodsBodyMainBanner {
+        background-color: lightgreen;
+      }
+      &__showGoodsBodyMainHiddenBtn {
+        background-color: lightblue;
+      }
+    }
+  }
 }
