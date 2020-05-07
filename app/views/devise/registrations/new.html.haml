@@ -11,7 +11,7 @@
           %br/
           = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'registerWrapper__content__formGroup__form', placeholder: '例) フリマ太郎'
         .registerWrapper__content__formGroup
-          = f.label :email, class: 'registerWrapper__content__formGroup__label'
+          = f.label :メールアドレス, class: 'registerWrapper__content__formGroup__label'
           %span 必須
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registerWrapper__content__formGroup__form', placeholder: 'PC・携帯どちらでも可'
