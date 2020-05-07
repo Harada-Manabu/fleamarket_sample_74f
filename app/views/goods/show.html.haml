@@ -14,7 +14,26 @@
     .showGoods__showGoodsBody__showGoodsBodyMain
       main
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
-        select
+        %h1
+          コカ・コーラ98フランス
+        .detailContent
+          .detailContent__photos
+          .detailContent__tables
+        .priceBox
+          .priceBox__itemPrice
+            %span.itemPricex
+              ＄1,000
+          .priceBox__itemTax
+            %span.itemTaxx
+              （税込）
+          .priceBox__itemShippingFee
+            %span.itemShippingFeex
+              送料込み
+        .purchaceMove
+          %form{:action => "#", :method => "post"}
+            %input{:type => "submit", :class =>"purchaceMoveBtn", :value => "購入画面に進む"}
+
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
         comment
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem
@@ -33,5 +52,21 @@
 -# .showGoods__showGoodsBodyFooter
 
 
+
+-# FIXME:
+-# .headSnsUrl
+-#   = link_to "https://www.facebook.com/", class: "snsFacebook" do
+-#   証明する外部リンク先
+-#   .messages
+-#     = render partial: "message", collection: @messages
+-#   .mainChat__forms__former
+-#     .form
+-#       = form_for [@group, @message] do |fo|
+-#         = fo.text_field :content, class: "inputText", placeholder: "  knock-knock message!"
+-#         .form__pics
+-#           = fo.label :image, class: "inputImageLabel" do
+-#             = icon('fas', 'image', class: 'icon')
+-#             = fo.file_field :image, class: "inputImage"
+-#         = fo.submit "knock", class: "inputBtn"
 
 
