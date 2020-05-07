@@ -11,21 +11,29 @@
         %h1.selectItemName
           レジェンド元ブラジル代表ロナウジーニョの前歯
         .selectContent
-          .selectContent__photos
-          .selectContent__tables
+          .selectContent__selectContentPhotos
+            = image_tag "20200507_Ronaldinho.jpeg", alt: "Non Photo Now", id: "", class: "image"
+
+
+
+          .selectContent__selectContentTables
+
+
+
         .selectPriceBox
-          .selectPriceBox__itemPrice
-            %span.itemPricex
+          .selectPriceBox__selectPriceBoxItemPrice
+            %span.spanItemPrice
               ＄1,000
-          .selectPriceBox__itemTax
-            %span.itemTaxx
+          .selectPriceBox__selectPriceBoxItemTax
+            %span.spanItemTax
               （税込）
-          .selectPriceBox__itemShippingFee
-            %span.itemShippingFeex
+          .selectPriceBox__selectPriceBoxItemShippingFee
+            %span.spanShippingFee
               送料込み
         .selectPurchaceMove
-          %form{:action => "#", :method => "post"}
-            %input{:type => "submit", :class =>"selectPurchaceMoveBtn", :value => "購入画面に進む"}
+          .selectPurchaceMove__selectPurchaceMoveForm
+            %form{:action => "#", :method => "post"}
+              %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
         .selectDescription
           %p
           ロナウジーニョの前歯（現物）です。
@@ -37,23 +45,23 @@
           .selectReport__selectReportLeft
             .selectReport__selectReportLeft__selectReportLeftLike
               %form{:action => "#", :method => "post"}
-                = button_tag "Submit", type: 'submit', class: "selectReportLeftBtn" do
+                = button_tag "Submit", type: 'submit', class: "selectReportLeftLikeBtn" do
                   %i.fas.fa-heart.iconHeart
-                  %span
+                  %span.spanHeartWord
                     いいね!
-                  %span
+                  %span.spanHeartNumber
                     2
             .selectReport__selectReportLeft__selectReportLeftBad
               .selectReport__selectReportLeft__selectReportLeftBad__selectReportLeftBadLink
-                = link_to "#", class: "selectReportLeftBadLinkx" do
+                = link_to "#", class: "selectReportLeftBadLinkBtn" do
                   .i.fas.fa-flag.iconFlag
-                  %span
+                  %span.spanFlag
                     不適切な商品の報告
           .selectReport__selectReportRight
             .selectReport__selectReportRight__selectReportRightAction
-              = link_to "#", class: "selectReportRightAction" do
+              = link_to "#", class: "selectReportRightActionBtn" do
                 .i.fas.fa-lock.iconLock
-                %span
+                %span.spanLock
                   あんしん・あんぜんへの取り組み
 
 
