@@ -7,27 +7,93 @@
     第二層
     .showGoods__showGoodsBody__showGoodsBodyMain
       第三層
+
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
           レジェンド元ブラジル代表ロナウジーニョの前歯
         .selectContent
           .selectContent__selectContentPhotos
-            = image_tag "20200507_Ronaldinho.jpeg", alt: "Non Photo Now", id: "", class: "image"
-
-
+            .selectContent__selectContentPhotos__selectContentPhotosPhoto
+              .selectContent__selectContentPhotos__selectContentPhotosPhotoOne
+                = image_tag "20200507_Ronaldinho.jpeg", alt: "No Photo", id: "", class: ""
+              .selectContent__selectContentPhotos__selectContentPhotosPhotoOther
+                - if @photos
+                  - @photos.each do |p|
+                    = p.photo
+                - else
+                  No Other Photos
 
           .selectContent__selectContentTables
-
-
-
+            .selectContent__selectContentTables__selectContentTablesBody
+              -# %table
+              %table{:border => "1"}
+                %tr
+                  %th
+                    出品者
+                    %td
+                      = link_to "ジーコ", "#",class: "exhibitorName"
+                      .exhibitorEvaluation
+                        .exhibitorEvaluation__exhibitorEvaluationYours
+                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                            %i.fas.fa-laugh.iconLaugh
+                            %span.spanLaugh
+                              20
+                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                            %i.fas.fa-meh.iconMeh
+                            %span.spanMeh
+                              2
+                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                            %i.fas.fa-frown.iconFrown
+                            %span.spanFrown
+                              0
+                %tr
+                  %th
+                    カテゴリー
+                    %td
+                      = link_to "スポーツ・レジャー", "#", class: "exhibitionCategory"
+                      %br
+                      = link_to "> サッカー/フットサル", "#", class: "exhibitionCategorySub"
+                      %br
+                      = link_to "> 記念グッズ", "#", class: "exhibitionCategorySubSub"
+                %tr
+                  %th
+                    ブランド
+                    %td
+                      Nike
+                %tr
+                  %th
+                    商品の状態
+                    %td
+                      未使用に近い
+                %tr
+                  %th
+                    配送料の負担
+                    %td
+                      送料込み(出品者負担)
+                %tr
+                  %th
+                    配送の方法
+                    %td
+                      自家用ジェット
+                %tr
+                  %th
+                    配送元地域
+                    %td
+                      ブラジル
+                %tr
+                  %th
+                    発送日の目安
+                    %td
+                      1~2日で発送
         .selectPriceBox
-          .selectPriceBox__selectPriceBoxItemPrice
-            %span.spanItemPrice
+          .selectPriceBox__selectPriceBoxMoney
+            %span.spanMoney
               ＄1,000
-          .selectPriceBox__selectPriceBoxItemTax
-            %span.spanItemTax
+          .selectPriceBox__selectPriceBoxTax
+            %span.spanTax
               （税込）
-          .selectPriceBox__selectPriceBoxItemShippingFee
+          .selectPriceBox__selectPriceBoxShippingFee
             %span.spanShippingFee
               送料込み
         .selectPurchaceMove
@@ -65,41 +131,69 @@
                   あんしん・あんぜんへの取り組み
 
 
-
-
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
-        comment
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
+          .mainCommentContentBody
+            %form{action: "#", method: "post", name: "", class: "mainCommentContentBodyForm"}
+              %p.mainCommentContentBodyFormAttention
+                相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %textarea{name: "", rows:"", cols: "35", class: "mainCommentContentBodyTextarea"}
+                -# textareaに設定する値、インデント
+                -# Haml::Template.options[:ugly] = true
+              .mainCommentContentBodyTag
+                = button_tag "コメントする", type: 'submit', class: "mainCommentContentBodyTagBtn"
+
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem
-        otherItem
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSNS
-        sns
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem__showGoodsBodyMainOtherItemBox
+          %ul.mainOtherItemBoxUl
+            %li.mainOtherItemBoxUlPrev
+              %i.fas.fa-chevron-left.iconChevronLeft
+              = link_to "前の商品", "#", class: "mainOtherItemBoxUlPrevOne"
+            %li.mainOtherItemBoxUlNext
+              %i.fas.fa-chevron-right.iconChevronRight
+              = link_to "後の商品", "#", class: "mainOtherItemBoxUlNextOne"
+
+
+      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSns
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSnsCenter
+          .snsCenterWidget
+          %ul.snsCenter
+            %li.snsCenterFb
+              = link_to "#", class: "snsCenterFbBtn" do
+                %i.fab.fa-facebook-square.iconFb
+            %li.snsCenterTw
+              = link_to "#", class: "snsCenterTwBtn" do
+                %i.fab.fa-twitter-square.iconTw
+            %li.snsCenterLn
+              = link_to "#", class: "snsCenterLnBtn" do
+                %i.fab.fa-line.iconLn
+            %li.snsCenterPr
+              = link_to "#", class: "snsCenterPrBtn" do
+                %i.fab.fa-pinterest-square.iconPr
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainRelatedItem
-        relatedItem
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainItemName
-        itemName
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainBanner
-        banner
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainHiddenBtn
-        hiddenBtn
+        relatedItemssssssss
 
--# .Footer
-
-
-
--# FIXME:
--# .headSnsUrl
--#   = link_to "https://www.facebook.com/", class: "snsFacebook" do
--#   証明する外部リンク先
--#   .messages
--#     = render partial: "message", collection: @messages
--#   .mainChat__forms__former
--# .form
--#   = form_for [@group, @message] do |fo|
--#     = fo.text_field :content, class: "inputText", placeholder: "  knock-knock message!"
--#     .form__pics
--#       = fo.label :image, class: "inputImageLabel" do
--#         = icon('fas', 'image', class: 'icon')
--#         = fo.file_field :image, class: "inputImage"
--#     = fo.submit "knock", class: "inputBtn"
+      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi__showGoodsBodyMainNaviBox
+          %nav.naviBoxBrend
+            %ul.naviBoxBrendTop
+              %li.naviBoxBrendTop
+                = link_to "メリカリ", "#", class: "naviBoxBrendTopBtn"
+                %i.fas.fa-chevron-right.iconChevronRight
+              %li.naviBoxBrendSelectItemName
+                %span.spanNaviBoxBrendSelectItemName
+                  商品タイトルと一致
 
 
+      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainHiddenPurchase
+        .hiddenPurchaseBtn
+          hiddenBtn
+          -# 上の要素のボタンをコピーかレンダーリダイレクトしたい
+          -# .me
+          -#   = render partial: "me", collection: @mes
+
+
+-# %aside.bannerAds
+-# .footer
