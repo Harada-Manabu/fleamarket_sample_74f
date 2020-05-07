@@ -1,37 +1,62 @@
 -# .header
--#   .header__title
--#     = link_to "Furima", "#", class: "header__title--text"
--#   .header__right
--#     = link_to "A", "#", class: "header__right--btn"
--#     = link_to "B", "#", class: "header__right--btn"
--#     = link_to "C", "#", class: "header__right--btn"
--#     = link_to "#", root_path, class: "header__right--btn"
-.showGoods
   -# = yield
-  goods
+
+.showGoods
+  第一層
   .showGoods__showGoodsBody
-    body
+    第二層
     .showGoods__showGoodsBody__showGoodsBodyMain
-      main
+      第三層
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
-        %h1
-          コカ・コーラ98フランス
-        .detailContent
-          .detailContent__photos
-          .detailContent__tables
-        .priceBox
-          .priceBox__itemPrice
+        %h1.selectItemName
+          レジェンド元ブラジル代表ロナウジーニョの前歯
+        .selectContent
+          .selectContent__photos
+          .selectContent__tables
+        .selectPriceBox
+          .selectPriceBox__itemPrice
             %span.itemPricex
               ＄1,000
-          .priceBox__itemTax
+          .selectPriceBox__itemTax
             %span.itemTaxx
               （税込）
-          .priceBox__itemShippingFee
+          .selectPriceBox__itemShippingFee
             %span.itemShippingFeex
               送料込み
-        .purchaceMove
+        .selectPurchaceMove
           %form{:action => "#", :method => "post"}
-            %input{:type => "submit", :class =>"purchaceMoveBtn", :value => "購入画面に進む"}
+            %input{:type => "submit", :class =>"selectPurchaceMoveBtn", :value => "購入画面に進む"}
+        .selectDescription
+          %p
+          ロナウジーニョの前歯（現物）です。
+          %br
+          大事な試合の前日にかけました。
+          %br
+          未使用品です。
+        .selectReport
+          .selectReport__selectReportLeft
+            .selectReport__selectReportLeft__selectReportLeftLike
+              %form{:action => "#", :method => "post"}
+                = button_tag "Submit", type: 'submit', class: "selectReportLeftBtn" do
+                  %i.fas.fa-heart.iconHeart
+                  %span
+                    いいね!
+                  %span
+                    2
+            .selectReport__selectReportLeft__selectReportLeftBad
+              .selectReport__selectReportLeft__selectReportLeftBad__selectReportLeftBadLink
+                = link_to "#", class: "selectReportLeftBadLinkx" do
+                  .i.fas.fa-flag.iconFlag
+                  %span
+                    不適切な商品の報告
+          .selectReport__selectReportRight
+            .selectReport__selectReportRight__selectReportRightAction
+              = link_to "#", class: "selectReportRightAction" do
+                .i.fas.fa-lock.iconLock
+                %span
+                  あんしん・あんぜんへの取り組み
+
+
 
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
@@ -49,7 +74,7 @@
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainHiddenBtn
         hiddenBtn
 
--# .showGoods__showGoodsBodyFooter
+-# .Footer
 
 
 
@@ -60,13 +85,13 @@
 -#   .messages
 -#     = render partial: "message", collection: @messages
 -#   .mainChat__forms__former
--#     .form
--#       = form_for [@group, @message] do |fo|
--#         = fo.text_field :content, class: "inputText", placeholder: "  knock-knock message!"
--#         .form__pics
--#           = fo.label :image, class: "inputImageLabel" do
--#             = icon('fas', 'image', class: 'icon')
--#             = fo.file_field :image, class: "inputImage"
--#         = fo.submit "knock", class: "inputBtn"
+-# .form
+-#   = form_for [@group, @message] do |fo|
+-#     = fo.text_field :content, class: "inputText", placeholder: "  knock-knock message!"
+-#     .form__pics
+-#       = fo.label :image, class: "inputImageLabel" do
+-#         = icon('fas', 'image', class: 'icon')
+-#         = fo.file_field :image, class: "inputImage"
+-#     = fo.submit "knock", class: "inputBtn"
 
 
