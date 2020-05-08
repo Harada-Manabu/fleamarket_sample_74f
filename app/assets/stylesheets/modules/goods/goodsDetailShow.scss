@@ -1,72 +1,81 @@
 .showGoods {
-  background-color: #e0dfdffa;
-  width: 100vw;
-  height: 100vh;
-
+  background-color: #f8f7f7fa;
+  width: 100%;
   &__showGoodsBody {
-    width: 1194px;
-    height: 2732px;
-
+    height: 2000px;
     &__showGoodsBodyMain {
       width: 700px;
-      height: 1768px;
+      height: 1770px;
       color: black;
-      background-color: white;
       margin: 0 auto;
 
       &__showGoodsBodyMainSelect {
+        background-color: white;
         .selectItemName {
           margin: 0 auto;
-          background-color: greenyellow;
+
           font-weight: bold;
           width: 620px;
-          height: 28px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          font-size: 17px;
         }
         .selectContent {
           margin: 0 auto;
-          background-color: indianred;
           width: 620px;
           height: 400px;
+          margin-bottom: 20px;
           &__selectContentPhotos {
+            height: 400px;
             &__selectContentPhotosPhoto {
+              height: 400px;
               &__selectContentPhotosPhotoOne {
-                width: 560px;
-                height: 346px;
+                width: auto;
+                height: 70%;
+                text-align: center;
                 .rony {
                 }
               }
               &__selectContentPhotosPhotoOther {
                 width: 560px;
-                height: 87px;
+                height: 30%;
                 display: flex;
+                margin: 0 auto;
                 .rony {
+                  width: 33%;
                 }
                 .ronyShoe {
+                  width: 33%;
                 }
                 .ronyUniform {
+                  width: 33%;
                 }
               }
             }
           }
         }
         .selectPriceBox {
-          background-color: lightblue;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          text-align: center;
           &__selectPriceBoxMoney {
             margin: 0 auto;
-
             width: 610px;
-            height: 53px;
+            height: 55px;
             .iconYen {
+              font-size: 38px;
             }
             .spanMoney {
               font-weight: bold;
+              font-size: 38px;
             }
           }
           &__selectPriceBoxSupp {
-            margin: 0 auto;
-            display: flex;
+            justify-content: center;
             width: 620px;
-            height: 24px;
+            height: 25px;
+            margin-left: 40px;
             &__selectPriceBoxSuppTax {
               .spanTax {
               }
@@ -81,16 +90,17 @@
           width: 100%;
           text-align: center;
           font-weight: bold;
+          margin: 0px 0px 10px 0px;
           &__selectPurchaceMove {
             margin: 0 auto;
 
             width: 90%;
             height: 60px;
             line-height: 60px;
-            background-color: red;
+            background-color: #3ccace;
             .selectPurchaceMoveForm {
               .selectPurchaceMoveFormBtn {
-                background-color: red;
+                background-color: #3ccace;
                 color: white;
                 border-style: none;
               }
@@ -99,13 +109,14 @@
         }
         .selectDescription {
           margin: 0 auto;
-          background-color: lightseagreen;
           width: 620px;
-          height: 162px;
+          height: 160px;
           &__selectDescriptionBody {
+            .selectDescriptionBodyExplain {
+              font-size: 17px;
+            }
           }
         }
-
         .selectTables {
           &__selectTablesBody {
             table {
@@ -121,11 +132,14 @@
               width: 40%;
               text-align: center;
               border-color: rgb(209, 207, 207);
+              font-size: 15px;
+              padding: 13px 0px 13px 0px;
             }
             table td {
               width: 60%;
-              padding: 10px 0px 10px 20px;
+              padding: 13px 0px 13px 20px;
               border-color: rgb(209, 207, 207);
+              font-size: 15px;
               .exhibitorName {
                 text-decoration: none;
                 color: black;
@@ -151,20 +165,25 @@
         }
         .selectReport {
           margin: 0 auto;
-          background-color: navajowhite;
-          width: 620px;
+          width: 100%;
           height: 48px;
           line-height: 48px;
-          margin-top: 10px;
-          margin-bottom: 10px;
+          margin-top: 20px;
+          margin-bottom: 30px;
+          display: inline-block;
           &__selectReportLeft {
             display: flex;
             justify-content: space-between;
+            margin-left: 37px;
             &__selectReportLeftLike {
               .selectReportLeftLikeForm {
                 .selectReportLeftLikeBtn {
-                  border-radius: 15px;
+                  border-radius: 30px;
                   color: #3ccace;
+                  width: 145px;
+                  height: 37px;
+                  font-size: 16px;
+                  border-color: orange;
                   .iconStar {
                   }
                   .spanStarWord {
@@ -175,10 +194,16 @@
               }
             }
             &__selectReportLeftBad {
+              margin-right: 37px;
+
               &__selectReportLeftBadLink {
                 .selectReportLeftBadLinkBtn {
                   text-decoration: none;
                   color: black;
+                  font-size: 13px;
+                  border: 1px solid black;
+                  padding: 10px 12px 10px 12px;
+                  border-radius: 5px;
                   .iconFlag {
                   }
                   .spanFlag {
@@ -191,31 +216,37 @@
       }
 
       &__showGoodsBodyMainComment {
+        margin-top: 10px;
         background-color: white;
         width: 700px;
-        height: 310px;
+        height: 300px;
         &__showGoodsBodyMainCommentContent {
           .mainCommentContentBody {
             .mainCommentContentBodyForm {
               text-align: center;
               .mainCommentContentBodyTextarea {
+                margin-top: 25px;
               }
               .mainCommentContentBodyFormAttention {
-                background-color: #e0dfdffa;
-                padding-right: 100px;
+                background-color: #fcf9f9fa;
+                padding: 10px 0px 5px 10px;
+                font-size: 15px;
+                text-align: left;
+                width: 90%;
+                margin-left: 35px;
               }
               .mainCommentContentBodyTag {
                 background-color: #3ccace;
-                border-radius: 20px;
+                border-radius: 30px;
                 text-align: center;
-                width: 395px;
-                height: 55px;
+                width: 380px;
+                height: 50px;
                 display: inline-block;
                 margin-top: 30px;
 
                 .iconComment {
                   color: white;
-                  font-size: 16px;
+                  font-size: 20px;
                 }
                 .mainCommentContentBodyTagBtn {
                   padding-top: 15px;
@@ -223,7 +254,7 @@
                   border: none;
                   color: white;
                   font-weight: bold;
-                  font-size: 16px;
+                  font-size: 18px;
                 }
               }
             }
@@ -231,12 +262,11 @@
         }
       }
       &__showGoodsBodyMainOtherItem {
-        background-color: #e0dfdffa;
         width: 700px;
         height: 24px;
         color: #3ccace;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         &__showGoodsBodyMainOtherItemBox {
           .mainOtherItemBoxUl {
             display: flex;
@@ -249,14 +279,14 @@
               .mainOtherItemBoxUlPrevOne {
                 text-decoration: none;
                 color: #3ccace;
-                font-size: 16px;
+                font-size: 17px;
               }
             }
             .mainOtherItemBoxUlNext {
               .mainOtherItemBoxUlNextOne {
                 text-decoration: none;
                 color: #3ccace;
-                font-size: 16px;
+                font-size: 17px;
               }
               .iconChevronRight {
                 padding-right: 10px;
@@ -266,8 +296,6 @@
         }
       }
       &__showGoodsBodyMainNavi {
-        background-color: #e0dfdffa;
-
         width: 700px;
         height: 33px;
         line-height: 33px;

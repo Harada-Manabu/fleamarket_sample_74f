@@ -1,32 +1,30 @@
-.header
-  + header
-  :scss
-    .header {
-      background-color:black;
-      color:white;
-    }
-  .header__showGoodsCate
-    .header__showGoodsCate__showGoodsCateInfo
-      .cateInfo
-        = link_to "FURIMA", "#", class: "cateInfoTop"
-        %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "スポーツ・レジャー", "#", class: "cateInfoCate"
-        %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "サッカー/フットサル", "#", class: "cateInfoCateSub"
-        %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "記念グッズ", "#", class: "cateInfoCateSubSub"
-        %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "cateInfoProductName"
-  -# = yield
+-# .header
+-#   + header
+-#   :scss
+-#     .header {
+-#       background-color:black;
+-#       color:white;
+-#     }
+-#   .header__showGoodsCate
+-#     .header__showGoodsCate__showGoodsCateInfo
+-#       .cateInfo
+-#         = link_to "FURIMA", "#", class: "cateInfoTop"
+-#         %i.fas.fa-chevron-right.iconChevronRight
+-#         = link_to "スポーツ・レジャー", "#", class: "cateInfoCate"
+-#         %i.fas.fa-chevron-right.iconChevronRight
+-#         = link_to "サッカー/フットサル", "#", class: "cateInfoCateSub"
+-#         %i.fas.fa-chevron-right.iconChevronRight
+-#         = link_to "記念グッズ", "#", class: "cateInfoCateSubSub"
+-#         %i.fas.fa-chevron-right.iconChevronRight
+-#         = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "cateInfoProductName"
+-# = yield
 
 .showGoods
-  第一層
+  -# 第一層
   .showGoods__showGoodsBody
-    第二層
+    -# 第二層
     .showGoods__showGoodsBody__showGoodsBodyMain
-      第三層
-      右下固定の出品するボタン追加
-
+      -# 第三層
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
           レジェンド元ブラジル代表ロナウジーニョの前歯
@@ -52,10 +50,10 @@
           .selectPriceBox__selectPriceBoxSupp
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppTax
               %span.spanTax
-                （税込）
+                （税込）送料込み
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
-                送料込み
+                -# 送料込み
         .selectPurchace
           .selectPurchace__selectPurchaceMove
             %form{:action => "#", :method => "post", name: "", class: "selectPurchaceMoveForm"}
@@ -64,12 +62,8 @@
 
         .selectDescription
           .selectDescription__selectDescriptionBody
-            %p
-            ロナウジーニョの前歯（現物）です。
-            %br
-            大事な試合の前日にかけました。
-            %br
-            未使用品です。
+            %p.selectDescriptionBodyExplain
+              ロナウジーニョ (Ronaldinho) こと、ロナウド・デ・アシス・モレイラ（Ronaldo de Assís Moreira, 1980年3月21日 - ）は、ブラジル・リオグランデ・ド・スル州ポルト・アレグレ出身の元サッカー選手。元ブラジル代表。ポジションはミッドフィールダー。愛称はガウショ
         .selectTables
           .selectTables__selectTablesBody
             %table{:border => "1"}
@@ -157,7 +151,7 @@
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
           .mainCommentContentBody
             %form{action: "#", method: "post", name: "", class: "mainCommentContentBodyForm"}
-              %textarea{name: "", rows:"5", cols: "70", class: "mainCommentContentBodyTextarea"}
+              %textarea{name: "", rows:"4", cols: "70", class: "mainCommentContentBodyTextarea"}
                 -# textareaに設定する値、インデントインの場合
                 -# Haml::Template.options[:ugly] = true
               %p.mainCommentContentBodyFormAttention
@@ -205,12 +199,12 @@
                 = link_to "メンズをもっと見る", "#", class: "naviBoxBrendTopUlLiBtn"
                 -# %i.fas.fa-chevron-right.iconChevronRight
 
-    
 
-%aside.bannerAds
-  + banner and footer
-  :scss
-    .bannerAds {
-      background-color:black;
-      color:white;
-    }
+
+-# %aside.bannerAds
+-#   + banner and footer
+-#   :scss
+-#     .bannerAds {
+-#       background-color:black;
+-#       color:white;
+-#     }
