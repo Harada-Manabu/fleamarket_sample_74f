@@ -49,16 +49,16 @@
         background: #fff;
       }
     }
-  &__submit {
+    &__submit {
     margin-top: 50px;
-    &__btn {
+      &__btn {
       background-color: #3ccace;
       line-height: 48px;
       color: #fff;
       font-size: 14px;
       width: 100%;
       border: 1px solid #3ccace;
+      }
     }
-  }
   }
 }
