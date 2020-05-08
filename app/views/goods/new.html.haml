@@ -10,8 +10,8 @@
     = form_with model: @goods, class: :form, local: true do |f|
       .goodsNew__form__pic
         .pic__title
-          %span.pic__title--text.sectionTitle 出品画像
-          %span.pic__title--must.mustMark 必須
+          %span.pic__title--text 出品画像
+          %span.pic__title--must 必須
         .pic__describe 最大10枚までアップロードできます
         .pic__select
           = fields_for :pictures do |p|
@@ -22,28 +22,28 @@
 
       .goodsNew__form__name
         .name__title
-          %span.name__title--text.sectionTitle 商品名
-          %span.name__title--must.mustMark 必須
+          %span.name__title--text 商品名
+          %span.name__title--must 必須
         = f.text_field :goodsName, class: 'name__title--form', placeholder: '40文字まで'
         .name__explanation
-          %span.name__explanation--text.sectionTitle 商品の説明
-          %span.name__explanation--must.mustMark 必須
+          %span.name__explanation--text 商品の説明
+          %span.name__explanation--must 必須
         = f.text_area :explanation, class: 'explanation__form', placeholder: '商品の説明（必須 1,000文字以内）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe, rows: 7
 
 
       .goodsNew__form__detail
         .detail__heading.sectinDescribe 商品の詳細
         .detail__category
-          %span.detail__category--text.sectionTitle カテゴリー
-          %span.detail__category--must.mustMark 必須
+          %span.detail__category--text カテゴリー
+          %span.detail__category--must 必須
         = f.select :category_id, [["レディース", 0],["メンズ", 1],["ベビー・キッズ", 2],["インテリア・住まい・小物", 3],["本・音楽・ゲーム", 4],["おもちゃ・ホビー・グッズ", 5],["コスメ・香水・美容", 6],["家電・スマホ・カメラ", 7],["スポーツ・レジャー", 8],["ハンドメイド", 9],["チケット", 10],["自転車・オートバイ", 11],["その他", 12]], prompt: "選択してください", class: 'detail__title--form'
         .detail__brand
-          %span.detail__brand--text.sectionTitle ブランド
-          %span.detail__brand--must.optionMark 任意
+          %span.detail__brand--text ブランド
+          %span.detail__brand--option 任意
         = f.text_field :brand, class: 'detail__brand--form', placeholder: '例） シャネル'
         .detail__condition
-          %span.detail__condition--text.sectionTitle 商品の状態
-          %span.detail__condition--must.mustMark 必須
+          %span.detail__condition--text 商品の状態
+          %span.detail__condition--must 必須
         = f.select :goodsCondition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "選択してください", class: 'detail__condition--fork'
 
 
@@ -51,16 +51,16 @@
       .goodsNew__form__delivery
         .delivery__heading.sectinDescribe 配送について
         .delivery__fee
-          %span.delivery__fee--text.sectionTitle 配送料の負担
-          %span.delivery__fee--must.mustMark 必須
+          %span.delivery__fee--text 配送料の負担
+          %span.delivery__fee--must 必須
         = f.select :deliveryFee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], prompt: "選択してください", class: 'delivery__fee--form'
         .delivery__prefecture
-          %span.delivery__prefecture--text.sectionTitle 発送の地域
-          %span.delivery__prefecture--must.mustMark 必須
+          %span.delivery__prefecture--text 発送の地域
+          %span.delivery__prefecture--must 必須
         = f.select :prefecture, [["北海道"],["青森県"],["岩手県"],["宮城県"],["秋田県"],["山形県"],["福島県"],["茨城県"],["栃木県"],["群馬県"],["埼玉県"],["千葉県"],["東京都"],["神奈川県"],["新潟県"],["富山県"],["石川県"],["福井県"],["山梨県"],["長野県"],["岐阜県"],["静岡県"],["愛知県"],["三重県"],["滋賀県"],["京都府"],["大阪府"],["兵庫県"],["奈良県"],["和歌山県"],["鳥取県"],["島根県"],["岡山県"],["広島県"],["山口県"],["徳島県"],["香川県"],["愛媛県"],["高知県"],["福岡県"],["佐賀県"],["長崎県"],["熊本県"],["大分県"],["宮崎県"],["鹿児島県"],["沖縄県"],["未定"]], prompt: "選択してください", class: 'delivery__prefecture--form'
         .delivery__day
-          %span.delivery__day--text.sectionTitle 発送までの日数
-          %span.delivery__day--must.mustMark 必須
+          %span.delivery__day--text 発送までの日数
+          %span.delivery__day--must 必須
         = f.select :deliveryDay, [["1~2日で発送"],["2~3日で発送"],["3~7日で発送"]], prompt: "選択してください", class: 'delivery__day--form'
 
 
@@ -70,8 +70,8 @@
         .price__heading.sectinDescribe 価格（¥300〜9,999,999）
         .price__wrap
           .price__wrap__title
-            %span.price__wrap__title--text.sectionTitle 販売価格
-            %span.price__wrap__title--must.mustMark 必須
+            %span.price__wrap__title--text 販売価格
+            %span.price__wrap__title--must 必須
           .price__wrap__form
             %span.price__wrap__form--yen ¥
             = f.number_field :price, class: 'price__form', placeholder: '0'
@@ -103,13 +103,4 @@
 
 
 
-
-  .goodsNew__footer
-    .goodsNew__footer--terms
-      = link_to 'プライバシーポリシー', "#"
-      = link_to 'FURIMA利用規約', "#"
-      = link_to '特定商取引に関する表記', "#"
-    .goodsNew__footer--logo
-      = link_to(root_path) do
-        =image_tag "logo-white.png", class: "goodsNew__footer--img", size: "153x34"
-    .goodsNew__footer--copyright © FURIMA
+  = render partial: 'modules/footerSub'

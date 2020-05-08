@@ -1,3 +1,10 @@
+@import 'mixin/sectionTitle';
+@import 'mixin/mustMark';
+@import 'mixin/optionMark';
+@import 'mixin/selectForm';
+@import 'mixin/textField';
+@import 'mixin/footerSub';
+
 .goodsNew {
   width: 100%;
   background-color: #f5f5f5;
@@ -23,30 +30,6 @@
     background-color: #ffffff;
 
     .form {
-      .sectionTitle {
-        font-weight: 600;
-        font-size: 14px;
-      }
-
-      .mustMark {
-        background-color: #ff0111;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 600;
-        border-radius: 2px;
-        padding: 2px 4px;
-        margin-left: 3px;
-      }
-
-      .optionMark {
-        background-color: #bfbfbf;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 600;
-        border-radius: 2px;
-        padding: 1px 4px;
-        margin-left: 3px;
-      }
 
       .sectinDescribe {
         color: #888888;
@@ -56,6 +39,16 @@
 
       .goodsNew__form__pic {
         padding: 40px;
+
+        .pic__title {
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
+        }
 
         .pic__describe {
           font-size: 13px;
@@ -96,14 +89,18 @@
         padding: 40px;
         border-top: 1px solid #efefef;
 
+        .name__title {
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
+        }
+
         .name__title--form {
-          width: 100%;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          height: 48px;
-          padding: 0 16px;
-          margin-top: 16px;
-          outline: none;
+          @include textField;
         }
 
         .name__title--form:focus {
@@ -112,6 +109,14 @@
 
         .name__explanation {
           margin-top: 32px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         .explanation__form {
@@ -134,14 +139,18 @@
 
         .detail__category {
           margin-top: 16px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         #category_id {
-          margin-top: 16px;
-          width: 100%;
-          height: 48px;
-          outline: none;
-          background-color: #ffffff;
+          @include selectForm;
         }
 
         #category_id:focus {
@@ -150,16 +159,18 @@
 
         .detail__brand {
           margin-top: 32px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--option {
+            @include optionMark;
+          }
         }
 
         .detail__brand--form {
-          margin-top: 16px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          height: 48px;
-          outline: none;
-          padding: 0 16px;
-          width: 100%;
+          @include textField;
         }
 
         .detail__brand--form:focus {
@@ -168,14 +179,18 @@
 
         .detail__condition {
           margin-top: 16px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         #goodsCondition {
-          margin-top: 16px;
-          width: 100%;
-          height: 48px;
-          outline: none;
-          background-color: #ffffff;
+          @include selectForm;
         }
 
         #goodsCondition:focus {
@@ -189,14 +204,18 @@
 
         .delivery__fee {
           margin-top: 24px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         #deliveryFee {
-          margin-top: 16px;
-          width: 100%;
-          height: 48px;
-          outline: none;
-          background-color: #ffffff;
+          @include selectForm;
         }
 
         #deliveryFee:focus {
@@ -205,14 +224,18 @@
 
         .delivery__prefecture {
           margin-top: 16px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         #prefecture {
-          margin-top: 16px;
-          width: 100%;
-          height: 48px;
-          outline: none;
-          background-color: #ffffff;
+          @include selectForm;
         }
 
         #prefecture:focus {
@@ -221,14 +244,18 @@
 
         .delivery__day {
           margin-top: 16px;
+
+          &--text {
+            @include sectionTitle;
+          }
+
+          &--must {
+            @include mustMark;
+          }
         }
 
         #deliveryDay {
-          margin-top: 16px;
-          width: 100%;
-          height: 48px;
-          outline: none;
-          background-color: #ffffff;
+          @include selectForm;
         }
 
         #deliveryDay:focus {
@@ -245,6 +272,16 @@
           justify-content: space-between;
           align-items: center;
           margin-top: 24px;
+
+          &__title {
+            &--text {
+              @include sectionTitle;
+            }
+
+            &--must {
+              @include mustMark;
+            }
+          }
 
           &__form {
             &--yen {
@@ -339,26 +376,6 @@
     }
   }
 
-  &__footer {
-    text-align: center;
-    height: 150px;
-    background-color: #272727;
-    padding-top: 25px;
+  @include footerSub;
 
-    &--terms a {
-      font-size: 12px;
-      text-decoration: none;
-      color: #ffffff;
-      margin: 0 10px;
-    }
-
-    &--logo {
-      margin-top: 20px;
-    }
-
-    &--copyright {
-      color: #ffffff;
-      font-size: 12px;
-    }
-  }
 }
