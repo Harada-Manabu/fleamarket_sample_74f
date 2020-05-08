@@ -44,26 +44,10 @@
         border: 1px solid #ccc;
         background: #fff;
         box-sizing: border-box;
-        &--half {
-          width: 48%;
-          height: 48px;
-          margin-top: 8px;
-          font-size: 16px;
-          line-height: 1.5;
-          padding: 0 15px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: #fff;
-          box-sizing: border-box;
-        }
       }
-    &__note {
-      font-size: 16px;
-    }
     }
   &__submit {
-    margin: 80px;
-
+    margin-top: 50px;
     &__btn {
       background-color: #3ccace;
       line-height: 48px;
@@ -74,13 +58,4 @@
     }
   }
   }
-}
-
-#user_nickname_1i, #user_nickname_2i, #user_nickname_3i {
-  font-size: 20px;
-  margin-top: 8px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  height: 48px;
-  width: 27%;
 }
