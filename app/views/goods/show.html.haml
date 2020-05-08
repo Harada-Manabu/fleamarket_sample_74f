@@ -1,4 +1,10 @@
--# .header
+.header
+  + header
+  :scss
+    .header {
+      background-color:black;
+      color:white;
+    }
   -# = yield
 
 .showGoods
@@ -7,7 +13,20 @@
     第二層
     .showGoods__showGoodsBody__showGoodsBodyMain
       第三層
+      右下固定の出品するボタン追加
 
+      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainCategory
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainCategory__showGoodsBodyMainCategoryBox
+          .categoryBoxInfo
+            = link_to "FURIMA", "#", class: "categoryBoxInfoTop"
+            %i.fas.fa-chevron-right.iconChevronRight
+            = link_to "スポーツ・レジャー", "#", class: "categoryBoxInfoCate"
+            %i.fas.fa-chevron-right.iconChevronRight
+            = link_to "サッカー/フットサル", "#", class: "categoryBoxInfoCateSub"
+            %i.fas.fa-chevron-right.iconChevronRight
+            = link_to "記念グッズ", "#", class: "categoryBoxInfoCateSubSub"
+            %i.fas.fa-chevron-right.iconChevronRight
+            = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "categoryBoxInfoProductName"
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
@@ -15,134 +34,135 @@
         .selectContent
           .selectContent__selectContentPhotos
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
-              .selectContent__selectContentPhotos__selectContentPhotosPhotoOne
-                = image_tag "20200507_Ronaldinho.jpeg", alt: "No Photo", id: "", class: ""
-              .selectContent__selectContentPhotos__selectContentPhotosPhotoOther
-                - if @photos
-                  - @photos.each do |p|
-                    = p.photo
-                - else
-                  No Other Photos
-
-          .selectContent__selectContentTables
-            .selectContent__selectContentTables__selectContentTablesBody
-              -# %table
-              %table{:border => "1"}
-                %tr
-                  %th
-                    出品者
-                    %td
-                      = link_to "ジーコ", "#",class: "exhibitorName"
-                      .exhibitorEvaluation
-                        .exhibitorEvaluation__exhibitorEvaluationYours
-                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                            %i.fas.fa-laugh.iconLaugh
-                            %span.spanLaugh
-                              20
-                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                            %i.fas.fa-meh.iconMeh
-                            %span.spanMeh
-                              2
-                          .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                            %i.fas.fa-frown.iconFrown
-                            %span.spanFrown
-                              0
-                %tr
-                  %th
-                    カテゴリー
-                    %td
-                      = link_to "スポーツ・レジャー", "#", class: "exhibitionCategory"
-                      %br
-                      = link_to "> サッカー/フットサル", "#", class: "exhibitionCategorySub"
-                      %br
-                      = link_to "> 記念グッズ", "#", class: "exhibitionCategorySubSub"
-                %tr
-                  %th
-                    ブランド
-                    %td
-                      Nike
-                %tr
-                  %th
-                    商品の状態
-                    %td
-                      未使用に近い
-                %tr
-                  %th
-                    配送料の負担
-                    %td
-                      送料込み(出品者負担)
-                %tr
-                  %th
-                    配送の方法
-                    %td
-                      自家用ジェット
-                %tr
-                  %th
-                    配送元地域
-                    %td
-                      ブラジル
-                %tr
-                  %th
-                    発送日の目安
-                    %td
-                      1~2日で発送
+              .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
+                = image_tag "20200507_Ronaldinho.jpeg", alt: "No Photo", class: "rony"
+              .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOther
+                = image_tag "20200507_Ronaldinho.jpeg", alt: "No Photo", class: "rony"
+                = image_tag "20200508_Ronaldinho_shoe.jpg", alt: "No Photo", class: "ronyShoe"
+                = image_tag "20200508_Ronaldinho_uniform.jpeg", alt: "No Photo", class: "ronyUniform"
+                -# - if @photos
+                -#   - @photos.each do |p|
+                -#     = p.photo
+                -# - else
+                -#   No Other Photos
         .selectPriceBox
           .selectPriceBox__selectPriceBoxMoney
+            %i.fas.fa-yen-sign.iconYen
             %span.spanMoney
-              ＄1,000
-          .selectPriceBox__selectPriceBoxTax
-            %span.spanTax
-              （税込）
-          .selectPriceBox__selectPriceBoxShippingFee
-            %span.spanShippingFee
-              送料込み
-        .selectPurchaceMove
-          .selectPurchaceMove__selectPurchaceMoveForm
-            %form{:action => "#", :method => "post"}
-              %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
+              1,000
+          .selectPriceBox__selectPriceBoxSupp
+            .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppTax
+              %span.spanTax
+                （税込）
+            .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
+              %span.spanShippingFee
+                送料込み
+
         .selectDescription
-          %p
-          ロナウジーニョの前歯（現物）です。
-          %br
-          大事な試合の前日にかけました。
-          %br
-          未使用品です。
+          .selectDescription__selectDescriptionBody
+            %p
+            ロナウジーニョの前歯（現物）です。
+            %br
+            大事な試合の前日にかけました。
+            %br
+            未使用品です。
+        .selectTables
+          .selectTables__selectTablesBody
+            %table{:border => "1"}
+              %tr
+                %th
+                  出品者
+                  %td
+                    = link_to "ジーコ", "#",class: "exhibitorName"
+                    -# .exhibitorEvaluation
+                    -#   .exhibitorEvaluation__exhibitorEvaluationYours
+                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                    -#       %i.fas.fa-laugh.iconLaugh
+                    -#       %span.spanLaugh
+                    -#         20
+                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                    -#       %i.fas.fa-meh.iconMeh
+                    -#       %span.spanMeh
+                    -#         2
+                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
+                    -#       %i.fas.fa-frown.iconFrown
+                    -#       %span.spanFrown
+                    -#         0
+              %tr
+                %th
+                  カテゴリー
+                  %td
+                    = link_to "スポーツ・レジャー", "#", class: "exhibitionCategory"
+                    %br
+                    = link_to "サッカー/フットサル", "#", class: "exhibitionCategorySub"
+                    %br
+                    = link_to "記念グッズ", "#", class: "exhibitionCategorySubSub"
+              %tr
+                %th
+                  ブランド
+                  %td
+                    Nike
+              %tr
+                %th
+                  商品のサイズ
+                  %td
+              %tr
+                %th
+                  商品の状態
+                  %td
+                    未使用に近い
+              %tr
+                %th
+                  配送料の負担
+                  %td
+                    送料込み(出品者負担)
+              %tr
+                %th
+                  発送元の地域
+                  %td
+                    = link_to "ブラジル", "#", class: "exhibitionAddress"
+              %tr
+                %th
+                  発送日の目安
+                  %td
+                    1~2日で発送
         .selectReport
           .selectReport__selectReportLeft
             .selectReport__selectReportLeft__selectReportLeftLike
               %form{:action => "#", :method => "post"}
                 = button_tag "Submit", type: 'submit', class: "selectReportLeftLikeBtn" do
-                  %i.fas.fa-heart.iconHeart
-                  %span.spanHeartWord
-                    いいね!
-                  %span.spanHeartNumber
+                  %i.fas.fa-star.iconStar
+                  %span.spanStarWord
+                    お気に入り
+                  %span.spanStarNumber
                     2
             .selectReport__selectReportLeft__selectReportLeftBad
               .selectReport__selectReportLeft__selectReportLeftBad__selectReportLeftBadLink
                 = link_to "#", class: "selectReportLeftBadLinkBtn" do
                   .i.fas.fa-flag.iconFlag
                   %span.spanFlag
-                    不適切な商品の報告
-          .selectReport__selectReportRight
-            .selectReport__selectReportRight__selectReportRightAction
-              = link_to "#", class: "selectReportRightActionBtn" do
-                .i.fas.fa-lock.iconLock
-                %span.spanLock
-                  あんしん・あんぜんへの取り組み
-
+                    不適切な商品の通報
+          -# .selectReport__selectReportRight
+          -#   .selectReport__selectReportRight__selectReportRightAction
+          -#     = link_to "#", class: "selectReportRightActionBtn" do
+          -#       .i.fas.fa-lock.iconLock
+          -#       %span.spanLock
+          -#         あんしん・あんぜんへの取り組み
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
           .mainCommentContentBody
             %form{action: "#", method: "post", name: "", class: "mainCommentContentBodyForm"}
-              %p.mainCommentContentBodyFormAttention
-                相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
               %textarea{name: "", rows:"", cols: "35", class: "mainCommentContentBodyTextarea"}
-                -# textareaに設定する値、インデント
+                -# textareaに設定する値、インデントインの場合
                 -# Haml::Template.options[:ugly] = true
+              %p.mainCommentContentBodyFormAttention
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
               .mainCommentContentBodyTag
+                %i.fas.fa-comment.iconComment
                 = button_tag "コメントする", type: 'submit', class: "mainCommentContentBodyTagBtn"
-
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem__showGoodsBodyMainOtherItemBox
@@ -151,49 +171,59 @@
               %i.fas.fa-chevron-left.iconChevronLeft
               = link_to "前の商品", "#", class: "mainOtherItemBoxUlPrevOne"
             %li.mainOtherItemBoxUlNext
+              = link_to "後ろの商品", "#", class: "mainOtherItemBoxUlNextOne"
               %i.fas.fa-chevron-right.iconChevronRight
-              = link_to "後の商品", "#", class: "mainOtherItemBoxUlNextOne"
 
-
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSns
-        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSnsCenter
-          .snsCenterWidget
-          %ul.snsCenter
-            %li.snsCenterFb
-              = link_to "#", class: "snsCenterFbBtn" do
-                %i.fab.fa-facebook-square.iconFb
-            %li.snsCenterTw
-              = link_to "#", class: "snsCenterTwBtn" do
-                %i.fab.fa-twitter-square.iconTw
-            %li.snsCenterLn
-              = link_to "#", class: "snsCenterLnBtn" do
-                %i.fab.fa-line.iconLn
-            %li.snsCenterPr
-              = link_to "#", class: "snsCenterPrBtn" do
-                %i.fab.fa-pinterest-square.iconPr
-
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainRelatedItem
-        relatedItemssssssss
+      -# .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSns
+      -#   .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSnsCenter
+      -#     .snsCenterWidget
+      -#     %ul.snsCenter
+      -#       %li.snsCenterFb
+      -#         = link_to "#", class: "snsCenterFbBtn" do
+      -#           %i.fab.fa-facebook-square.iconFb
+      -#       %li.snsCenterTw
+      -#         = link_to "#", class: "snsCenterTwBtn" do
+      -#           %i.fab.fa-twitter-square.iconTw
+      -#       %li.snsCenterLn
+      -#         = link_to "#", class: "snsCenterLnBtn" do
+      -#           %i.fab.fa-line.iconLn
+      -#       %li.snsCenterPr
+      -#         = link_to "#", class: "snsCenterPrBtn" do
+      -# -#           %i.fab.fa-pinterest-square.iconPr
+      -# .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainRelatedItem
+      -#   関連商品の掲載スペース
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi__showGoodsBodyMainNaviBox
           %nav.naviBoxBrend
             %ul.naviBoxBrendTop
               %li.naviBoxBrendTop
-                = link_to "メリカリ", "#", class: "naviBoxBrendTopBtn"
-                %i.fas.fa-chevron-right.iconChevronRight
-              %li.naviBoxBrendSelectItemName
-                %span.spanNaviBoxBrendSelectItemName
-                  商品タイトルと一致
+                = link_to "「カテゴリー」をもっと見る", "#", class: "naviBoxBrendTopBtn"
+                -# %i.fas.fa-chevron-right.iconChevronRight
+
+      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainPurchace
+        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainPurchace__showGoodsBodyMainPurchaceMove
+          .purchaceMove
+            .purchaceMove__purchaceMoveForm
+              %form{:action => "#", :method => "post"}
+                %input{:type => "submit", :class =>"purchaceMoveFormBtn", :value => "購入画面に進む"}
+              -# .hiddenPurchaseBtn
+              -#   hiddenBtn
+              -# 条件分岐で上要素ボタンをコピーかレンダーリダイレクトしたい
+              -# .me
+              -#   = render partial: "me", collection: @mes
+              -# - 3.times do |i|
+              -#   %span
+              -#     - if i.odd?
+              -#       odd!!
+              -#     - else
+              -#       even!!
 
 
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainHiddenPurchase
-        .hiddenPurchaseBtn
-          hiddenBtn
-          -# 上の要素のボタンをコピーかレンダーリダイレクトしたい
-          -# .me
-          -#   = render partial: "me", collection: @mes
-
-
--# %aside.bannerAds
--# .footer
+%aside.bannerAds
+  + banner and footer
+  :scss
+    .bannerAds {
+      background-color:black;
+      color:white;
+    }
