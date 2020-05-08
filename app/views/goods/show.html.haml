@@ -5,6 +5,18 @@
       background-color:black;
       color:white;
     }
+  .header__showGoodsCate
+    .header__showGoodsCate__showGoodsCateInfo
+      .cateInfo
+        = link_to "FURIMA", "#", class: "cateInfoTop"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "スポーツ・レジャー", "#", class: "cateInfoCate"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "サッカー/フットサル", "#", class: "cateInfoCateSub"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "記念グッズ", "#", class: "cateInfoCateSubSub"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "cateInfoProductName"
   -# = yield
 
 .showGoods
@@ -14,19 +26,6 @@
     .showGoods__showGoodsBody__showGoodsBodyMain
       第三層
       右下固定の出品するボタン追加
-
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainCategory
-        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainCategory__showGoodsBodyMainCategoryBox
-          .categoryBoxInfo
-            = link_to "FURIMA", "#", class: "categoryBoxInfoTop"
-            %i.fas.fa-chevron-right.iconChevronRight
-            = link_to "スポーツ・レジャー", "#", class: "categoryBoxInfoCate"
-            %i.fas.fa-chevron-right.iconChevronRight
-            = link_to "サッカー/フットサル", "#", class: "categoryBoxInfoCateSub"
-            %i.fas.fa-chevron-right.iconChevronRight
-            = link_to "記念グッズ", "#", class: "categoryBoxInfoCateSubSub"
-            %i.fas.fa-chevron-right.iconChevronRight
-            = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "categoryBoxInfoProductName"
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
@@ -57,6 +56,11 @@
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
                 送料込み
+        .selectPurchace
+          .selectPurchace__selectPurchaceMove
+            %form{:action => "#", :method => "post", name: "", class: "selectPurchaceMoveForm"}
+              %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
+
 
         .selectDescription
           .selectDescription__selectDescriptionBody
@@ -129,7 +133,7 @@
         .selectReport
           .selectReport__selectReportLeft
             .selectReport__selectReportLeft__selectReportLeftLike
-              %form{:action => "#", :method => "post"}
+              %form{:action => "#", :method => "post", name: "", class: "selectReportLeftLikeForm"}
                 = button_tag "Submit", type: 'submit', class: "selectReportLeftLikeBtn" do
                   %i.fas.fa-star.iconStar
                   %span.spanStarWord
@@ -153,7 +157,7 @@
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
           .mainCommentContentBody
             %form{action: "#", method: "post", name: "", class: "mainCommentContentBodyForm"}
-              %textarea{name: "", rows:"", cols: "35", class: "mainCommentContentBodyTextarea"}
+              %textarea{name: "", rows:"5", cols: "70", class: "mainCommentContentBodyTextarea"}
                 -# textareaに設定する値、インデントインの場合
                 -# Haml::Template.options[:ugly] = true
               %p.mainCommentContentBodyFormAttention
@@ -196,29 +200,12 @@
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi__showGoodsBodyMainNaviBox
           %nav.naviBoxBrend
-            %ul.naviBoxBrendTop
-              %li.naviBoxBrendTop
-                = link_to "「カテゴリー」をもっと見る", "#", class: "naviBoxBrendTopBtn"
+            %ul.naviBoxBrendTopUl
+              %li.naviBoxBrendTopUlLi
+                = link_to "メンズをもっと見る", "#", class: "naviBoxBrendTopUlLiBtn"
                 -# %i.fas.fa-chevron-right.iconChevronRight
 
-      .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainPurchace
-        .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainPurchace__showGoodsBodyMainPurchaceMove
-          .purchaceMove
-            .purchaceMove__purchaceMoveForm
-              %form{:action => "#", :method => "post"}
-                %input{:type => "submit", :class =>"purchaceMoveFormBtn", :value => "購入画面に進む"}
-              -# .hiddenPurchaseBtn
-              -#   hiddenBtn
-              -# 条件分岐で上要素ボタンをコピーかレンダーリダイレクトしたい
-              -# .me
-              -#   = render partial: "me", collection: @mes
-              -# - 3.times do |i|
-              -#   %span
-              -#     - if i.odd?
-              -#       odd!!
-              -#     - else
-              -#       even!!
-
+    
 
 %aside.bannerAds
   + banner and footer

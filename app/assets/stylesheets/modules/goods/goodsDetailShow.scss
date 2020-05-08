@@ -1,0 +1,294 @@
+.showGoods {
+  background-color: #e0dfdffa;
+  width: 100vw;
+  height: 100vh;
+
+  &__showGoodsBody {
+    width: 1194px;
+    height: 2732px;
+
+    &__showGoodsBodyMain {
+      width: 700px;
+      height: 1768px;
+      color: black;
+      background-color: white;
+      margin: 0 auto;
+
+      &__showGoodsBodyMainSelect {
+        .selectItemName {
+          margin: 0 auto;
+          background-color: greenyellow;
+          font-weight: bold;
+          width: 620px;
+          height: 28px;
+        }
+        .selectContent {
+          margin: 0 auto;
+          background-color: indianred;
+          width: 620px;
+          height: 400px;
+          &__selectContentPhotos {
+            &__selectContentPhotosPhoto {
+              &__selectContentPhotosPhotoOne {
+                width: 560px;
+                height: 346px;
+                .rony {
+                }
+              }
+              &__selectContentPhotosPhotoOther {
+                width: 560px;
+                height: 87px;
+                display: flex;
+                .rony {
+                }
+                .ronyShoe {
+                }
+                .ronyUniform {
+                }
+              }
+            }
+          }
+        }
+        .selectPriceBox {
+          background-color: lightblue;
+          &__selectPriceBoxMoney {
+            margin: 0 auto;
+
+            width: 610px;
+            height: 53px;
+            .iconYen {
+            }
+            .spanMoney {
+              font-weight: bold;
+            }
+          }
+          &__selectPriceBoxSupp {
+            margin: 0 auto;
+            display: flex;
+            width: 620px;
+            height: 24px;
+            &__selectPriceBoxSuppTax {
+              .spanTax {
+              }
+            }
+            &__selectPriceBoxSuppShippingFee {
+              .spanShippingFee {
+              }
+            }
+          }
+        }
+        .selectPurchace {
+          width: 100%;
+          text-align: center;
+          font-weight: bold;
+          &__selectPurchaceMove {
+            margin: 0 auto;
+
+            width: 90%;
+            height: 60px;
+            line-height: 60px;
+            background-color: red;
+            .selectPurchaceMoveForm {
+              .selectPurchaceMoveFormBtn {
+                background-color: red;
+                color: white;
+                border-style: none;
+              }
+            }
+          }
+        }
+        .selectDescription {
+          margin: 0 auto;
+          background-color: lightseagreen;
+          width: 620px;
+          height: 162px;
+          &__selectDescriptionBody {
+          }
+        }
+
+        .selectTables {
+          &__selectTablesBody {
+            table {
+              width: 90%;
+              border-collapse: collapse;
+              border: solid 1px rgb(209, 207, 207);
+              margin: 0 auto;
+            }
+            table tr {
+            }
+            table th {
+              background-color: #eeeeee;
+              width: 40%;
+              text-align: center;
+              border-color: rgb(209, 207, 207);
+            }
+            table td {
+              width: 60%;
+              padding: 10px 0px 10px 20px;
+              border-color: rgb(209, 207, 207);
+              .exhibitorName {
+                text-decoration: none;
+                color: black;
+              }
+              .exhibitionCategory {
+                color: #3ccace;
+                text-decoration: none;
+              }
+              .exhibitionCategorySub {
+                color: #3ccace;
+                text-decoration: none;
+              }
+              .exhibitionCategorySubSub {
+                color: #3ccace;
+                text-decoration: none;
+              }
+              .exhibitionAddress {
+                color: #3ccace;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        .selectReport {
+          margin: 0 auto;
+          background-color: navajowhite;
+          width: 620px;
+          height: 48px;
+          line-height: 48px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          &__selectReportLeft {
+            display: flex;
+            justify-content: space-between;
+            &__selectReportLeftLike {
+              .selectReportLeftLikeForm {
+                .selectReportLeftLikeBtn {
+                  border-radius: 15px;
+                  color: #3ccace;
+                  .iconStar {
+                  }
+                  .spanStarWord {
+                  }
+                  .spanStarNumber {
+                  }
+                }
+              }
+            }
+            &__selectReportLeftBad {
+              &__selectReportLeftBadLink {
+                .selectReportLeftBadLinkBtn {
+                  text-decoration: none;
+                  color: black;
+                  .iconFlag {
+                  }
+                  .spanFlag {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__showGoodsBodyMainComment {
+        background-color: white;
+        width: 700px;
+        height: 310px;
+        &__showGoodsBodyMainCommentContent {
+          .mainCommentContentBody {
+            .mainCommentContentBodyForm {
+              text-align: center;
+              .mainCommentContentBodyTextarea {
+              }
+              .mainCommentContentBodyFormAttention {
+                background-color: #e0dfdffa;
+                padding-right: 100px;
+              }
+              .mainCommentContentBodyTag {
+                background-color: #3ccace;
+                border-radius: 20px;
+                text-align: center;
+                width: 395px;
+                height: 55px;
+                display: inline-block;
+                margin-top: 30px;
+
+                .iconComment {
+                  color: white;
+                  font-size: 16px;
+                }
+                .mainCommentContentBodyTagBtn {
+                  padding-top: 15px;
+                  background-color: #3ccace;
+                  border: none;
+                  color: white;
+                  font-weight: bold;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__showGoodsBodyMainOtherItem {
+        background-color: #e0dfdffa;
+        width: 700px;
+        height: 24px;
+        color: #3ccace;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &__showGoodsBodyMainOtherItemBox {
+          .mainOtherItemBoxUl {
+            display: flex;
+            justify-content: space-between;
+            line-height: 24px;
+            .mainOtherItemBoxUlPrev {
+              .iconChevronLeft {
+                padding-left: 10px;
+              }
+              .mainOtherItemBoxUlPrevOne {
+                text-decoration: none;
+                color: #3ccace;
+                font-size: 16px;
+              }
+            }
+            .mainOtherItemBoxUlNext {
+              .mainOtherItemBoxUlNextOne {
+                text-decoration: none;
+                color: #3ccace;
+                font-size: 16px;
+              }
+              .iconChevronRight {
+                padding-right: 10px;
+              }
+            }
+          }
+        }
+      }
+      &__showGoodsBodyMainNavi {
+        background-color: #e0dfdffa;
+
+        width: 700px;
+        height: 33px;
+        line-height: 33px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &__showGoodsBodyMainNaviBox {
+          .naviBoxBrend {
+            .naviBoxBrendTopUl {
+              .naviBoxBrendTopUlLi {
+                .naviBoxBrendTopUlLiBtn {
+                  text-decoration: none;
+                  color: #3ccace;
+                  padding-left: 10px;
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
