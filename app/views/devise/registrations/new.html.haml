@@ -26,27 +26,5 @@
           %span 必須
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registerWrapper__content__formGroup__form', placeholder: '上記と同じパスワードを入力してください'
-        
-        /ここから別テーブル
-        .registerWrapper__content__formGroup
-          %h3.registerWrapper__content__formGroup__note 本人確認
-          %p.registerWrapper__content__formGroup__content 安心・安全にご利用いただくために、お客様の本人情報の登録にご協力ください。他のお客様に公開されることはありません。
-        .registerWrapper__content__formGroup
-          = f.label :お名前（全角）, class: 'registerWrapper__content__formGroup__label'
-          %span 必須
-          %br/
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'registerWrapper__content__formGroup__form--half', placeholder: '例) 山田'
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'registerWrapper__content__formGroup__form--half', placeholder: '例) 太郎'
-        .registerWrapper__content__formGroup
-          = f.label :お名前カナ（全角）, class: 'registerWrapper__content__formGroup__label'
-          %span 必須
-          %br/
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'registerWrapper__content__formGroup__form--half', placeholder: '例) ヤマダ'
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'registerWrapper__content__formGroup__form--half', placeholder: '例) タロウ'
-        .registerWrapper__content__formGroup
-          = f.label :生年月日, class: 'registerWrapper__content__formGroup__label'
-          %span 必須
-          %br/
-          != sprintf(f.date_select(:nickname, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), date_separator: '%s'), '年', '月')+'日'
         .registerWrapper__content__submit
           = f.submit "登録する" ,class: 'registerWrapper__content__submit__btn'
