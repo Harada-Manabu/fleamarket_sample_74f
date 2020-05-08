@@ -1,0 +1,45 @@
+= render "layouts/header" 
+.top-image
+  .top-image__text
+    .top-image__text__top
+      人生を変える
+      %span 
+      %br
+      フリマアプリ
+      %span へ。
+    .top-image__text__bottom
+      FRIMAはだれでもかんたんに出品・購入できるフリマアプリです
+    .top-image__image
+.top-main
+  .top-main__title
+    %h2 人気のカテゴリー
+    .top-main__title__tags
+      %ul
+        %li レディース
+        %li メンズ
+        %li 家電・スマホ・カメラ
+        %li おもちゃ・ボビー・グッズ
+  .top-main__contents
+    %h2 レディース新着アイテム
+    = link_to "#", class:"link-blue" do
+      もっと見る
+      %i{class: "fas fa-chevron-right"}
+  - for i in 1..2
+    .top-main__products
+      - for j in 1..5
+        .top-main__products__puroduct
+          = image_tag ""
+          .top-main__products__puroducts__price
+            ¥2,000
+          .top-main__products__puroducts__text
+            snoopy
+= render "layouts/footer"
+
+= link_to root_path do
+  .new-product-btn
+    出品
+    %br
+    %i{class:"fas fa-camera"}
+  
+  
+        
