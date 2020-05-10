@@ -1,7 +1,7 @@
 class Picture < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  mount_uploader :goodsImage, ImageUploader
 
   belongs_to :good
 
-  validates :goodsId, :goodsImage, presence: true
+  validates :goodsImage, presence: true
 end

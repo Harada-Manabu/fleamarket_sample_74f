@@ -7,14 +7,14 @@
 
 
   .goodsNew__form
-    = form_with model: @goods, class: :form, local: true do |f|
+    = form_with model: @good, class: :form, local: true do |f|
       .goodsNew__form__pic
         .pic__title
           %span.pic__title--text 出品画像
           %span.pic__title--must 必須
         .pic__describe 最大10枚までアップロードできます
         .pic__select
-          = fields_for :pictures do |p|
+          = f.fields_for :pictures do |p|
             = p.label :goodsImage, class: 'pic__select__label' do
               = p.file_field :goodsImage, class: "pic__select__label--form"
               %i.fas.fa-camera
@@ -36,7 +36,7 @@
         .detail__category
           %span.detail__category--text カテゴリー
           %span.detail__category--must 必須
-        = f.select :category_id, [["レディース", 0],["メンズ", 1],["ベビー・キッズ", 2],["インテリア・住まい・小物", 3],["本・音楽・ゲーム", 4],["おもちゃ・ホビー・グッズ", 5],["コスメ・香水・美容", 6],["家電・スマホ・カメラ", 7],["スポーツ・レジャー", 8],["ハンドメイド", 9],["チケット", 10],["自転車・オートバイ", 11],["その他", 12]], prompt: "選択してください", class: 'detail__title--form'
+        = f.collection_select :category_id, Category.all, :id, :categoryName, prompt: "選択してください"
         .detail__brand
           %span.detail__brand--text ブランド
           %span.detail__brand--option 任意

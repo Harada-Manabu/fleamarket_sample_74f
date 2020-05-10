@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2020_05_09_171855) do
   end
 
   create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "goods_id", null: false
+    t.bigint "good_id", null: false
     t.string "goodsImage", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["goods_id"], name: "index_pictures_on_goods_id"
+    t.index ["good_id"], name: "index_pictures_on_good_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,5 +61,5 @@ ActiveRecord::Schema.define(version: 2020_05_09_171855) do
 
   add_foreign_key "goods", "categories"
   add_foreign_key "goods", "users"
-  add_foreign_key "pictures", "goods", column: "goods_id"
+  add_foreign_key "pictures", "goods"
 end
