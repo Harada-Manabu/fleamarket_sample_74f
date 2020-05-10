@@ -1,13 +1,3 @@
--# --html--
--# %head
--# %body
-// = render "layouts/header"
-// = render "layouts/asideCategory"
-// = render "layouts/asideBanner"
-// = render "layouts/footer"
--# = yield
-// ---分割検討---
-
 
 .header
   .header__headerInner
@@ -52,9 +42,6 @@
                   = link_to "自転車・オートバイ", "#", id: "12", class: "sortNoneAll"
                 %li.sortFirstUlLi
                   = link_to "その他", "#", id: "13", class: "sortNoneAll"
-
-
-
           %li.naviLeftUlLi
             = link_to "ブランド", "#", class: "naviLeftUlLiBrand"
             .treeDisplayNone
@@ -63,6 +50,7 @@
             = link_to "ログイン", "#", class: "naviRightUlLiLogin"
           %li.naviRightUlLi
             = link_to "新規会員登録", "#", class: "cateRightUlLiRegis"
+
 
 %aside.asideCategory
   .asideCategoryBox
@@ -82,6 +70,7 @@
 .showGoods
   .showGoods__showGoodsBody
     .showGoods__showGoodsBody__showGoodsBodyMain
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
           ロナウジーニョの前歯
@@ -94,11 +83,6 @@
                 = image_tag "20200507_Ronaldinho.jpeg", alt: "No Photo", class: "rony"
                 = image_tag "20200508_Ronaldinho_shoe.jpg", alt: "No Photo", class: "ronyShoe"
                 = image_tag "20200508_Ronaldinho_uniform.jpeg", alt: "No Photo", class: "ronyUniform"
-                -# - if @photos
-                -#   - @photos.each do |p|
-                -#     = p.photo
-                -# - else
-                -#   No Other Photos
         .selectPriceBox
           .selectPriceBox__selectPriceBoxMoney
             %i.fas.fa-yen-sign.iconYen
@@ -110,12 +94,10 @@
                 （税込）送料込み
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
-                -# 送料込み
         .selectPurchace
           .selectPurchace__selectPurchaceMove
             %form{:action => "#", :method => "post", name: "", class: "selectPurchaceMoveForm"}
               %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
-
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
@@ -128,20 +110,6 @@
                   出品者
                   %td
                     = link_to "ジーコ", "#",class: "exhibitorName"
-                    -# .exhibitorEvaluation
-                    -#   .exhibitorEvaluation__exhibitorEvaluationYours
-                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                    -#       %i.fas.fa-laugh.iconLaugh
-                    -#       %span.spanLaugh
-                    -#         20
-                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                    -#       %i.fas.fa-meh.iconMeh
-                    -#       %span.spanMeh
-                    -#         2
-                    -#     .exhibitorEvaluation__exhibitorEvaluationYours__raiting
-                    -#       %i.fas.fa-frown.iconFrown
-                    -#       %span.spanFrown
-                    -#         0
               %tr
                 %th
                   カテゴリー
@@ -196,20 +164,12 @@
                   .i.fas.fa-flag.iconFlag
                   %span.spanFlag
                     不適切な商品の通報
-          -# .selectReport__selectReportRight
-          -#   .selectReport__selectReportRight__selectReportRightAction
-          -#     = link_to "#", class: "selectReportRightActionBtn" do
-          -#       .i.fas.fa-lock.iconLock
-          -#       %span.spanLock
-          -#         あんしん・あんぜんへの取り組み
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
           .mainCommentContentBody
             %form{action: "#", method: "post", name: "", class: "mainCommentContentBodyForm"}
               %textarea{name: "", rows:"4", cols: "70", class: "mainCommentContentBodyTextarea"}
-                -# textareaに設定する値、インデントインの場合
-                -# Haml::Template.options[:ugly] = true
               %p.mainCommentContentBodyFormAttention
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br
@@ -227,25 +187,6 @@
             %li.mainOtherItemBoxUlNext
               = link_to "後ろの商品", "#", class: "mainOtherItemBoxUlNextOne"
               %i.fas.fa-chevron-right.iconChevronRight
-
-      -# .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSns
-      -#   .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSnsCenter
-      -#     .snsCenterWidget
-      -#     %ul.snsCenter
-      -#       %li.snsCenterFb
-      -#         = link_to "#", class: "snsCenterFbBtn" do
-      -#           %i.fab.fa-facebook-square.iconFb
-      -#       %li.snsCenterTw
-      -#         = link_to "#", class: "snsCenterTwBtn" do
-      -#           %i.fab.fa-twitter-square.iconTw
-      -#       %li.snsCenterLn
-      -#         = link_to "#", class: "snsCenterLnBtn" do
-      -#           %i.fab.fa-line.iconLn
-      -#       %li.snsCenterPr
-      -#         = link_to "#", class: "snsCenterPrBtn" do
-      -# -#           %i.fab.fa-pinterest-square.iconPr
-      -# .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainRelatedItem
-      -#   関連商品の掲載スペース
 
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainNavi__showGoodsBodyMainNaviBox
@@ -269,6 +210,7 @@
     .asideBannerAtGoogle
       = link_to "#" do
         = image_tag "googlePlay.svg", alt: "No Photo", class: "googleBtn"
+
 
 .footer
   .footer__footerContent
