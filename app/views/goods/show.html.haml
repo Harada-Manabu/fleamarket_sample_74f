@@ -1,33 +1,90 @@
--# .header
--#   + header
--#   :scss
--#     .header {
--#       background-color:black;
--#       color:white;
--#     }
--#   .header__showGoodsCate
--#     .header__showGoodsCate__showGoodsCateInfo
--#       .cateInfo
--#         = link_to "FURIMA", "#", class: "cateInfoTop"
--#         %i.fas.fa-chevron-right.iconChevronRight
--#         = link_to "スポーツ・レジャー", "#", class: "cateInfoCate"
--#         %i.fas.fa-chevron-right.iconChevronRight
--#         = link_to "サッカー/フットサル", "#", class: "cateInfoCateSub"
--#         %i.fas.fa-chevron-right.iconChevronRight
--#         = link_to "記念グッズ", "#", class: "cateInfoCateSubSub"
--#         %i.fas.fa-chevron-right.iconChevronRight
--#         = link_to "レジェンド元ブラジル代表ロナウジーニョの前歯", "#", class: "cateInfoProductName"
+-# --html--
+-# %head
+-# %body
+// = render "layouts/header"
+// = render "layouts/asideCategory"
+// = render "layouts/asideBanner"
+// = render "layouts/footer"
 -# = yield
+// ---分割検討---
+
+
+.header
+  .header__headerInner
+    .header__headerInner__headerInnerBox
+      .header__headerInner__headerInnerBox__headerInnerBoxMain
+        .header__headerInner__headerInnerBox__headerInnerBoxMain__headerInnerBoxMainIcon
+          = image_tag "logo.png", alt: "No Photo", class: "headLogo"
+        .header__headerInner__headerInnerBox__headerInnerBoxMain__headerInnerBoxMainSearch
+          %form{:action => "#", :method => "post", name: "", class: "searchFrom"}
+            %input{placeholder: "キーワードから探す"  ,class: "searchFormInput"}
+            = button_tag "Submit", type: 'submit', class: "searchFormBtn" do
+              = image_tag "icon-search 1.png", alt: "No Photo", class: "searchFormBtnImage"
+      .header__headerInner__headerInnerBox__headerInnerBoxNavi
+        %ul.naviLeftUl
+          %li.naviLeftUlLi
+            = link_to "カテゴリー", "#", class: "naviLeftUlLiCate"
+            .treeDisplayNone
+              %ul.sortFirstUl
+                %li.sortFirstUlLi
+                  = link_to "レディース", "#", id: "1", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "メンズ", "#", id: "2", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "ベビー・キッズ", "#", id: "3", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "インテリア・住まい・小物", "#", id: "4", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "本・音楽・ゲーム", "#", id: "5", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "おもちゃ・ホビー・グッズ", "#", id: "6", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "コスメ・香水・美容", "#", id: "7", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "家電・スマホ・カメラ", "#", id: "8", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "スポーツ・レジャー", "#", id: "9", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "ハンドメイド", "#", id: "10", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "チケット", "#", id: "11", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "自転車・オートバイ", "#", id: "12", class: "sortNoneAll"
+                %li.sortFirstUlLi
+                  = link_to "その他", "#", id: "13", class: "sortNoneAll"
+
+
+
+          %li.naviLeftUlLi
+            = link_to "ブランド", "#", class: "naviLeftUlLiBrand"
+            .treeDisplayNone
+        %ul.naviRightUl
+          %li.naviRightUlLi
+            = link_to "ログイン", "#", class: "naviRightUlLiLogin"
+          %li.naviRightUlLi
+            = link_to "新規会員登録", "#", class: "cateRightUlLiRegis"
+
+%aside.asideCategory
+  .asideCategoryBox
+    .asideCategoryBox__asideCategoryBoxInfo
+      .asideCategoryBox__asideCategoryBoxInfo__asideCategoryBoxInfolist
+        = link_to "FURIMA", "#", class: "cateTop"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "スポーツ・レジャー", "#", class: "cateCate"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "サッカー/フットサル", "#", class: "cateCateSub"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "記念グッズ", "#", class: "cateCateSubSub"
+        %i.fas.fa-chevron-right.iconChevronRight
+        = link_to "ロナウジーニョの前歯", "#", class: "cateProductName"
+
 
 .showGoods
-  -# 第一層
   .showGoods__showGoodsBody
-    -# 第二層
     .showGoods__showGoodsBody__showGoodsBodyMain
-      -# 第三層
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
-          レジェンド元ブラジル代表ロナウジーニョの前歯
+          ロナウジーニョの前歯
         .selectContent
           .selectContent__selectContentPhotos
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
@@ -58,7 +115,6 @@
           .selectPurchace__selectPurchaceMove
             %form{:action => "#", :method => "post", name: "", class: "selectPurchaceMoveForm"}
               %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
-
 
         .selectDescription
           .selectDescription__selectDescriptionBody
@@ -197,14 +253,55 @@
             %ul.naviBoxBrendTopUl
               %li.naviBoxBrendTopUlLi
                 = link_to "メンズをもっと見る", "#", class: "naviBoxBrendTopUlLiBtn"
-                -# %i.fas.fa-chevron-right.iconChevronRight
 
 
+%aside.asideBanner
+  = image_tag "bg-appBanner-pict.jpg", alt: "No Photo", class: "asideBannerPhoto"
+  .asideBannerIn
+    %h2.asideBannerInHead
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.asideBannerInPhrase
+      今すぐ無料ダウンロード！
+  .asideBannerAt
+    .asideBannerAtApple
+      = link_to "#" do
+        = image_tag "appStore.svg", alt: "No Photo", class: "appleBtn"
+    .asideBannerAtGoogle
+      = link_to "#" do
+        = image_tag "googlePlay.svg", alt: "No Photo", class: "googleBtn"
 
--# %aside.bannerAds
--#   + banner and footer
--#   :scss
--#     .bannerAds {
--#       background-color:black;
--#       color:white;
--#     }
+.footer
+  .footer__footerContent
+    .footer__footerContent__footerContentBody
+      %ul.ContentBodyUl
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            FURIMAについて
+          %ul.footerContentUlLiFoo
+            %li= link_to "会社概要（運営会社）", "#", class: "Lin"
+            %li= link_to "プライバシーポリシー", "#", class: "Lin"
+            %li= link_to "FURIMA利用規約", "#", class: "Lin"
+            %li= link_to "ポイントに関する特約", "#", class: "Lin"
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            FURIMAを見る
+          %ul.footerContentUlLiFoo
+            %li= link_to "カテゴリー一覧", "#", class: "Lin"
+            %li= link_to "ブランド一覧", "#", class: "Lin"
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            ヘルプ＆ガイド
+          %ul.footerContentUlLiFoo
+            %li= link_to "FURIMAガイド", "#", class: "Lin"
+            %li= link_to "FURIMAロゴ利用ガイドライン", "#", class: "Lin"
+            %li= link_to "お知らせ", "#", class: "Lin"
+    .footer__footerContent__footerContentBrand
+      .footer__footerContent__footerContentBrand__footerContentBrandLogo
+        = link_to "#" do
+          = image_tag "logo-white.png", alt: "No Photo", class: "logoImage"
+        %p.logoMark
+          © FURIMA
+
+  .displayBtn
+    = link_to "出品する", "#", class: "displayWord"
+    %i.fas.fa-camera.iconCamera
