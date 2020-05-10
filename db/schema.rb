@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_171855) do
+ActiveRecord::Schema.define(version: 2020_05_10_134404) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "categoryName", null: false
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 2020_05_09_171855) do
     t.string "brand"
     t.string "goodsCondition", null: false
     t.string "deliveryFee", null: false
-    t.string "prefecture", null: false
     t.string "deliveryDay", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefecture_id"
     t.index ["brand"], name: "index_goods_on_brand"
     t.index ["category_id"], name: "index_goods_on_category_id"
     t.index ["goodsName"], name: "index_goods_on_goodsName"

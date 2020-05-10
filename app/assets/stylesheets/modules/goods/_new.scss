@@ -234,11 +234,11 @@
           }
         }
 
-        #good_prefecture {
+        #good_prefecture_id {
           @include selectForm;
         }
 
-        #good_prefecture:focus {
+        #good_prefecture_id:focus {
           border-color: $borderFocus;
         }
 
