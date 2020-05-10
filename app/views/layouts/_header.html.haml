@@ -1,0 +1,34 @@
+.header
+  .header__top
+    = link_to root_path do
+      %i{class: "fas fa-cube"}
+      %span{class: "header__top__logo"}
+        FRIMA
+  %form{:action => "", :method => "", class: "header__top__form"}
+    %input{:name => "content", :type => "text", class: "header__top__form--text_box", placeholder: "何かお探しですか？"}
+    %button{type:"submit", value: "" ,class: "header__top__form--btn"}
+      %i{class:"fas fa-search"}
+  .header__bottom
+    %ul
+      %li
+        = link_to "#" do
+          %i{class: "fas fa-list"}
+          カテゴリーから探す
+      %li
+        %i{class: "fas fa-tags"}
+        ブランドから探す
+      %li
+        %i{class: "fas fa-bell"}
+        お知らせ
+      %li
+        %i{class: "fas fa-check"}
+        やることリスト
+      %li
+        - if user_signed_in?
+          = link_to "#" do
+            %i{class: "fas fa-smile"}
+            マイページへ
+        - else
+          = link_to "#" do
+            %i{class: "fas fa-smile"}
+            ログイン/新規会員登録
