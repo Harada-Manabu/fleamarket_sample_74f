@@ -1,0 +1,8 @@
+@mixin dropDown {
+  .fa-chevron-down {
+    position: absolute;
+    right: 20px;
+    top: 33px;
+    color: #888888;
+  }
+}

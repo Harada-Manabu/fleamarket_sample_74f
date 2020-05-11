@@ -4,6 +4,7 @@
 @import "mixin/selectForm";
 @import "mixin/textField";
 @import "mixin/footerSub";
+@import "mixin/dropDown";
 
 .goodsNew {
   width: 100%;
@@ -65,6 +66,7 @@
             height: 150px;
             border: 1px dashed #cccccc;
             background-color: #f5f5f5;
+            cursor: pointer;
 
             &--form {
               display: none;
@@ -149,13 +151,21 @@
           }
         }
 
-        #good_category_id {
-          @include selectForm;
+        .selectBox {
+          display: flex;
+          position: relative;
+
+          #good_category_id {
+            @include selectForm;
+          }
+
+          #good_category_id:focus {
+            border-color: $borderFocus;
+          }
+
+          @include dropDown;
         }
 
-        #good_category_id:focus {
-          border-color: $borderFocus;
-        }
 
         .detail__brand {
           margin-top: 32px;
@@ -189,12 +199,19 @@
           }
         }
 
-        #good_goodsCondition {
-          @include selectForm;
-        }
+        .selectBox {
+          display: flex;
+          position: relative;
 
-        #good_goodsCondition:focus {
-          border-color: $borderFocus;
+          #good_goodsCondition {
+            @include selectForm;
+          }
+
+          #good_goodsCondition:focus {
+            border-color: $borderFocus;
+          }
+
+          @include dropDown;
         }
       }
 
@@ -214,13 +231,21 @@
           }
         }
 
-        #good_deliveryFee {
-          @include selectForm;
+        .selectBox {
+          display: flex;
+          position: relative;
+
+          #good_deliveryFee {
+            @include selectForm;
+          }
+
+          #good_deliveryFee:focus {
+            border-color: $borderFocus;
+          }
+
+          @include dropDown;
         }
 
-        #good_deliveryFee:focus {
-          border-color: $borderFocus;
-        }
 
         .delivery__prefecture {
           margin-top: 16px;
@@ -234,13 +259,21 @@
           }
         }
 
-        #good_prefecture_id {
-          @include selectForm;
+        .selectBox {
+          display: flex;
+          position: relative;
+
+          #good_prefecture_id {
+            @include selectForm;
+          }
+
+          #good_prefecture_id:focus {
+            border-color: $borderFocus;
+          }
+
+          @include dropDown;
         }
 
-        #good_prefecture_id:focus {
-          border-color: $borderFocus;
-        }
 
         .delivery__day {
           margin-top: 16px;
@@ -254,13 +287,21 @@
           }
         }
 
-        #good_deliveryDay {
-          @include selectForm;
+        .selectBox {
+          display: flex;
+          position: relative;
+
+          #good_deliveryDay {
+            @include selectForm;
+          }
+
+          #good_deliveryDay:focus {
+            border-color: $borderFocus;
+          }
+
+          @include dropDown;
         }
 
-        #good_deliveryDay:focus {
-          border-color: $borderFocus;
-        }
       }
 
       .goodsNew__form__price {
