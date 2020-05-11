@@ -1,5 +1,7 @@
 .header {
   width: 100%;
+  height: 90px;
+  border-bottom: none;
   &__headerInner {
     width: 100%;
     margin-top: 25px;
@@ -112,6 +114,8 @@
 
 .asideCategory {
   width: 100%;
+  height: 55px;
+
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   .asideCategoryBox {
