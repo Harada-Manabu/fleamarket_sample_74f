@@ -4,7 +4,8 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-    2.times{@good.pictures.new}
+    5.times{@good.pictures.new} 
+    @parents = Category.where(ancestry: nil)
   end
 
   def create

@@ -12,7 +12,7 @@
         .pic__title
           %span.pic__title--text 出品画像
           %span.pic__title--must 必須
-        .pic__describe 最大10枚までアップロードできます
+        .pic__describe 最大5枚までアップロードできます
         .pic__select
           = f.fields_for :pictures do |p|
             = p.label :goodsImage, class: 'pic__select__label' do
@@ -36,7 +36,7 @@
         .detail__category
           %span.detail__category--text カテゴリー
           %span.detail__category--must 必須
-        = f.collection_select :category_id, Category.all, :id, :categoryName, prompt: "選択してください"
+        = f.collection_select :category_id, @parents, :id, :categoryName, prompt: "選択してください"
         .detail__brand
           %span.detail__brand--text ブランド
           %span.detail__brand--option 任意
