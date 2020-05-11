@@ -1,60 +1,36 @@
-.footer-image
-  .footer-image__text
-    .footer-image__text__top
-      スマホでかんたんフリマアプリ
-    .footer-image__text__bottom
-      今すぐ無料ダウンロード！
-    %a{href: "", class:"app-store"}
-    %a{href: "", class:"google-play"}
+
 .footer
-  .footer__top
-    .footer__top__block
-      .footer__top__block__title
-        フリマについて
-      .footer__top__block__content
-        %ul
-          %li 会社概要(運営会社)
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li フリマロゴ利用ガイドライン
-        %i{class: "fab fa-twitter"}
-        %i{class: "fab fa-facebook-square"}
-    .footer__top__block
-      .footer__top__block__title
-        ヘルプ&ガイド
-      .footer__top__block__content
-        %ul
-          %li フリマガイド
-          %li らくらくフリマ便
-          %li ゆうゆうフリマ便
-          %li 梱包・発送やリマ便
-          %li 車体取引ガイド
-          %li フリマ安心・安全宣言！
-          %li 偽ブランド品撲滅への取り組み
-          %li フリマボックス
-          %li スマホ出品・売却相場
-    .footer__top__block
-      .footer__top__block__title
-        プライバシーと利用規約
-      .footer__top__block__content
-        %ul
-          %li プライバシーポリシー
-          %li メルカリ利用規約
-          %li 安心スマホサポート制度に関する利用特約
-          %li コンプライアンスポリシー
-    .footer__top__block
-      .footer__top__block__title.visibility-none
-        プライバシーと利用規約
-      .footer__top__block__content
-        %ul
-          %li 個人データの安全管理に係る基本方針
-          %li 特定商取引に関する表記
-          %li 資金決済法に基づく表示
-          %li 法令遵守と犯罪抑止のために
-  .footer__bottom
-    %i{class: "fas fa-cube"}
-    %span{class: "footer__bottom__logo"}
-      FRIMA
-    %span{class: "update-ver"}
-      = "©︎2020 FRIMA"
+  .footer__footerContent
+    .footer__footerContent__footerContentBody
+      %ul.ContentBodyUl
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            FURIMAについて
+          %ul.footerContentUlLiFoo
+            %li= link_to "会社概要（運営会社）", "#", class: "Lin"
+            %li= link_to "プライバシーポリシー", "#", class: "Lin"
+            %li= link_to "FURIMA利用規約", "#", class: "Lin"
+            %li= link_to "ポイントに関する特約", "#", class: "Lin"
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            FURIMAを見る
+          %ul.footerContentUlLiFoo
+            %li= link_to "カテゴリー一覧", "#", class: "Lin"
+            %li= link_to "ブランド一覧", "#", class: "Lin"
+        %li.footerContentUlLi
+          %h2.footerContentUlLiHead
+            ヘルプ＆ガイド
+          %ul.footerContentUlLiFoo
+            %li= link_to "FURIMAガイド", "#", class: "Lin"
+            %li= link_to "FURIMAロゴ利用ガイドライン", "#", class: "Lin"
+            %li= link_to "お知らせ", "#", class: "Lin"
+    .footer__footerContent__footerContentBrand
+      .footer__footerContent__footerContentBrand__footerContentBrandLogo
+        = link_to "#" do
+          = image_tag "logo-white.png", alt: "No Photo", class: "logoImage"
+        %p.logoMark
+          © FURIMA
+
+.displayBtn
+  = link_to "出品する", root_path, class: "displayWord"
+  %i.fas.fa-camera.iconCamera
