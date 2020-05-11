@@ -22,6 +22,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_identification
   end
 
+  def create_identification
+    @user = User.new(session["devise.regist_data"]["user"])
+    @identification = Identification.new(identification_params)
+    unless @identification.valid?
+      flash.now[:alert] = @identification.errors.full_messages
+      render :new_identification and return
+    end
+    @user.build_identification(@identification.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -46,7 +59,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def identification_params
+    params.require(:identification).permit(:familyName, :firstName, :familyNameKana, :firstNameKana, :birthday)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
