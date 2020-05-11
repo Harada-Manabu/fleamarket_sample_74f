@@ -79,3 +79,5 @@ gem "font-awesome-sass"
 gem "carrierwave"
 gem "mini_magick"
 gem "devise"
+gem 'active_hash'
+gem 'ancestry'
