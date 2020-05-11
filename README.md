@@ -110,21 +110,21 @@ Flea Market app
 | brand          | string  |                                |
 | goodsCondition | string  | null: false                    |
 | deliveryFee    | string  | null: false                    |
-| prefecture     | string  | null: false                    |
+| prefecture_id  | integer | null: false                    |
 | deliveryDay    | string  | null: false                    |
 | price          | integer | null: false                    |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :category
 - has_many :pictures
-- has_many :categories
 
 ## pictures Table
 
 | Column     | Type    | Options                       |
 | ---------- | ------- | ----------------------------- |
-| goods_id   | integer | null: false,foreign_key: true |
+| good_id    | integer | null: false,foreign_key: true |
 | goodsImage | string  | null: false                   |
 
 ### Association
@@ -142,5 +142,3 @@ Flea Market app
 - has_many :goods
 
 ---
-
-###### [WIP] .....
