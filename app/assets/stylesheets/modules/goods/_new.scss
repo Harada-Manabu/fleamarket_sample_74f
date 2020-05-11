@@ -149,11 +149,11 @@
           }
         }
 
-        #category_id {
+        #good_category_id {
           @include selectForm;
         }
 
-        #category_id:focus {
+        #good_category_id:focus {
           border-color: $borderFocus;
         }
 
@@ -189,11 +189,11 @@
           }
         }
 
-        #goodsCondition {
+        #good_goodsCondition {
           @include selectForm;
         }
 
-        #goodsCondition:focus {
+        #good_goodsCondition:focus {
           border-color: $borderFocus;
         }
       }
@@ -214,11 +214,11 @@
           }
         }
 
-        #deliveryFee {
+        #good_deliveryFee {
           @include selectForm;
         }
 
-        #deliveryFee:focus {
+        #good_deliveryFee:focus {
           border-color: $borderFocus;
         }
 
@@ -234,11 +234,11 @@
           }
         }
 
-        #prefecture {
+        #good_prefecture_id {
           @include selectForm;
         }
 
-        #prefecture:focus {
+        #good_prefecture_id:focus {
           border-color: $borderFocus;
         }
 
@@ -254,11 +254,11 @@
           }
         }
 
-        #deliveryDay {
+        #good_deliveryDay {
           @include selectForm;
         }
 
-        #deliveryDay:focus {
+        #good_deliveryDay:focus {
           border-color: $borderFocus;
         }
       }
