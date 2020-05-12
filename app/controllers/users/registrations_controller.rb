@@ -22,19 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_identification
   end
 
-  # def create_identification
-  #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @identification = Identification.new(identification_params)
-  #   unless @identification.valid?
-  #     flash.now[:alert] = @identification.errors.full_messages
-  #     render :new_identification and return
-  #   end
-  #   @user.build_identification(@identification.attributes)
-  #   @user.save
-  #   session["devise.regist_data"]["user"].clear
-  #   sign_in(:user, @user)
-  # end
-
   def create_identification
     @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
@@ -46,6 +33,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["identification"] = @identification.attributes
     @deliveryAddress = @user.build_deliveryAddress
     render :new_deliveryAddress
+  end
+
+  def create_deliveryAddress
+    @user = User.new(session["devise.regist_data"]["user"])
+    @identification = Identification.new(session["identification"])
+    @deliveryAddress = DeliveryAddress.new(deliveryAddress_params)
+    unless @deliveryAddress.valid?
+      flash.now[:alert] = @deliveryAddress.errors.full_messages
+      render :new_deliveryAddress and return
+    end
+    @user.build_identification(@identification.attributes)
+    @user.build_deliveryAddress(@deliveryAddress.attributes)
+    @user.save
+    sign_in(:user, @user)
   end
 
 
@@ -77,6 +78,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def identification_params
     params.require(:identification).permit(:familyName, :firstName, :familyNameKana, :firstNameKana, :birthday)
+  end
+
+  def deliveryAddress_params
+    params.require(:delivery_address).permit(:familyName, :firstName, :familyNameKana, :firstNameKana, :postCode, :prefecture_id, :city, :address, :buildingName, :telNumber)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

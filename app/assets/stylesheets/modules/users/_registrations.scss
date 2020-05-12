@@ -29,6 +29,27 @@
     margin: 0 auto;
     padding-bottom: 64px;
 
+    &__thankyou {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    &__homelink {
+      margin-top: 50px;
+      text-align: center;
+      &__btn {
+        display: block;
+        border: 1px solid $furimaColor;
+        background-color: $furimaColor;
+        color: $white;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
     &__formGroup {
       margin-top: 32px;
       width: 100%;
