@@ -1,9 +1,9 @@
 .registerBody  
   .registerWrapper
     .registerWrapper__head
-      %h2 会員情報入力
+      %h2 本人確認情報入力
     .registerWrapper__content
-      = form_for @identification do |f|
+      = form_for(@identification, url: identifications_path, method: :post) do |f|
         = render "devise/shared/error_messages", resource: @identification
         .registerWrapper__content__formGroup
           = f.label :お名前（全角）, class: 'registerWrapper__content__formGroup__label'

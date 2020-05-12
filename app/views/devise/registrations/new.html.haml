@@ -3,7 +3,7 @@
     .registerWrapper__head
       %h2 会員情報入力
     .registerWrapper__content
-      = form_for(@user, url: user_registration_path) do |f|
+      = form_for(@user, url: user_registration_path, method: :post) do |f|
         = render "devise/shared/error_messages", resource: @user
         .registerWrapper__content__formGroup
           = f.label :ニックネーム, class: 'registerWrapper__content__formGroup__label'
