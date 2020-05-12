@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :goods
   has_one :identification
+  has_one :deliveryAddress
   
   validates :nickname, presence: true
 
