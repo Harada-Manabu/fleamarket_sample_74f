@@ -26,15 +26,11 @@
           %br/
           = f.text_field :postCode, autofocus: true, autocomplete: "postCode", class: 'registerWrapper__content__formGroup__form', placeholder: '例) 123-4567'
 
-
-
         .registerWrapper__content__formGroup
           = f.label :都道府県, class: 'registerWrapper__content__formGroup__label'
-          %span.registerWrapper__content__formGroup__label--must 必須          
-        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-
-
-
+          %span.registerWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
 
         .registerWrapper__content__formGroup
           = f.label :市区町村, class: 'registerWrapper__content__formGroup__label'
