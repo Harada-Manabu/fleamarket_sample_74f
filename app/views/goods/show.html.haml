@@ -65,7 +65,6 @@
                   出品者
                   %td
                     = link_to @user.nickname, "#",class: "exhibitorName"
-                    -# = link_to @good.user_id, "#",class: "exhibitorName"
               %tr
                 %th
                   カテゴリー
@@ -98,10 +97,7 @@
                 %th
                   発送元の地域
                   %td
-                    = link_to @good.prefecture_id, "#", class: "exhibitionAddress"
-                    -# = link_to @good.prefecture_id, "#", class: "exhibitionAddress"
-                    -# # @address.prefecture.name
-
+                    = link_to @place.prefecture.name, "#", class: "exhibitionAddress"
               %tr
                 %th
                   発送日の目安

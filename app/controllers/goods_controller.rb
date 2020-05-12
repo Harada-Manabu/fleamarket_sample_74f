@@ -21,6 +21,7 @@ class GoodsController < ApplicationController
   def show
     @good = Good.find_by(params[:id])
     @user = User.find_by(params[:id])
+    @place = Place.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @parents = Category.all.order("id ASC").limit(13)
   end
