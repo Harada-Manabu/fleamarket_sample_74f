@@ -136,6 +136,7 @@ Flea Market app
 | Column       | Type   | Options |
 | ------------ | ------ | ------- |
 | categoryName | string |         |
+| ancestry     | string |         |
 
 ### Association
 

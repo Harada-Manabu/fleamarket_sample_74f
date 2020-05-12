@@ -27,11 +27,11 @@
 
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoBtn
-                %i.fas.fa-chevron-circle-down.iconDown
+                %i.fas.fa-angle-down.iconDown
                 %ul.moreList
-                  %li= link_to "編集", "#", method: :get
-                  %li= link_to "削除", "#", method: :delete
-                  -# = link_to "編集/削除", "/gooddd/#{gooood.id}", method: :delete
+                  %li= link_to "編集", "#", method: :get, class:"moreEdit"
+                  %li= link_to "削除", "#", method: :delete, class:"moreDelete"
+
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
                 - picFirst = @pictures.first
                 = image_tag picFirst.goodsImage.url
@@ -64,7 +64,8 @@
                 %th
                   出品者
                   %td
-                    = link_to @good.user_id, "#",class: "exhibitorName"
+                    = link_to @user.nickname, "#",class: "exhibitorName"
+                    -# = link_to @good.user_id, "#",class: "exhibitorName"
               %tr
                 %th
                   カテゴリー
@@ -98,6 +99,9 @@
                   発送元の地域
                   %td
                     = link_to @good.prefecture_id, "#", class: "exhibitionAddress"
+                    -# = link_to @good.prefecture_id, "#", class: "exhibitionAddress"
+                    -# # @address.prefecture.name
+
               %tr
                 %th
                   発送日の目安

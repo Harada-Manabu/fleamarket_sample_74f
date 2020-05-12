@@ -80,13 +80,29 @@
               height: 400px;
 
               &__selectContentPhotosPhotoBtn {
-                background-color: lightgreen;
+                background-color: #3ccace;
                 float: right;
+                text-align: center;
+                // border-bottom: 1 solid red;
+                padding: 2px;
+                margin: 0px 0px 2px 2px;
                 .iconDown {
                   font-size: 20px;
                 }
                 .moreList {
                   font-size: 15px;
+                  letter-spacing: 1px;
+                  background-color: white;
+                  .moreEdit {
+                    margin-right: 2px;
+                    margin-left: 2px;
+                    border-bottom: 1px solid rgb(73, 72, 72);
+                  }
+                  .moreDelete {
+                    margin-right: 2px;
+                    margin-left: 2px;
+                    border-bottom: 1px solid rgb(73, 72, 72);
+                  }
                 }
               }
 
