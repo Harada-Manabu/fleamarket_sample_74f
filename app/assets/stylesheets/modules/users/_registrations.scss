@@ -1,0 +1,143 @@
+@import "mixin/registForm";
+@import "mixin/footerSub";
+
+.registerBody {
+  width: 100%;
+  height: 100%;
+  background-color: $smoke;
+  font-size: 14px;
+
+
+  .registerheader {
+    height: 128px;
+
+    &__logo {
+      text-align: center;
+      line-height: 128px;
+      position: relative;
+      top: 18px;
+    }
+  }
+
+  .registerWrapper {
+    background-color: $white;
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+
+    &__head {
+      height: 97px;
+      line-height: 97px;
+      text-align: center;
+      border-bottom: 1px solid $smoke;
+
+      h2 {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+    
+    &__content {
+      width: 343px;
+      margin: 0 auto;
+      padding-bottom: 64px;
+
+      &--create {
+        width: 50%;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        
+        &__message {
+          font-size: 18px;
+          text-align: center;
+          margin-top: 50px;
+        }
+
+        &__homelink {
+            margin-top: 70px;
+            text-align: center;
+
+          &__btn {
+              display: block;
+              border: 1px solid $furimaColor;
+              background-color: $furimaColor;
+              color: $white;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              text-align: center;
+          }
+        }
+      }
+
+      &__formGroup {
+        margin-top: 32px;
+        width: 100%;
+
+        &__label {
+          font-weight: 600;
+
+          &--must {
+            background-color: #ea352d;
+            color: $white;
+            margin-left: 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 12px;
+          }
+
+          &--optional {
+            background-color: $lightGray;
+            color: $white;
+            margin-left: 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 12px;
+          }
+        }
+
+        #delivery_address_prefecture_id {
+          width: 100%;
+          background-color: $white;
+          font-size: 16px;
+          margin-top: 8px;
+          border: 1px solid $lightGray;
+          height: 48px;
+        }
+
+        #identification_birthday_1i, #identification_birthday_2i, #identification_birthday_3i {
+          font-size: 20px;
+          margin-top: 8px;
+          background-color: $white;
+          border: 1px solid $lightGray;
+          height: 48px;
+          width: 27%;
+        }
+
+        &__form {
+          @include registForm;
+          width: 100%;
+
+          &--half {
+            @include registForm;
+            width: 48%;
+          }
+        }
+      }
+
+      &__submit {
+      margin-top: 50px;
+
+        &__btn {
+          background-color: $furimaColor;
+          line-height: 48px;
+          color: $white;
+          font-size: 14px;
+          width: 100%;
+          border: 1px solid $furimaColor;
+        }
+      }
+    }
+  }
+  @include footerSub;
+}
