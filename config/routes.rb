@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   root 'goods#index'
-  resources :goods
+  resources :goods, except: :index do
+    resources :purchases, only: :index
+  end
   resources :users, only: :show
 end
