@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   root 'goods#index'
   resources :goods
   resources :users, only: :show
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
 end
