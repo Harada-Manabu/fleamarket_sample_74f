@@ -26,4 +26,49 @@ class CreditCardsController < ApplicationController
     end
   end
 
+  def show
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
+      @card_brand = @customer_card.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "visa-logo"
+      when "MasterCard"
+        @card_src = "mastercard-logo"
+      when "JCB"
+        @card_src = "jcb-logo"
+      when "American Express"
+        @card_src = "amex-logo"
+      when "Diners Club"
+        @card_src = "diners-logo"
+      when "Discover"
+        @card_src = "discover-logo"
+      end
+
+      @exp_month = @customer_card.exp_month.to_s
+      @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+    end
+  end
+
+  def destroy
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer.delete
+      @card.delete
+      if @card.destroy
+        redirect_to action: "new"
+      else
+        redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+      end
+    end
+  end
 end
