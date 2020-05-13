@@ -12,8 +12,16 @@
           %br/
           = text_field_tag 'payment_card_number', "", class: 'cardContent__main__formGroup__form', id: "payment_card_number", placeholder: '半角数字のみ', type: "text", maxlength: "16"
           %br/
-          = image_tag 'credit_logo', alt: 'クレジットロゴ', height: '25', width: '200', class: 'cardContent__main__formGroup__logo'
-
+          .cardContent__main__formGroup__logo
+            = image_tag 'visa-logo', alt: 'visa', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--visa'
+            = image_tag 'mastercard-logo', alt: 'master', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--master'
+            = image_tag 'jcb-logo', alt: 'jcb', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--jcb'
+            = image_tag 'amex-logo', alt: 'amex', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--amex'
+            = image_tag 'diners-logo', alt: 'diners', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--diners'
+            = image_tag 'discover-logo', alt: 'discover', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--discover'
+        
+        
+        
         .cardContent__main__formGroup
           .cardContent__main__formGroup__label
           有効期限
