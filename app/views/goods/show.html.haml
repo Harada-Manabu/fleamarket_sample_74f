@@ -24,9 +24,7 @@
 
         .selectContent
           .selectContent__selectContentPhotos
-
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
-              TODO:
               - if user_signed_in? && current_user.id == @good.user_id
                 .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoBtn
                   %i.fas.fa-angle-down.iconDown
@@ -36,10 +34,12 @@
 
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
                 - picFirst = @pictures.first
-                = image_tag picFirst.goodsImage.url
+                = image_tag picFirst.goodsImage.url, class: "photoOneX", size: "520x280"
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOther
                 - @pictures.each do |pics|
-                  = image_tag pics.goodsImage.url
+                  = image_tag pics.goodsImage.url, class: "photoOtherX", size: "124x120"
+
+
         .selectPriceBox
           .selectPriceBox__selectPriceBoxMoney
             %i.fas.fa-yen-sign.iconYen
@@ -51,23 +51,23 @@
                 （税込）送料込み
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
-        TODO:
         .selectPurchace
           .selectPurchace__selectPurchaceMove
-            - if current_user.id == @good.user_id
-              %a.selectPurchaceMoveForm{href: "#"} 出品頂いた商品です
-            - else
-              - if user_signed_in?
-                %a.selectPurchaceMoveForm{href: "https://www.mercari.com/jp/transaction/buy/m42527798392/"} 購入画面に進む
-                -# https://www.mercari.com/jp/transaction/buy/m42527798392/
-                -# = link_to "購入画面に進む", "#_path[@good,@user,@pictures,@category]", class: "toPurchace"
-              - else
-                %a.selectPurchaceMoveForm{href: "http://localhost:3000/users/sign_in"} 購入するためにログインに進む
+            -# TODO:
+            - if user_signed_in?
+              - if current_user.id == @good.user_id
+                %a.selectPurchaceMoveForm{href: "#"} 出品頂いた商品です
+              - elsif current_user.id != @good.user_id
+                %a.selectPurchaceMoveForm{href: "#"} 購入画面に進む
+            - elsif not user_signed_in?
+              %a.selectPurchaceMoveForm{href: "http://localhost:3000/users/sign_in"} ログインして購入へ
+
+      
 
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
-              = simple_format @good.explanation
+              = simple_format(h(@good.explanation), sanitize: true)
         .selectTables
           .selectTables__selectTablesBody
             %table{border: "1"}
