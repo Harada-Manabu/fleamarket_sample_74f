@@ -35,6 +35,8 @@
             ログアウト
       - else
         %li
-          = link_to "#" do
+          = link_to new_user_session_path do
             %i{class: "fas fa-smile"}
-            ログイン/新規会員登録
+            ログイン/
+          = link_to new_user_registration_path do
+            新規登録
