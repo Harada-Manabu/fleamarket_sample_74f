@@ -2,3 +2,9 @@
   .registerWrapper
     .registerWrapper__head
       %h2 会員登録完了
+    .registerWrapper__content
+      .registerWrapper__content__thankyou
+        %p ありがとうがざいます。
+        %p 会員登録が完了しました。
+      .registerWrapper__content__homelink
+        = link_to 'トップページに戻る', root_path, class: "registerWrapper__content__homelink__btn"
