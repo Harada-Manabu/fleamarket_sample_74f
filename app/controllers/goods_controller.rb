@@ -21,9 +21,10 @@ class GoodsController < ApplicationController
   def show
     @good = Good.find_by(params[:id])
     @user = User.find_by(params[:id])
-    @place = Place.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
-    @parents = Category.all.order("id ASC").limit(13)
+    @category = Category.find_by(id: @good.category_id)
+  
+    # @parents = Category.all.order("id ASC").limit(13)
   end
   def edit
     @good = Good.find(params[:id])
@@ -31,10 +32,12 @@ class GoodsController < ApplicationController
   def update
     good = Good.find(params[:id])
     good.update(good_params)
+    redirect_to good_path(good.id)
   end
   def destroy
     good = Good.find(params[:id])
     good.destroy
+    redirect_to root_path
   end
 
 

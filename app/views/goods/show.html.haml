@@ -7,9 +7,9 @@
       .asideCategoryBox__asideCategoryBoxInfo__asideCategoryBoxInfolist
         = link_to "FURIMA", root_path, class: "cateTop"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to @good.category_id, "#", class: "cateCate"
+        = link_to @category.categoryName, "#", class: "cateCate"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to @good.category_id, class: "cateCateSub"
+        = link_to @good.category_id, "#", class: "cateCateSub"
         %i.fas.fa-chevron-right.iconChevronRight
         = link_to @good.category_id, "#", class: "cateCateSubSub"
         %i.fas.fa-chevron-right.iconChevronRight
@@ -26,11 +26,13 @@
           .selectContent__selectContentPhotos
 
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
-              .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoBtn
-                %i.fas.fa-angle-down.iconDown
-                %ul.moreList
-                  %li= link_to "編集", "#", method: :get, class:"moreEdit"
-                  %li= link_to "削除", "#", method: :delete, class:"moreDelete"
+              TODO:
+              - if user_signed_in? && current_user.id == @good.user_id
+                .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoBtn
+                  %i.fas.fa-angle-down.iconDown
+                  %ul.moreList
+                    %li= link_to "編集", edit_good_path(@good.id), method: :get, class:"moreEdit"
+                    %li= link_to "削除", good_path(@good.id), method: :delete, class:"moreDelete"
 
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
                 - picFirst = @pictures.first
@@ -49,10 +51,19 @@
                 （税込）送料込み
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
+        TODO:
         .selectPurchace
           .selectPurchace__selectPurchaceMove
-            %form{action: "#", method: "post", name: "", class: "selectPurchaceMoveForm"}
-              %input{type: "submit", class: "selectPurchaceMoveFormBtn", value: "購入画面に進む"}
+            - if current_user.id == @good.user_id
+              %a.selectPurchaceMoveForm{href: "#"} 出品頂いた商品です
+            - else
+              - if user_signed_in?
+                %a.selectPurchaceMoveForm{href: "https://www.mercari.com/jp/transaction/buy/m42527798392/"} 購入画面に進む
+                -# https://www.mercari.com/jp/transaction/buy/m42527798392/
+                -# = link_to "購入画面に進む", "#_path[@good,@user,@pictures,@category]", class: "toPurchace"
+              - else
+                %a.selectPurchaceMoveForm{href: "http://localhost:3000/users/sign_in"} 購入するためにログインに進む
+
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
@@ -69,7 +80,7 @@
                 %th
                   カテゴリー
                   %td
-                    = link_to @good.category_id, "#", class: "exhibitionCategory"
+                    = link_to @category.categoryName, "#", class: "exhibitionCategory"
                     %br
                     = link_to @good.category_id, "#", class: "exhibitionCategorySub"
                     %br
@@ -97,7 +108,7 @@
                 %th
                   発送元の地域
                   %td
-                    = link_to @place.prefecture.name, "#", class: "exhibitionAddress"
+                    = link_to @good.prefecture.name, "#", class: "exhibitionAddress"
               %tr
                 %th
                   発送日の目安
