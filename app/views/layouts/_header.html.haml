@@ -23,12 +23,18 @@
       %li
         %i{class: "fas fa-check"}
         やることリスト
-      %li
-        - if user_signed_in?
+
+      - if user_signed_in?
+        %li 
           = link_to "#" do
             %i{class: "fas fa-smile"}
             マイページへ
-        - else
+        %li
+          = link_to destroy_user_session_path, method: :delete do
+            %i{class: "fas fa-sign-out-alt"}
+            ログアウト
+      - else
+        %li
           = link_to "#" do
             %i{class: "fas fa-smile"}
             ログイン/新規会員登録
