@@ -12,9 +12,9 @@
     text-align: center;
 
     & a {
+      display: inline-block;
       position: relative;
       top: 18px;
-      display: inline-block;
       height: 49px;
       line-height: 49px;
     }
@@ -23,7 +23,7 @@
   &__contents {
     width: 700px;
     margin: 0 auto 70px;
-    background-color: #ffffff;
+    background-color: $white;
 
     &--title {
       font-size: 22px;
@@ -36,14 +36,11 @@
       @include purchasesBorder;
       border-bottom: 1px solid rgb(245, 245, 245);
       padding: 32px 0;
-      text-align: center;
 
       .piGood {
+        display: flex;
         max-width: 343px;
         margin: 0 auto;
-        display: flex;
-        justify-content: start;
-        align-items: start;
 
 
         .piGoodRight {
@@ -71,9 +68,7 @@
             }
           }
         }
-
       }
-
     }
 
     &--price {
@@ -96,7 +91,6 @@
           font-size: 22px;
           font-weight: 600;
         }
-
       }
 
       .piPrice__down {
@@ -116,7 +110,6 @@
           margin-left: 5px;
         }
       }
-
     }
 
     &--pay {
@@ -133,14 +126,13 @@
       .piPay__down {
         .fa-plus-circle {
           font-size: 14px;
-          color: #0099E8;
-
+          color: $linkBlue;
         }
 
         a {
           font-size: 14px;
           text-decoration: none;
-          color: #0099E8;
+          color: $linkBlue;
         }
       }
     }
@@ -158,7 +150,7 @@
         font-weight: 600;
 
         span {
-          color: #0099E8;
+          color: $linkBlue;
           font-size: 13px;
           font-weight: 500;
         }
@@ -172,15 +164,12 @@
       .piAddress__destination {
         font-size: 13px;
         margin-top: 2px;
-
       }
 
       .piAddress__name {
         font-size: 13px;
         margin-top: 2px;
-
       }
-
     }
 
     &--notice {
@@ -206,20 +195,18 @@
         display: block;
         width: 343px;
         margin: 0 auto;
-        background-color: #3ccace;
-        font-size: 14px;
+        background-color: $furimaColor;
         min-height: 48px;
+        line-height: 48px;
+        text-align: center;
+        font-size: 14px;
         font-weight: 600;
         outline: none;
         cursor: pointer;
-        text-align: center;
-        line-height: 48px;
-        color: #ffffff;
+        color: $white;
       }
     }
   }
-
-
 
   @include footerSub;
 }
