@@ -4,4 +4,5 @@ class Picture < ApplicationRecord
   belongs_to :good
 
   validates :goodsImage, presence: true
+
 end
