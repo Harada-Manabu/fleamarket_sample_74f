@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :goods
+  has_one :identification
+  has_one :deliveryAddress
   
   validates :nickname, presence: true
 

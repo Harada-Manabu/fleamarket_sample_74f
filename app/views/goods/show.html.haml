@@ -5,72 +5,91 @@
   .asideCategoryBox
     .asideCategoryBox__asideCategoryBoxInfo
       .asideCategoryBox__asideCategoryBoxInfo__asideCategoryBoxInfolist
-        = link_to "FURIMA", "#", class: "cateTop"
+        = link_to "FURIMA", root_path, class: "cateTop"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "生きもの", "#", class: "cateCate"
+        = link_to @category.categoryName, "#", class: "cateCate"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "動物", "#", class: "cateCateSub"
+        = link_to @good.category_id, "#", class: "cateCateSub"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "犬", "#", class: "cateCateSubSub"
+        = link_to @good.category_id, "#", class: "cateCateSubSub"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to "まいご犬", "#", class: "cateProductName"
+        = link_to @good.goodsName, "#", class: "cateProductName"
 
 .showGoods
   .showGoods__showGoodsBody
     .showGoods__showGoodsBody__showGoodsBodyMain
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
-          まいご犬
+          = @good.goodsName
+
         .selectContent
           .selectContent__selectContentPhotos
+
             .selectContent__selectContentPhotos__selectContentPhotosPhoto
+              TODO:
+              - if user_signed_in? && current_user.id == @good.user_id
+                .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoBtn
+                  %i.fas.fa-angle-down.iconDown
+                  %ul.moreList
+                    %li= link_to "編集", edit_good_path(@good.id), method: :get, class:"moreEdit"
+                    %li= link_to "削除", good_path(@good.id), method: :delete, class:"moreDelete"
+
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
-                = image_tag "teamApp_dog3.png", alt: "No Photo", class: "dogWait"
+                - picFirst = @pictures.first
+                = image_tag picFirst.goodsImage.url
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOther
-                = image_tag "teamApp_dog3.png", alt: "No Photo", class: "dogWait"
-                = image_tag "teamApp_dog1.png", alt: "No Photo", class: "dogDwon"
-                = image_tag "teamApp_dog2.png", alt: "No Photo", class: "dogSleep"
+                - @pictures.each do |pics|
+                  = image_tag pics.goodsImage.url
         .selectPriceBox
           .selectPriceBox__selectPriceBoxMoney
             %i.fas.fa-yen-sign.iconYen
             %span.spanMoney
-              1,000
+              = @good.price
           .selectPriceBox__selectPriceBoxSupp
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppTax
               %span.spanTax
                 （税込）送料込み
             .selectPriceBox__selectPriceBoxSupp__selectPriceBoxSuppShippingFee
               %span.spanShippingFee
+        TODO:
         .selectPurchace
           .selectPurchace__selectPurchaceMove
-            %form{:action => "#", :method => "post", name: "", class: "selectPurchaceMoveForm"}
-              %input{:type => "submit", :class =>"selectPurchaceMoveFormBtn", :value => "購入画面に進む"}
+            - if current_user.id == @good.user_id
+              %a.selectPurchaceMoveForm{href: "#"} 出品頂いた商品です
+            - else
+              - if user_signed_in?
+                %a.selectPurchaceMoveForm{href: "https://www.mercari.com/jp/transaction/buy/m42527798392/"} 購入画面に進む
+                -# https://www.mercari.com/jp/transaction/buy/m42527798392/
+                -# = link_to "購入画面に進む", "#_path[@good,@user,@pictures,@category]", class: "toPurchace"
+              - else
+                %a.selectPurchaceMoveForm{href: "http://localhost:3000/users/sign_in"} 購入するためにログインに進む
+
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
-              【迷子犬への接し方】まず大切なのは、その犬にかまれないことです。知らない場所で知らない人に会って犬は警戒しています。はじめての犬に接する基本を守ってください。①人間は立ったまま犬に声をかけ、反応を見る。②甘えてきたり、おすわりの命令に答えるかどうかなど。③次に人間はしゃがんで姿勢を低くする。④ずっとやさしく声をかけ続ける。⑤犬の反応をよく観察しながら、自分から寄ってくるまで近づかないこと。
+              = simple_format @good.explanation
         .selectTables
           .selectTables__selectTablesBody
-            %table{:border => "1"}
+            %table{border: "1"}
               %tr
                 %th
                   出品者
                   %td
-                    = link_to "ムツゴロウ", "#",class: "exhibitorName"
+                    = link_to @user.nickname, "#",class: "exhibitorName"
               %tr
                 %th
                   カテゴリー
                   %td
-                    = link_to "生きもの", "#", class: "exhibitionCategory"
+                    = link_to @category.categoryName, "#", class: "exhibitionCategory"
                     %br
-                    = link_to "動物", "#", class: "exhibitionCategorySub"
+                    = link_to @good.category_id, "#", class: "exhibitionCategorySub"
                     %br
-                    = link_to "犬", "#", class: "exhibitionCategorySubSub"
+                    = link_to @good.category_id, "#", class: "exhibitionCategorySubSub"
               %tr
                 %th
                   ブランド
                   %td
-                    柴犬
+                    = @good.brand
               %tr
                 %th
                   商品のサイズ
@@ -79,26 +98,26 @@
                 %th
                   商品の状態
                   %td
-                    非常に良好
+                    = @good.goodsCondition
               %tr
                 %th
                   配送料の負担
                   %td
-                    送料込み(出品者負担)
+                    = @good.deliveryFee
               %tr
                 %th
                   発送元の地域
                   %td
-                    = link_to "東北地方", "#", class: "exhibitionAddress"
+                    = link_to @good.prefecture.name, "#", class: "exhibitionAddress"
               %tr
                 %th
                   発送日の目安
                   %td
-                    1~2日で発送
+                    = @good.deliveryDay
         .selectReport
           .selectReport__selectReportLeft
             .selectReport__selectReportLeft__selectReportLeftLike
-              %form{:action => "#", :method => "post", name: "", class: "selectReportLeftLikeForm"}
+              %form{action: "#", method: "post", name: "", class: "selectReportLeftLikeForm"}
                 = button_tag "Submit", type: 'submit', class: "selectReportLeftLikeBtn" do
                   %i.fas.fa-star.iconStar
                   %span.spanStarWord
