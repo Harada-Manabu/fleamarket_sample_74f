@@ -35,7 +35,9 @@
         .detail__category
           %span.detail__category--text カテゴリー
           %span.detail__category--must 必須
-        = f.collection_select :category_id, @parents, :id, :categoryName, prompt: "選択してください"
+        .selectBox  
+          = f.collection_select :category_id, @parents, :id, :categoryName, prompt: "選択してください"
+          %i.fas.fa-chevron-down
         .detail__brand
           %span.detail__brand--text ブランド
           %span.detail__brand--option 任意
@@ -43,7 +45,9 @@
         .detail__condition
           %span.detail__condition--text 商品の状態
           %span.detail__condition--must 必須
-        = f.select :goodsCondition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "選択してください", class: 'detail__condition--fork'
+        .selectBox
+          = f.select :goodsCondition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "選択してください", class: 'detail__condition--fork'
+          %i.fas.fa-chevron-down
 
 
 
@@ -52,15 +56,21 @@
         .delivery__fee
           %span.delivery__fee--text 配送料の負担
           %span.delivery__fee--must 必須
-        = f.select :deliveryFee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], prompt: "選択してください", class: 'delivery__fee--form'
+        .selectBox
+          = f.select :deliveryFee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], prompt: "選択してください", class: 'delivery__fee--form'
+          %i.fas.fa-chevron-down
         .delivery__prefecture
           %span.delivery__prefecture--text 発送の地域
           %span.delivery__prefecture--must 必須
-        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+        .selectBox
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+          %i.fas.fa-chevron-down
         .delivery__day
           %span.delivery__day--text 発送までの日数
           %span.delivery__day--must 必須
-        = f.select :deliveryDay, [["1~2日で発送"],["2~3日で発送"],["3~7日で発送"]], prompt: "選択してください", class: 'delivery__day--form'
+        .selectBox
+          = f.select :deliveryDay, [["1~2日で発送"],["2~3日で発送"],["3~7日で発送"]], prompt: "選択してください", class: 'delivery__day--form'
+          %i.fas.fa-chevron-down
 
 
 

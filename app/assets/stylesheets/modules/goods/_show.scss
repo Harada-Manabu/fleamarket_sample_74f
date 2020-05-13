@@ -2,6 +2,7 @@
   width: 100%;
   height: 55px;
   border-top: 1px solid #eee;
+
   .asideCategoryBox {
     width: 100%;
     height: 53px;
@@ -16,25 +17,31 @@
         font-size: 14px;
         width: 680px;
         margin: 0 auto;
+
         .iconChevronRight {
           font-size: 5px;
         }
+
         .cateTop {
           text-decoration: none;
           color: #333333;
         }
+
         .cateCate {
           text-decoration: none;
           color: #333333;
         }
+
         .cateCateSub {
           text-decoration: none;
           color: #333333;
         }
+
         .cateCateSubSub {
           text-decoration: none;
           color: #333333;
         }
+
         .cateProductName {
           text-decoration: none;
           color: #333333;
@@ -49,16 +56,20 @@
   margin-top: 3px;
   background-color: #f8f7f7fa;
   width: 100%;
+
   &__showGoodsBody {
     height: 1770px;
     padding-top: 35px;
+
     &__showGoodsBodyMain {
       width: 700px;
       height: 1770px;
       color: black;
       margin: 0 auto;
+
       &__showGoodsBodyMainSelect {
         background-color: white;
+
         .selectItemName {
           margin: 0 auto;
 
@@ -69,33 +80,41 @@
           text-align: center;
           font-size: 17px;
         }
+
         .selectContent {
           margin: 0 auto;
           width: 620px;
           height: 400px;
           margin-bottom: 20px;
+
           &__selectContentPhotos {
             height: 400px;
+
             &__selectContentPhotosPhoto {
               height: 400px;
+
               &__selectContentPhotosPhotoOne {
                 width: auto;
                 height: 70%;
                 text-align: center;
-                .rony {
-                }
+
+                .rony {}
               }
+
               &__selectContentPhotosPhotoOther {
                 width: 560px;
                 height: 30%;
                 display: flex;
                 margin: 0 auto;
+
                 .rony {
                   width: 33%;
                 }
+
                 .ronyShoe {
                   width: 33%;
                 }
+
                 .ronyUniform {
                   width: 33%;
                 }
@@ -103,48 +122,56 @@
             }
           }
         }
+
         .selectPriceBox {
           margin-top: 15px;
           margin-bottom: 15px;
           text-align: center;
+
           &__selectPriceBoxMoney {
             margin: 0 auto;
             width: 610px;
             height: 55px;
+
             .iconYen {
               font-size: 38px;
             }
+
             .spanMoney {
               font-weight: bold;
               font-size: 38px;
             }
           }
+
           &__selectPriceBoxSupp {
             justify-content: center;
             width: 620px;
             height: 25px;
             margin-left: 40px;
+
             &__selectPriceBoxSuppTax {
-              .spanTax {
-              }
+              .spanTax {}
             }
+
             &__selectPriceBoxSuppShippingFee {
-              .spanShippingFee {
-              }
+              .spanShippingFee {}
             }
           }
         }
+
         .selectPurchace {
           width: 100%;
           text-align: center;
           font-weight: bold;
           margin: 0px 0px 10px 0px;
+
           &__selectPurchaceMove {
             margin: 0 auto;
             width: 90%;
             height: 60px;
             line-height: 60px;
             background-color: #3ccace;
+
             .selectPurchaceMoveForm {
               .selectPurchaceMoveFormBtn {
                 background-color: #3ccace;
@@ -154,16 +181,19 @@
             }
           }
         }
+
         .selectDescription {
           margin: 0 auto;
           width: 620px;
           height: 160px;
+
           &__selectDescriptionBody {
             .selectDescriptionBodyExplain {
               font-size: 17px;
             }
           }
         }
+
         .selectTables {
           &__selectTablesBody {
             table {
@@ -172,8 +202,9 @@
               border: solid 1px rgb(209, 207, 207);
               margin: 0 auto;
             }
-            table tr {
-            }
+
+            table tr {}
+
             table th {
               background-color: #eeeeee;
               width: 40%;
@@ -182,27 +213,33 @@
               font-size: 15px;
               padding: 13px 0px 13px 0px;
             }
+
             table td {
               width: 60%;
               padding: 13px 0px 13px 20px;
               border-color: rgb(209, 207, 207);
               font-size: 15px;
+
               .exhibitorName {
                 text-decoration: none;
                 color: black;
               }
+
               .exhibitionCategory {
                 color: #3ccace;
                 text-decoration: none;
               }
+
               .exhibitionCategorySub {
                 color: #3ccace;
                 text-decoration: none;
               }
+
               .exhibitionCategorySubSub {
                 color: #3ccace;
                 text-decoration: none;
               }
+
               .exhibitionAddress {
                 color: #3ccace;
                 text-decoration: none;
@@ -210,6 +247,7 @@
             }
           }
         }
+
         .selectReport {
           margin: 0 auto;
           width: 100%;
@@ -218,10 +256,12 @@
           margin-top: 20px;
           margin-bottom: 30px;
           display: inline-block;
+
           &__selectReportLeft {
             display: flex;
             justify-content: space-between;
             margin-left: 37px;
+
             &__selectReportLeftLike {
               .selectReportLeftLikeForm {
                 .selectReportLeftLikeBtn {
@@ -231,15 +271,16 @@
                   height: 37px;
                   font-size: 16px;
                   border-color: orange;
-                  .iconStar {
-                  }
-                  .spanStarWord {
-                  }
-                  .spanStarNumber {
-                  }
+
+                  .iconStar {}
+
+                  .spanStarWord {}
+
+                  .spanStarNumber {}
                 }
               }
             }
+
             &__selectReportLeftBad {
               margin-right: 37px;
 
@@ -251,10 +292,10 @@
                   border: 1px solid black;
                   padding: 10px 12px 10px 12px;
                   border-radius: 5px;
-                  .iconFlag {
-                  }
-                  .spanFlag {
-                  }
+
+                  .iconFlag {}
+
+                  .spanFlag {}
                 }
               }
             }
@@ -267,13 +308,16 @@
         background-color: white;
         width: 700px;
         height: 300px;
+
         &__showGoodsBodyMainCommentContent {
           .mainCommentContentBody {
             .mainCommentContentBodyForm {
               text-align: center;
+
               .mainCommentContentBodyTextarea {
                 margin-top: 25px;
               }
+
               .mainCommentContentBodyFormAttention {
                 background-color: #fcf9f9fa;
                 padding: 10px 0px 5px 10px;
@@ -282,6 +326,7 @@
                 width: 90%;
                 margin-left: 35px;
               }
+
               .mainCommentContentBodyTag {
                 background-color: #3ccace;
                 border-radius: 30px;
@@ -295,6 +340,7 @@
                   color: white;
                   font-size: 20px;
                 }
+
                 .mainCommentContentBodyTagBtn {
                   padding-top: 15px;
                   background-color: #3ccace;
@@ -308,33 +354,39 @@
           }
         }
       }
+
       &__showGoodsBodyMainOtherItem {
         width: 700px;
         height: 24px;
         color: #3ccace;
         margin-top: 10px;
         margin-bottom: 15px;
+
         &__showGoodsBodyMainOtherItemBox {
           .mainOtherItemBoxUl {
             display: flex;
             justify-content: space-between;
             line-height: 24px;
+
             .mainOtherItemBoxUlPrev {
               .iconChevronLeft {
                 padding-left: 10px;
               }
+
               .mainOtherItemBoxUlPrevOne {
                 text-decoration: none;
                 color: #3ccace;
                 font-size: 17px;
               }
             }
+
             .mainOtherItemBoxUlNext {
               .mainOtherItemBoxUlNextOne {
                 text-decoration: none;
                 color: #3ccace;
                 font-size: 17px;
               }
+
               .iconChevronRight {
                 padding-right: 10px;
               }
@@ -342,6 +394,7 @@
           }
         }
       }
+
       &__showGoodsBodyMainNavi {
         width: 700px;
         height: 33px;
@@ -349,6 +402,7 @@
         font-weight: bold;
         margin-top: 10px;
         margin-bottom: 10px;
+
         &__showGoodsBodyMainNaviBox {
           .naviBoxBrend {
             .naviBoxBrendTopUl {
@@ -372,11 +426,13 @@
   position: relative;
   width: 100%;
   height: 392px;
+
   .asideBannerPhoto {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
   .asideBannerIn {
     text-align: center;
     position: absolute;
@@ -385,6 +441,7 @@
     right: 0;
     bottom: 0;
     margin: 0 auto;
+
     .asideBannerInHead {
       font-weight: bold;
       color: white;
@@ -396,6 +453,7 @@
       white-space: nowrap;
       text-shadow: 1px 1px 5px grey;
     }
+
     .asideBannerInPhrase {
       color: white;
       font-size: 35px;
@@ -407,6 +465,7 @@
       text-shadow: 1px 1px 5px grey;
     }
   }
+
   .asideBannerAt {
     display: flex;
     position: absolute;
@@ -421,20 +480,25 @@
     .asideBannerAtApple {
       margin-right: 5px;
       margin-left: 5px;
+
       .appleBtn:hover {
         opacity: 0.6;
       }
+
       .appleBtn {
         width: 180px;
         height: 54px;
       }
     }
+
     .asideBannerAtGoogle {
       margin-right: 5px;
       margin-left: 5px;
+
       .googleBtn:hover {
         opacity: 0.6;
       }
+
       .googleBtn {
         width: 180px;
         height: 54px;
@@ -446,26 +510,32 @@
 .footer {
   width: 100%;
   height: 310px;
+
   &__footerContent {
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #272727;
     padding-left: 10px;
+
     &__footerContentBody {
       .ContentBodyUl {
         display: flex;
         justify-content: center;
         color: white;
+
         .footerContentUlLi {
           text-align: center;
           margin-right: 60px;
           margin-left: 60px;
+
           .footerContentUlLiHead {
             font-weight: bold;
             font-size: 15px;
           }
+
           .footerContentUlLiFoo {
             margin-top: 20px;
+
             .Lin {
               color: white;
               text-decoration: none;
@@ -476,13 +546,16 @@
         }
       }
     }
+
     &__footerContentBrand {
       text-align: center;
+
       &__footerContentBrandLogo {
         .logoImage {
           width: 160px;
           height: 45px;
         }
+
         .logoMark {
           color: white;
           font-size: 13px;
@@ -495,6 +568,7 @@
 .displayBtn:hover {
   opacity: 0.95;
 }
+
 .displayBtn {
   list-style: none;
   border-radius: 5px;
@@ -506,12 +580,14 @@
   background-color: #3ccace;
   text-align: center;
   padding-top: 15px;
+
   .displayWord {
     text-decoration: none;
     color: white;
     font-weight: bold;
     display: block;
   }
+
   .iconCamera {
     color: white;
     font-size: 60px;

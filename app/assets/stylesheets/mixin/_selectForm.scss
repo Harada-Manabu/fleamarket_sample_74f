@@ -4,4 +4,10 @@
   height: 48px;
   outline: none;
   background-color: #ffffff;
+  padding: 0 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid #ccc;
 }
