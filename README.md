@@ -43,7 +43,7 @@ Flea Market app
 
 - has_one :identification
 - has_many :goods
-- has_many :deliveryAddresses
+- has_one :deliveryAddresses
 - has_many :creditCards
 
 ## identifications Table
@@ -55,11 +55,7 @@ Flea Market app
 | firstName      | string  | null: false       |
 | familyNameKana | string  | null: false       |
 | firstNameKana  | string  | null: false       |
-| birthYear      | date    | null: false       |
-| birthMonth     | date    | null: false       |
 | birthDay       | date    | null: false       |
-| userImage      | string  |                   |
-| introduction   | text    |                   |
 
 ### Association
 
@@ -89,7 +85,7 @@ Flea Market app
 | familyNameKana | string  | null: false                    |
 | firstNameKana  | string  | null: false                    |
 | postCode       | integer | null: false                    |
-| prefecture     | string  | null: false                    |
+| prefecture_id  | integer | null: false                    |
 | city           | string  | null: false                    |
 | address        | string  | null: false                    |
 | buildingName   | string  |                                |
