@@ -1,5 +1,8 @@
 class GoodsController < ApplicationController
   def index
+    @goods = Good.limit(3).order('id DESC')
+    @goods1 = Good.limit(3).offset(3).order('id DESC')
+    @goods2 = Good.limit(3).offset(6).order('id DESC')
   end
 
   def new

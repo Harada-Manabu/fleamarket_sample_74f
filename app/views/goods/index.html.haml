@@ -98,6 +98,177 @@
             ¥2,000
           .top-main__products__puroducts__text
             snoopy
+%section.pickupbox 
+  %h2.pickupbox--title ピックアップカテゴリー
+  .pickupbox__category
+    .pickupbox__category__head
+      = link_to root_path do
+        %h3.pickupbox__category__head--title  新規投稿商品
+    .pickupbox__category__lists
+      - @goods.each do |good|
+        -if good.category_id.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+        -else
+          .pickupbox__category__list
+            - if user_signed_in?
+              = link_to good_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goodsName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)
+            - else
+              = link_to top_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goodsName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)
+    .pickupbox__category__lists
+      - @goods1.each do |good|
+        -if good.category_id.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+        -else
+          .pickupbox__category__list
+            - if user_signed_in?
+              = link_to good_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goodsName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)
+            - else
+              = link_to top_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goodsName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)
+    .pickupbox__category__lists
+      - @goods2.each do |good|
+        -if deliveryAddresse.telNumber.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+        -else
+          .pickupbox__category__list
+            - if user_signed_in?
+              = link_to good_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goosdName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)
+            - else
+              = link_to top_path(good.id) do
+                %figure.pickupbox__category__lists--image
+                  = image_tag good.pictures[0].goodsImage.url
+                .pickupbox__category__list--text
+                  %h3.name 
+                    = good.goodsName
+                  .syosai
+                    %ul
+                      %li<> 
+                        = good.price 
+                        円
+                      %li
+                        %i.fa  
+                        ★0
+                    %p.zeikomi (税込)            
 
 -# TODO: フッター上部のバナー移設（_footer.html.haml -> 直張り）
 .footer-image
