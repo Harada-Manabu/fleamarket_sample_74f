@@ -1,11 +1,12 @@
 class GoodsController < ApplicationController
+  before_action :set_parents, only: [:new, :create, :edit, :update, :show]
+
   def index
   end
 
   def new
     @good = Good.new
-    5.times{@good.pictures.new} 
-    @parents = Category.where(ancestry: nil)
+    5.times{@good.pictures.new}
   end
 
   def create
@@ -24,6 +25,7 @@ class GoodsController < ApplicationController
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
     # @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.where(ancestry:nil)
   end
   def edit
     @good = Good.find(params[:id])
@@ -50,6 +52,9 @@ class GoodsController < ApplicationController
   private
   def good_params
     params.require(:good).permit(:goodsName, :explanation, :category_id, :brand, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, pictures_attributes: [:goodsImage]).merge(user_id: current_user.id)
+  end
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
 end

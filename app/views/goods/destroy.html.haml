@@ -1,0 +1,25 @@
+= render "layouts/header"
+
+.deleteDo
+  .deleteDo__deleteDoBox
+    %h3.deleteComment
+      削除が完了しました。
+    %a.deleteBtn{href="/"}
+      一覧へ戻る
+
+.asideBanner
+  = image_tag "bg-appBanner-pict.jpg", alt: "No Photo", class: "asideBannerPhoto"
+  .asideBannerIn
+    %h2.asideBannerInHead
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.asideBannerInPhrase
+      今すぐ無料ダウンロード！
+  .asideBannerAt
+    .asideBannerAtApple
+      = link_to "#" do
+        = image_tag "appStore.svg", alt: "No Photo", class: "appleBtn"
+    .asideBannerAtGoogle
+      = link_to "#" do
+        = image_tag "googlePlay.svg", alt: "No Photo", class: "googleBtn"
+
+= render "layouts"

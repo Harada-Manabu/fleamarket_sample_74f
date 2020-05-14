@@ -35,7 +35,7 @@
         .detail__category
           %span.detail__category--text カテゴリー
           %span.detail__category--must 必須
-        .selectBox  
+        .selectBox
           = f.collection_select :category_id, @parents, :id, :categoryName, prompt: "選択してください"
           %i.fas.fa-chevron-down
         .detail__brand
