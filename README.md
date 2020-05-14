@@ -66,10 +66,8 @@ Flea Market app
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
 | user_id        | integer | null: false, foreign_key: true |
-| cardNumber     | integer | null: false, unique: true      |
-| effectiveMonth | integer | null: false                    |
-| effectiveYear  | integer | null: false                    |
-| securityCode   | integer | null: false                    |
+| customer_id    | integer | null: false                    |
+| card_id        | integer | null: false                    |
 
 ### Association
 
