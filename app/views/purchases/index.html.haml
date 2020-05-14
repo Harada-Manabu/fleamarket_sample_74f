@@ -47,12 +47,11 @@
         配送先
         %span> 変更する
       .piAddress__postCode
-        〒150-0041
+        = "〒" + "#{@deliveryAddress.postCode}"
       .piAddress__destination
-        東京都渋谷区神南１丁目１２−１６ アジアビル 8F
+        = "#{@good.prefecture.name}" + "#{@deliveryAddress.city}" + "#{@deliveryAddress.address}"
       .piAddress__name
-        株式会社div
-      
+        = @deliveryAddress.buildingName
 
     .purchasesIndex__contents--notice
       郵便局/コンビニ受取をご希望の方は、購入後に
