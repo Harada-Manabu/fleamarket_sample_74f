@@ -23,7 +23,7 @@ class GoodsController < ApplicationController
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
-  
+
     # @parents = Category.all.order("id ASC").limit(13)
   end
   def edit
