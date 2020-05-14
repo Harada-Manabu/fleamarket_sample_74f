@@ -1,6 +1,8 @@
 class GoodsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit, :update]
 
+  before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
+
   def index
   end
 
@@ -51,4 +53,7 @@ class GoodsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def login_check
+    redirect_to root_path unless user_signed_in?
+  end
 end
