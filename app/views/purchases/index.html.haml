@@ -1,0 +1,68 @@
+.purchasesIndex
+
+  .purchasesIndex__logo
+    = link_to(root_path) do
+      = image_tag "logo.png", class: "purchasesIndexs__logo--img", size: "185x49"  
+
+
+
+  .purchasesIndex__contents
+    .purchasesIndex__contents--title
+      購入内容の確認
+    .purchasesIndex__contents--summary
+      .piGood
+        .piGoodLeft__picture
+          = image_tag "pict-reason-02.jpg", class: ".piGoodLeft__picture", size: "80x80"
+        .piGoodRight
+          .piGoodRight__title
+            RAY CANTREL サテンスカート
+          .piGoodRight__down
+            .piGoodRight__down--price
+              ¥1,800
+            .piGoodRight__down--tax
+              （税込）
+            .piGoodRight__down--fee
+              送料込み
+    .purchasesIndex__contents--price
+      .piPrice__top  
+        .piPrice__top--title
+          支払い金額
+        .piPrice__top--display
+          ¥1,800
+      .piPrice__down
+        %i.fas.fa-stop
+        .piPrice__down--point
+          ポイントを使用 (所持ポイント: P0)
+
+    .purchasesIndex__contents--pay
+      .piPay__title
+        支払い方法
+      .piPay__down
+        %i.fas.fa-plus-circle
+        = link_to "登録してください", "#"
+
+
+    .purchasesIndex__contents--address
+      .piAddress__title
+        配送先
+        %span> 変更する
+      .piAddress__postCode
+        〒150-0041
+      .piAddress__destination
+        東京都渋谷区神南１丁目１２−１６ アジアビル 8F
+      .piAddress__name
+        株式会社div
+      
+
+    .purchasesIndex__contents--notice
+      郵便局/コンビニ受取をご希望の方は、購入後に
+      %span> 取引画面
+      から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+
+
+
+    .purchasesIndex__contents--button
+      = link_to '購入する', "#"
+
+
+  = render partial: 'modules/footerSub'
