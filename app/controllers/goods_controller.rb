@@ -23,7 +23,6 @@ class GoodsController < ApplicationController
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
-
     # @parents = Category.all.order("id ASC").limit(13)
   end
   def edit
@@ -33,6 +32,13 @@ class GoodsController < ApplicationController
     good = Good.find(params[:id])
     good.update(good_params)
     redirect_to good_path(good.id)
+    # @good = Good.find(params[:id])
+    # if @good.save
+    #   redirect_to good_path
+    #   # redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
   def destroy
     good = Good.find(params[:id])
