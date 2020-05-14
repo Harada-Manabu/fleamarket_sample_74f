@@ -12,7 +12,8 @@
     .purchasesIndex__contents--summary
       .piGood
         .piGoodLeft__picture
-          = image_tag "pict-reason-02.jpg", class: ".piGoodLeft__picture", size: "80x80"
+          - picFirst = @pictures.first
+          = image_tag picFirst.goodsImage.url, class: ".piGoodLeft__picture", size: "80x80"
         .piGoodRight
           .piGoodRight__title
             = @good.goodsName
