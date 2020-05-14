@@ -15,10 +15,12 @@
           = image_tag "pict-reason-02.jpg", class: ".piGoodLeft__picture", size: "80x80"
         .piGoodRight
           .piGoodRight__title
-            RAY CANTREL サテンスカート
+            -# RAY CANTREL サテンスカート
+            = @good.goodsName
           .piGoodRight__down
             .piGoodRight__down--price
-              ¥1,800
+              -# ¥1,800
+              = "¥" + "#{@good.price}"
             .piGoodRight__down--tax
               （税込）
             .piGoodRight__down--fee
