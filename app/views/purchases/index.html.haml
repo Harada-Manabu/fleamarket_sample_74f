@@ -22,7 +22,13 @@
             .piGoodRight__down--tax
               （税込）
             .piGoodRight__down--fee
-              送料込み
+              - if @good.deliveryFee == "送料込み（出品者負担）"
+                .piGoodRight__down--fee--include
+                  送料込み
+              - else
+                .piGoodRight__down--fee--notInclude
+                  送料は含みません
+
     .purchasesIndex__contents--price
       .piPrice__top  
         .piPrice__top--title
@@ -52,7 +58,7 @@
             .piPay__card__delete__link
               = link_to "変更する", credit_card_path(current_user.id), class: "piPay__card__delete__link__btn"
 
-      -else
+      - else
         .piPay__down
           %i.fas.fa-plus-circle
           = link_to "登録してください", new_credit_card_path

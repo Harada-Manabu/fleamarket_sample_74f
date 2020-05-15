@@ -65,6 +65,10 @@
 
             &--fee {
               font-size: 12px;
+
+              &--notInclude {
+                color: red;
+              }
             }
           }
         }
