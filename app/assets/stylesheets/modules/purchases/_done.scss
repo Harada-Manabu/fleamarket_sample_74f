@@ -1,0 +1,52 @@
+@import "mixin/footerSub";
+
+.doneBody {
+  width: 100%;
+  height: 100vh;
+  background-color: $smoke;
+
+  .doneheader {
+    height: 128px;
+
+    &__logo {
+      text-align: center;
+      line-height: 128px;
+      position: relative;
+      top: 18px;
+    }
+  }
+  .doneWrapper {
+    width: 700px;
+    margin: 0 auto;
+
+    &__content {
+      background-color: $white;
+      height: 400px;
+      margin-bottom: 100px;
+      margin-top: 30px;
+      text-align: center;
+
+      &__message {
+        font-size: 20px;
+        padding-top: 120px;;
+      }
+
+      &__link {
+        padding-top: 70px;
+
+        &__btn {
+          display: inline-block;
+          background-color: $furimaColor;
+          height: 48px;
+          line-height: 48px;
+          color: $white;
+          font-size: 18px;
+          width: 400px;
+          border: 1px solid $furimaColor;
+        }
+      }
+    }
+  }
+
+  @include footerSub;
+}
