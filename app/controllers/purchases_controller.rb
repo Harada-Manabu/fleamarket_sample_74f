@@ -32,8 +32,21 @@ class PurchasesController < ApplicationController
 
       @exp_month = @customer_card.exp_month.to_s
       @exp_year = @customer_card.exp_year.to_s.slice(2,3)
-    else
     end
+  end
+
+  def pay
+    @good = Good.find_by(params[:id])
+    @card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+
+    charge = Payjp::Charge.create(
+      amount: @good.price,
+      customer: Payjp::Customer.retrieve(@card.customer_id),
+      currency: 'jpy'
+    )
+    
+    redirect_to action: 'done'
   end
 
 end

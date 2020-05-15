@@ -83,7 +83,7 @@
 
 
     .purchasesIndex__contents--button
-      = link_to '購入する', "#"
+      = link_to '購入する', pay_good_purchase_path(id: @good.id), method: :post
 
 
   = render partial: 'modules/footerSub'
