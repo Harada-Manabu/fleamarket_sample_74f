@@ -18,18 +18,29 @@ class GoodsController < ApplicationController
     end
   end
 
-
   def show
+    # do rifactoring
     @good = Good.find_by(params[:id])
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
   end
+
+
   def edit
-    @good = Good.find(params[:id])
+    @good = Good.find_by(params[:id])
+    # 5.times{@good.pictures.new}
+    # 10.times {
+    #   print("Hello¥n")
+    # }
+    # オブジェクト.times {|変数|
+    #   反復実行する処理1
+    #   反復実行する処理2
+    # }
+
   end
   def update
-    good = Good.find(params[:id])
+    good = Good.find_by(params[:id])
     good.update(good_params)
     redirect_to good_path(good.id)
     # 下記：この後updateアクション作成時に活用修正予定です。
@@ -41,6 +52,8 @@ class GoodsController < ApplicationController
     #   render :edit
     # end
   end
+
+
   def destroy
     good = Good.find(params[:id])
     good.destroy
