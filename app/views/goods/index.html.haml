@@ -106,7 +106,7 @@
         %h3.pickupbox__category__head--title  新規投稿商品
     .pickupbox__category__lists
       - @goods.each do |good|
-        -if good.category_id.present?
+        -if good.category_id.blank?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -144,7 +144,7 @@
                         ★0
                     %p.zeikomi (税込)
             - else
-              = link_to top_path(good.id) do
+              = link_to root_path do
                 %figure.pickupbox__category__lists--image
                   = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
@@ -161,7 +161,7 @@
                     %p.zeikomi (税込)
     .pickupbox__category__lists
       - @goods1.each do |good|
-        -if good.category_id.present?
+        -if good.category_id.blank?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -199,7 +199,7 @@
                         ★0
                     %p.zeikomi (税込)
             - else
-              = link_to top_path(good.id) do
+              = link_to root_path do
                 %figure.pickupbox__category__lists--image
                   = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
@@ -216,7 +216,7 @@
                     %p.zeikomi (税込)
     .pickupbox__category__lists
       - @goods2.each do |good|
-        -if deliveryAddresse.telNumber.present?
+        -if good.category_id.blank?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -254,7 +254,7 @@
                         ★0
                     %p.zeikomi (税込)
             - else
-              = link_to top_path(good.id) do
+              = link_to root_path do
                 %figure.pickupbox__category__lists--image
                   = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
