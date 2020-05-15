@@ -38,16 +38,19 @@
       .piPay__title
         支払い方法
       - if @user.credit_card.present?
-        .cardShowContent__main__info__card
-          .cardShowContent__main__info__card__logo
-            = image_tag "#{@card_src}", class: "cardShowContent__main__info__card__logo__logomark", alt: @card_brand
-          .cardShowContent__main__info__card__number
-            = "**** **** **** " + @customer_card.last4
-          .cardShowContent__main__info__card__limit
-            = @exp_month + " / " + @exp_year
-        .cardShowContent__main__info__delete
-          .cardShowContent__main__info__delete__link
-            = link_to "クレジットカード情報を変更する", credit_card_path(current_user.id), class: "cardShowContent__main__info__delete__link__btn"
+        .piPay__card
+          .piPay__card__info
+            .piPay__card__info__payMethod
+              %p クレジットカード
+            .piPay__card__info__number
+              = "**** **** **** " + @customer_card.last4
+            .piPay__card__info__limit
+              = @exp_month + " / " + @exp_year
+            .piPay__card__info__Logo
+              = image_tag "#{@card_src}", class: "cardShowContent__main__info__card__logo__logomark", alt: @card_brand
+          .piPay__cardInfo__delete
+            .cardShowContent__main__info__delete__link
+              = link_to "変更する", credit_card_path(current_user.id), class: "cardShowContent__main__info__delete__link__btn"
 
       -else
         .piPay__down
