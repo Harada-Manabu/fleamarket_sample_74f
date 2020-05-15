@@ -24,8 +24,6 @@ class GoodsController < ApplicationController
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
-    # @parents = Category.all.order("id ASC").limit(13)
-    @parents = Category.where(ancestry:nil)
   end
   def edit
     @good = Good.find(params[:id])
@@ -34,6 +32,7 @@ class GoodsController < ApplicationController
     good = Good.find(params[:id])
     good.update(good_params)
     redirect_to good_path(good.id)
+    # 下記：この後updateアクション作成時に活用修正予定です。
     # @good = Good.find(params[:id])
     # if @good.save
     #   redirect_to good_path
