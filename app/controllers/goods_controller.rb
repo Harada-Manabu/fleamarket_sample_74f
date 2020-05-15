@@ -40,20 +40,13 @@ class GoodsController < ApplicationController
 
   end
   def update
-    good = Good.find_by(params[:id])
-    good.update(good_params)
-    redirect_to good_path(good.id)
-    # 下記：この後updateアクション作成時に活用修正予定です。
-    # @good = Good.find(params[:id])
-    # if @good.save
-    #   redirect_to good_path
-    #   # redirect_to root_path
-    # else
-    #   render :edit
-    # end
+    @good = Good.find_by(params[:id])
+    if @good.update(good_params)
+      redirect_to good_path(@good.id)
+    else
+      render :edit
+    end
   end
-
-
   def destroy
     good = Good.find(params[:id])
     good.destroy
@@ -63,7 +56,7 @@ class GoodsController < ApplicationController
 
   private
   def good_params
-    params.require(:good).permit(:goodsName, :explanation, :category_id, :brand, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, pictures_attributes: [:goodsImage]).merge(user_id: current_user.id)
+    params.require(:good).permit(:goodsName, :explanation, :category_id, :brand, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, pictures_attributes: [:goodsImage, :_destroy, :id]).merge(user_id: current_user.id)
   end
   def set_parents
     @parents = Category.where(ancestry: nil)
