@@ -41,16 +41,16 @@
         .piPay__card
           .piPay__card__info
             .piPay__card__info__payMethod
-              %p クレジットカード
+              クレジットカード
             .piPay__card__info__number
               = "**** **** **** " + @customer_card.last4
             .piPay__card__info__limit
-              = @exp_month + " / " + @exp_year
+              = "有効期限" + " " + "#{@exp_month + " / " + @exp_year}"
             .piPay__card__info__Logo
               = image_tag "#{@card_src}", class: "cardShowContent__main__info__card__logo__logomark", alt: @card_brand
-          .piPay__cardInfo__delete
-            .cardShowContent__main__info__delete__link
-              = link_to "変更する", credit_card_path(current_user.id), class: "cardShowContent__main__info__delete__link__btn"
+          .piPay__card__delete
+            .piPay__card__delete__link
+              = link_to "変更する", credit_card_path(current_user.id), class: "piPay__card__delete__link__btn"
 
       -else
         .piPay__down
@@ -61,7 +61,7 @@
     .purchasesIndex__contents--address
       .piAddress__title
         配送先
-        %span> 変更する
+        %span 変更する
       .piAddress__postCode
         = "〒" + "#{@deliveryAddress.postCode}"
       .piAddress__destination
