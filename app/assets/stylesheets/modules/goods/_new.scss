@@ -69,12 +69,17 @@
             cursor: pointer;
 
             &--form {
-              display: none;
+              font-size: 11px;
+              position: relative;
+              top: 95px;
+              left: 40px;
+              outline: none;
             }
 
             .fas {
               position: relative;
               top: 50px;
+              left: -125px;
               font-size: 20px;
             }
 
