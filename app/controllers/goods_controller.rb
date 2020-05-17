@@ -2,6 +2,9 @@ class GoodsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit, :update, :show]
 
   def index
+    @goods = Good.order('id DESC').limit(3)
+    @goods1 = Good.order('id DESC').limit(3).offset(3)
+    @goods2 = Good.order('id DESC').limit(3).offset(6)
   end
 
   def new
