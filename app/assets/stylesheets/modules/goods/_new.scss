@@ -151,19 +151,51 @@
           }
         }
 
-        .selectBox {
-          display: flex;
-          position: relative;
+        .selectBoxCategory {
+          #parentsWrapper {
+            display: flex;
+            position: relative;
 
-          #good_category_id {
-            @include selectForm;
+            #parentsCategory {
+              @include selectForm;
+            }
+
+            #parentsCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
           }
 
-          #good_category_id:focus {
-            border-color: $borderFocus;
+          #childrenWrapper {
+            display: flex;
+            position: relative;
+
+            #childrenCategory {
+              @include selectForm;
+            }
+
+            #childrenCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
           }
 
-          @include dropDown;
+          #grandChildrenWrapper {
+            display: flex;
+            position: relative;
+
+            #grandChildrenCategory {
+              @include selectForm;
+            }
+
+            #grandChildrenCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
+          }
         }
 
 
