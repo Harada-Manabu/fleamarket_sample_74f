@@ -21,11 +21,11 @@ class GoodsController < ApplicationController
   end
 
   def categoryChildren  
-    @categoryChildren = Category.find(params[:goodCategory]).children 
+    @categoryChildren = Category.find(params[:selectedCategory]).children 
   end
 
   def categoryGrandChildren
-    @categoryGrandChildren = Category.find(params[:goodCategory]).children
+    @categoryGrandChildren = Category.find(params[:selectedCategory]).children
   end
 
 

@@ -33,13 +33,13 @@ $(function () {
 
 
   $(document).on('change', '#parentsCategory', function () {
-    let goodCategory = document.getElementById('parentsCategory').value;
-    if (goodCategory != '') {
+    let selectedCategory = document.getElementById('parentsCategory').value;
+    if (selectedCategory != '') {
       $.ajax({
           url: 'categoryChildren',
           type: 'GET',
           data: {
-            goodCategory: goodCategory
+            selectedCategory: selectedCategory
           },
           dataType: 'json'
         })
@@ -62,13 +62,13 @@ $(function () {
 
 
   $(document).on('change', '#childrenCategory', function () {
-    let goodCategory = document.getElementById('childrenCategory').value;
-    if (goodCategory != '') {
+    let selectedCategory = document.getElementById('childrenCategory').value;
+    if (selectedCategory != '') {
       $.ajax({
           url: 'categoryGrandChildren',
           type: 'GET',
           data: {
-            goodCategory: goodCategory
+            selectedCategory: selectedCategory
           },
           dataType: 'json'
         })
