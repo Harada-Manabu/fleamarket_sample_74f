@@ -137,15 +137,5 @@ Flea Market app
 
 - has_many :goods
 
-## purchases Table
-
-| Column       | Type    | Options                       |
-| ----------   | ------- | ----------------------------- |
-| good_id      | integer | null: false,foreign_key: true |
-| purchaser_id | string  |                               |
-
-### Association
-
-- belongs_to :good
 
 ---
