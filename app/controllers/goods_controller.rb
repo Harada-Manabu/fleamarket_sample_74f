@@ -1,5 +1,6 @@
 class GoodsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :edit, :update, :show]
+  before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @goods = Good.order('id DESC').limit(3)
@@ -9,7 +10,7 @@ class GoodsController < ApplicationController
 
   def new
     @good = Good.new
-    5.times{@good.pictures.new}
+    5.times{@good.pictures.new} 
   end
 
   def create
@@ -17,8 +18,16 @@ class GoodsController < ApplicationController
     if @good.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_good_path
     end
+  end
+
+  def categoryChildren  
+    @categoryChildren = Category.find(params[:selectedCategory]).children 
+  end
+
+  def categoryGrandChildren
+    @categoryGrandChildren = Category.find(params[:selectedCategory]).children
   end
 
 
@@ -26,11 +35,13 @@ class GoodsController < ApplicationController
     @good = Good.find_by(params[:id])
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
-    @category = Category.find_by(id: @good.category_id)
+    @category = Category.find_by(id: @good.category_id)  
   end
+
   def edit
     @good = Good.find(params[:id])
   end
+  
   def update
     good = Good.find(params[:id])
     good.update(good_params)
@@ -44,6 +55,7 @@ class GoodsController < ApplicationController
     #   render :edit
     # end
   end
+
   def destroy
     good = Good.find(params[:id])
     good.destroy
@@ -59,4 +71,11 @@ class GoodsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def login_check
+    redirect_to root_path unless user_signed_in?
+  end
 end
