@@ -103,7 +103,26 @@
         %h3.pickupbox__category__head--title  新規投稿商品
     .pickupbox__category__lists
       - @goods.each do |good|
-        -if good.category_id.blank?
+        -# -if good.category_id.blank?
+        -#   .pickupbox__category__list
+        -#     %figure.pickupbox__category__lists--image
+        -#       .goods-box_photo__sold
+        -#         .goods-box_photo__sold__inner
+        -#           SOLD
+        -#       = image_tag good.pictures[0].goodsImage.url
+        -#     .pickupbox__category__list--text
+        -#       %h3.name 
+        -#         = good.goodsName
+        -#       .syosai
+        -#         %ul
+        -#           %li<> 
+        -#             = good.price 
+        -#             円
+        -#           %li
+        -#             %i.fa  
+        -#             ★0
+        -#         %p.zeikomi (税込)
+        -if good.buyer_id.present?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -122,6 +141,7 @@
                     %i.fa  
                     ★0
                 %p.zeikomi (税込)
+
         -else
           .pickupbox__category__list
             - if user_signed_in?
