@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
   root 'goods#index'
   resources :goods, except: :index do
-    resources :purchases, only: :index
+    resources :purchases, only: :index do
+      member do
+        post 'pay'
+        get 'done'
+      end
+    end
   end
   resources :users, only: :show
   resources :credit_cards, only: [:new, :create, :show, :destroy]

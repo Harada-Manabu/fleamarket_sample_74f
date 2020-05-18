@@ -65,6 +65,10 @@
 
             &--fee {
               font-size: 12px;
+
+              &--notInclude {
+                color: red;
+              }
             }
           }
         }
@@ -80,7 +84,6 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-
 
         &--title {
           font-size: 17px;
@@ -118,19 +121,31 @@
       margin: 0 auto;
       padding: 32px 0;
 
+
       .piPay__title {
         font-size: 14px;
         font-weight: 600;
       }
 
+      .piPay__card {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-top: 8px;
+
+        &__delete__link__btn{
+          color: $linkBlue;
+        }
+      }
+
       .piPay__down {
         .fa-plus-circle {
-          font-size: 14px;
+          font-size: 13px;
           color: $linkBlue;
         }
 
         a {
-          font-size: 14px;
+          font-size: 13px;
           text-decoration: none;
           color: $linkBlue;
         }
@@ -157,7 +172,7 @@
       }
 
       .piAddress__postCode {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 8px;
       }
 
@@ -190,6 +205,20 @@
       width: 343px;
       margin: 0 auto;
       padding-bottom: 32px;
+
+      &--message {
+        display: block;
+        width: 343px;
+        margin: 0 auto;
+        background-color: $furimaColor;
+        min-height: 48px;
+        line-height: 48px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        color: $white;
+      }
 
       a {
         display: block;
