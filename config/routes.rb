@@ -12,10 +12,15 @@ Rails.application.routes.draw do
 
   root 'goods#index'
   resources :goods, except: :index do
-    resources :purchases, only: :index
     collection do
       get 'categoryChildren' 
       get 'categoryGrandChildren'
+    end
+    resources :purchases, only: :index do
+      member do
+        post 'pay'
+        get 'done'
+      end
     end
   end
   resources :users, only: :show
