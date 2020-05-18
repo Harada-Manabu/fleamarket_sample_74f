@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :goods
   has_one :identification
   has_one :deliveryAddress
+  has_one :credit_card, dependent: :destroy
   
   validates :nickname, presence: true
 

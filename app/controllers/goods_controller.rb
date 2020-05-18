@@ -1,9 +1,11 @@
 class GoodsController < ApplicationController
-  before_action :set_parents, only: [:new, :create, :edit, :update]
-
+  before_action :set_parents, only: [:new, :create, :edit, :update, :show]
   before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @goods = Good.order('id DESC').limit(3)
+    @goods1 = Good.order('id DESC').limit(3).offset(3)
+    @goods2 = Good.order('id DESC').limit(3).offset(6)
   end
 
   def new
@@ -44,6 +46,14 @@ class GoodsController < ApplicationController
     good = Good.find(params[:id])
     good.update(good_params)
     redirect_to good_path(good.id)
+    # 下記：この後updateアクション作成時に活用修正予定です。
+    # @good = Good.find(params[:id])
+    # if @good.save
+    #   redirect_to good_path
+    #   # redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
@@ -56,6 +66,9 @@ class GoodsController < ApplicationController
   private
   def good_params
     params.require(:good).permit(:goodsName, :explanation, :category_id, :brand, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, pictures_attributes: [:goodsImage]).merge(user_id: current_user.id)
+  end
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
   def set_parents
