@@ -3,10 +3,10 @@ class PurchasesController < ApplicationController
   require "payjp"
 
   def index
-    @good = Good.find_by(params[:id])
+    @user = current_user
+    @good = Good.find(params[:good_id])
     @picture = Picture.find_by(id: @good.pictures.ids)
     @deliveryAddress = DeliveryAddress.find_by(user_id: current_user.id)
-    @user = current_user
 
     if @user.credit_card.present?
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -36,7 +36,7 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @good = Good.find_by(params[:id])
+    @good = Good.find(params[:good_id])
     @card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
