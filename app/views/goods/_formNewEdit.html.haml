@@ -93,7 +93,10 @@
           .price__profit__wrap--result ―
 
       .goodsNew__form__exibition
-        = f.submit '出品する', class: 'exibition__btn'
+        - if @good.goodsName?
+          = f.submit '編集する', class: 'exibition__btn'
+        - else
+          = f.submit '出品する', class: 'exibition__btn'
         %button.draft__btn 下書きに保存
         = link_to 'もどる', root_path, class: 'back__top__link'
         %p.exibitionNote
