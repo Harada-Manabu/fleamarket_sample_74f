@@ -109,7 +109,7 @@
               .goods-box_photo__sold
                 .goods-box_photo__sold__inner
                   SOLD
-              - if good.pictures
+              - if good.pictures[0].goodsImage.present?
                 = image_tag good.pictures[0].goodsImage.url
             .pickupbox__category__list--text
               %h3.name 
@@ -128,7 +128,7 @@
             - if user_signed_in?
               = link_to good_path(good.id) do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
@@ -145,7 +145,7 @@
             - else
               = link_to root_path do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
@@ -167,7 +167,7 @@
               .goods-box_photo__sold
                 .goods-box_photo__sold__inner
                   SOLD
-              - if good.pictures
+              - if good.pictures[0].goodsImage.present?
                 = image_tag good.pictures[0].goodsImage.url
             .pickupbox__category__list--text
               %h3.name 
@@ -186,7 +186,7 @@
             - if user_signed_in?
               = link_to good_path(good.id) do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
@@ -203,7 +203,7 @@
             - else
               = link_to root_path do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
@@ -225,7 +225,7 @@
               .goods-box_photo__sold
                 .goods-box_photo__sold__inner
                   SOLD
-              - if good.pictures
+              - if good.pictures[0].goodsImage.present?
                 = image_tag good.pictures[0].goodsImage.url
             .pickupbox__category__list--text
               %h3.name 
@@ -244,7 +244,7 @@
             - if user_signed_in?
               = link_to good_path(good.id) do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
@@ -261,7 +261,7 @@
             - else
               = link_to root_path do
                 %figure.pickupbox__category__lists--image
-                  - if good.pictures
+                  - if good.pictures[0].goodsImage.present?
                     = image_tag good.pictures[0].goodsImage.url
                 .pickupbox__category__list--text
                   %h3.name 
