@@ -107,13 +107,13 @@ Flea Market app
 | prefecture_id  | integer | null: false                    |
 | deliveryDay    | string  | null: false                    |
 | price          | integer | null: false                    |
+| buyer_id       | integer |                                |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :category
 - has_many :pictures
-- has_one :purchase
 
 ## pictures Table
 
