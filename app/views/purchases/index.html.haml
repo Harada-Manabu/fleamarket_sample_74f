@@ -43,7 +43,7 @@
     .purchasesIndex__contents--pay
       .piPay__title
         支払い方法
-      - if @user.credit_card.present?
+      - if current_user.credit_card.present?
         .piPay__card
           .piPay__card__info
             .piPay__card__info__payMethod
@@ -83,7 +83,7 @@
 
 
     .purchasesIndex__contents--button
-      - if @user.credit_card.present?
+      - if current_user.credit_card.present?
         .purchasesIndex__contents--button--purchase
           = link_to '購入する', pay_good_purchase_path(id: @good.id), method: :post
       - else

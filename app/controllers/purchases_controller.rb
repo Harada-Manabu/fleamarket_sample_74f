@@ -3,12 +3,11 @@ class PurchasesController < ApplicationController
   require "payjp"
 
   def index
-    @user = current_user
     @good = Good.find(params[:good_id])
     @picture = Picture.find_by(id: @good.pictures.ids)
     @deliveryAddress = DeliveryAddress.find_by(user_id: current_user.id)
 
-    if @user.credit_card.present?
+    if current_user.credit_card.present?
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       @card = CreditCard.find_by(user_id: current_user.id)
       customer = Payjp::Customer.retrieve(@card.customer_id)
