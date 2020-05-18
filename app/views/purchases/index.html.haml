@@ -71,7 +71,7 @@
       .piAddress__postCode
         = "〒" + "#{@deliveryAddress.postCode.to_s.insert(3, "-")}"
       .piAddress__destination
-        = "#{@good.prefecture.name}" + "#{@deliveryAddress.city}" + "#{@deliveryAddress.address}"
+        = "#{@deliveryAddress.prefecture.name}" + "#{@deliveryAddress.city}" + "#{@deliveryAddress.address}"
       .piAddress__name
         = @deliveryAddress.buildingName
 
