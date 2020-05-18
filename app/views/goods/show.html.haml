@@ -31,12 +31,10 @@
                     %li= link_to "削除", good_path(@good.id), method: :delete, class:"moreDelete"
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOne
                 - picFirst = @pictures.first
-                - if picFirst.goodsImage.present?  
-                  = image_tag picFirst.goodsImage.url, class: "photoOneX", size: "520x280"
+                = image_tag picFirst.goodsImage.url, class: "photoOneX", size: "520x280"
               .selectContent__selectContentPhotos__selectContentPhotosPhoto__selectContentPhotosPhotoOther
                 - @pictures.each do |pics|
-                  - if pics.goodsImage.present?
-                    = image_tag pics.goodsImage.url, class: "photoOtherX", size: "124x120"
+                  = image_tag pics.goodsImage.url, class: "photoOtherX", size: "124x120"
         .selectPriceBox
           .selectPriceBox__selectPriceBoxMoney
             %i.fas.fa-yen-sign.iconYen
