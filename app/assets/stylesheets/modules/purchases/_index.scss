@@ -206,6 +206,20 @@
       margin: 0 auto;
       padding-bottom: 32px;
 
+      &--message {
+        display: block;
+        width: 343px;
+        margin: 0 auto;
+        background-color: $furimaColor;
+        min-height: 48px;
+        line-height: 48px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        color: $white;
+      }
+
       a {
         display: block;
         width: 343px;

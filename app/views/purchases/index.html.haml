@@ -69,7 +69,7 @@
         配送先
         %span 変更する
       .piAddress__postCode
-        = "〒" + "#{@deliveryAddress.postCode}"
+        = "〒" + "#{@deliveryAddress.postCode.to_s.insert(3, "-")}"
       .piAddress__destination
         = "#{@good.prefecture.name}" + "#{@deliveryAddress.city}" + "#{@deliveryAddress.address}"
       .piAddress__name
@@ -83,7 +83,13 @@
 
 
     .purchasesIndex__contents--button
-      = link_to '購入する', pay_good_purchase_path(id: @good.id), method: :post
+      - if @user.credit_card.present?
+        .purchasesIndex__contents--button--purchase
+          = link_to '購入する', pay_good_purchase_path(id: @good.id), method: :post
+      - else
+        .purchasesIndex__contents--button--message
+          クレジットカードが登録されていません
+
 
 
   = render partial: 'modules/footerSub'
