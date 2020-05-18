@@ -1,9 +1,9 @@
 class PurchasesController < ApplicationController
 
+  before_action :set_good, only: [:index, :pay]
   require "payjp"
 
   def index
-    @good = Good.find(params[:good_id])
     @picture = Picture.find_by(id: @good.pictures.ids)
     @deliveryAddress = DeliveryAddress.find_by(user_id: current_user.id)
 
@@ -35,7 +35,6 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @good = Good.find(params[:good_id])
     @card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
@@ -46,6 +45,10 @@ class PurchasesController < ApplicationController
     )
     
     redirect_to action: 'done'
+  end
+
+  def set_good
+    @good = Good.find(params[:good_id])
   end
 
 end
