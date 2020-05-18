@@ -7,6 +7,10 @@ class GoodsController < ApplicationController
   def new
     @good = Good.new
     5.times{@good.pictures.new}
+
+
+    @pictures = Picture.where(id: @good.pictures.ids)
+
   end
 
   def create
@@ -20,7 +24,7 @@ class GoodsController < ApplicationController
 
   def show
     # do rifactoring
-    @good = Good.find_by(params[:id])
+    @good = Good.find_by(id: params[:id])
     @user = User.find_by(params[:id])
     @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
@@ -28,7 +32,8 @@ class GoodsController < ApplicationController
 
 
   def edit
-    @good = Good.find_by(params[:id])
+    @good = Good.find_by(id: params[:id])
+    # 繰り返しプレビュー
     # 5.times{@good.pictures.new}
     # 10.times {
     #   print("Hello¥n")
@@ -37,10 +42,12 @@ class GoodsController < ApplicationController
     #   反復実行する処理1
     #   反復実行する処理2
     # }
+    @pictures = Picture.where(id: @good.pictures.ids)
+
 
   end
   def update
-    @good = Good.find_by(params[:id])
+    @good = Good.find_by(id: params[:id])
     if @good.update(good_params)
       redirect_to good_path(@good.id)
     else

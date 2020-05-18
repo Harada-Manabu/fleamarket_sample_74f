@@ -17,6 +17,14 @@
               = p.file_field :goodsImage, class: "pic__select__label--form"
               %i.fas.fa-camera
               .pic__text クリックしてファイルをアップロード
+              -# = image_tag picture.name.url(:thumb) if picture.name?
+              - @pictures.each do |pics|
+                = image_tag pics.goodsImage.url, class: "photoOtherX", size: "124x120"
+              -# .pic__text クリックしてファイルをアップロード
+              -# = image_tag @good.images.first.name.to_s
+              -# - product.images.each do |image|
+              -#   = image_tag image.src.url
+
 
       .goodsNew__form__name
         .name__title
