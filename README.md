@@ -113,6 +113,7 @@ Flea Market app
 - belongs_to :user
 - belongs_to :category
 - has_many :pictures
+- has_one :purchase
 
 ## pictures Table
 
@@ -135,5 +136,16 @@ Flea Market app
 ### Association
 
 - has_many :goods
+
+## purchases Table
+
+| Column       | Type    | Options                       |
+| ----------   | ------- | ----------------------------- |
+| good_id      | integer | null: false,foreign_key: true |
+| purchaser_id | string  |                               |
+
+### Association
+
+- belongs_to :good
 
 ---
