@@ -1,17 +1,37 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login7
+  .header8
+    = image_tag asset_path("logo.png"), size: "200x60"
+  .login
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .address
+        = f.label :email,"メールアドレス"
+        .address__1
+          .address__1__2
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .password
+        = f.label :password,"パスワード"
+        .password__3
+          .password__3__4
+            = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .path
+          .path__5
+            = f.check_box :remember_me
+          .path__6
+            = f.label :remember_me
+        .actions
+          %input#submit_button{:name => "submit", :type => "submit", :value => "ログイン"}/
+        .notes
+          = render "devise/shared/links"
+  .footerr
+    .title
+      .title__one
+        プライバシーポリシー
+      .title__tow
+        メルカリ利用規約
+      .title__three
+        特定商取引に関する表記
+    .items
+      = image_tag asset_path("logo-white.png"), size: "200x60"
+    .logos
+      © FURIMA, Inc.
