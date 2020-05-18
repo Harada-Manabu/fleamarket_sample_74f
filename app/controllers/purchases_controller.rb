@@ -48,8 +48,8 @@ class PurchasesController < ApplicationController
   end
 
   def done
-    @parchase = Good.find(params[:good_id])
-    @parchase.update(purchaser_id: current_user.id)
+    @good_buyer = Good.find(params[:good_id])
+    @good_buyer.update(buyer_id: current_user.id)
   end
 
   def set_good
