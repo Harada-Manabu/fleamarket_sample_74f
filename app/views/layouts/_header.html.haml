@@ -26,7 +26,7 @@
 
       - if user_signed_in?
         %li 
-          = link_to "#" do
+          = link_to user_path(current_user.id) do
             %i{class: "fas fa-smile"}
             マイページへ
         %li
