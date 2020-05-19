@@ -81,20 +81,6 @@
         %li メンズ
         %li 家電・スマホ・カメラ
         %li おもちゃ・ボビー・グッズ
-  .top-main__contents
-    %h2 レディース新着アイテム
-    = link_to "#", class:"link-blue" do
-      もっと見る
-      %i{class: "fas fa-chevron-right"}
-  - for i in 1..2
-    .top-main__products
-      - for j in 1..5
-        .top-main__products__puroduct
-          = image_tag ""
-          .top-main__products__puroducts__price
-            ¥2,000
-          .top-main__products__puroducts__text
-            snoopy
 %section.pickupbox 
   %h2.pickupbox--title ピックアップカテゴリー
   .pickupbox__category
@@ -103,25 +89,6 @@
         %h3.pickupbox__category__head--title  新規投稿商品
     .pickupbox__category__lists
       - @goods.each do |good|
-        -# -if good.category_id.blank?
-        -#   .pickupbox__category__list
-        -#     %figure.pickupbox__category__lists--image
-        -#       .goods-box_photo__sold
-        -#         .goods-box_photo__sold__inner
-        -#           SOLD
-        -#       = image_tag good.pictures[0].goodsImage.url
-        -#     .pickupbox__category__list--text
-        -#       %h3.name 
-        -#         = good.goodsName
-        -#       .syosai
-        -#         %ul
-        -#           %li<> 
-        -#             = good.price 
-        -#             円
-        -#           %li
-        -#             %i.fa  
-        -#             ★0
-        -#         %p.zeikomi (税込)
         -if good.buyer_id.present?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
@@ -285,8 +252,20 @@
                       %li
                         %i.fa  
                         ★0
-                    %p.zeikomi (税込)            
-
+                    %p.zeikomi (税込)
+  .top-main__contents
+    %h2 レディース新着アイテム
+    = link_to "#", class:"link-blue" do
+      もっと見る
+      %i{class: "fas fa-chevron-right"}
+  - for i in 1..2
+    .top-main__products
+      - for j in 1..5
+        .top-main__products__puroduct
+          = image_tag ""
+          .top-main__products__puroducts__price
+          .top-main__products__puroducts__text
+            
 
 .footer-image
   .footer-image__text
