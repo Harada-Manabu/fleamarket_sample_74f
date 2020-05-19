@@ -129,7 +129,7 @@
 
     .pickupbox__category__lists
       - @goods1.each do |good|
-        -if good.category_id.blank?
+        -if good.buyer_id.present?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -150,41 +150,25 @@
                 %p.zeikomi (税込)
         -else
           .pickupbox__category__list
-            - if user_signed_in?
-              = link_to good_path(good.id) do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goodsName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
-            - else
-              = link_to root_path do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goodsName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goodsName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
     .pickupbox__category__lists
       - @goods2.each do |good|
-        -if good.category_id.blank?
+        -if good.buyer_id.present?
           .pickupbox__category__list
             %figure.pickupbox__category__lists--image
               .goods-box_photo__sold
@@ -205,38 +189,22 @@
                 %p.zeikomi (税込)
         -else
           .pickupbox__category__list
-            - if user_signed_in?
-              = link_to good_path(good.id) do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goosdName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
-            - else
-              = link_to root_path do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goodsName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goosdName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
   .top-main__contents
     %h2 レディース新着アイテム
     = link_to "#", class:"link-blue" do
