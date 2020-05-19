@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 2020_05_18_134520) do
     t.index ["good_id"], name: "index_pictures_on_good_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "good_id", null: false
+    t.string "purchaser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["good_id"], name: "index_purchases_on_good_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,4 +114,5 @@ ActiveRecord::Schema.define(version: 2020_05_18_134520) do
   add_foreign_key "goods", "users"
   add_foreign_key "identifications", "users"
   add_foreign_key "pictures", "goods"
+  add_foreign_key "purchases", "goods"
 end
