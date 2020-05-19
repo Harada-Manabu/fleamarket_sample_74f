@@ -47,6 +47,11 @@ class PurchasesController < ApplicationController
     redirect_to action: 'done'
   end
 
+  def done
+    @good = Good.find(params[:good_id])
+    @good.update(buyer_id: current_user.id)
+  end
+
   def set_good
     @good = Good.find(params[:good_id])
   end
