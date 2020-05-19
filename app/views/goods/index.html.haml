@@ -111,38 +111,22 @@
 
         -else
           .pickupbox__category__list
-            - if user_signed_in?
-              = link_to good_path(good.id) do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goodsName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
-            - else
-              = link_to root_path do
-                %figure.pickupbox__category__lists--image
-                  = image_tag good.pictures[0].goodsImage.url
-                .pickupbox__category__list--text
-                  %h3.name 
-                    = good.goodsName
-                  .syosai
-                    %ul
-                      %li<> 
-                        = good.price 
-                        円
-                      %li
-                        %i.fa  
-                        ★0
-                    %p.zeikomi (税込)
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goodsName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
     .pickupbox__category__lists
       - @goods1.each do |good|
         -if good.category_id.blank?
@@ -262,7 +246,6 @@
     .top-main__products
       - for j in 1..5
         .top-main__products__puroduct
-          = image_tag ""
           .top-main__products__puroducts__price
           .top-main__products__puroducts__text
             
