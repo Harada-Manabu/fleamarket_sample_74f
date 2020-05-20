@@ -1,0 +1,20 @@
+%body
+  .wrapper 
+    = render partial: "/layouts/header"
+    .show_main
+      = render "side"
+      .mypage-content
+        .mypage-content__chapter-container
+          .signup-main__inner
+            .signup-main__content
+              = link_to destroy_user_session_path, method: :delete, class: 'signup-main__btn-default signup-main__btn-color' do
+                ログアウト
+.footer-image
+  .footer-image__text
+    .footer-image__text__top
+      スマホでかんたんフリマアプリ
+    .footer-image__text__bottom
+      今すぐ無料ダウンロード！
+    %a{href: "", class:"app-store"}
+    %a{href: "", class:"google-play"}
+= render partial: "/layouts/footer"

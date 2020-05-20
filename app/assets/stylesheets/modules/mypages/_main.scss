@@ -9,7 +9,7 @@
       &__area{
         display: flex;
         justify-content: space-between;
-        background-color: #fff;
+        background-color: $white;
         padding: 16px;
         margin-bottom: 1px;
         width: 300px;
@@ -28,7 +28,7 @@
       &__tab{
         display: flex;
         list-style: none;
-        background-color: #fff;
+        background-color: $white;
         .tab{
           width: 50%;
           height: 50px;
@@ -37,7 +37,7 @@
           background-color: rgb(216, 216, 216);
         }
         .tab.is-active{
-          background-color: #fff;
+          background-color: $white;
         }
       }
       .panel{
@@ -53,7 +53,7 @@
           display: flex;
           height: auto;
           padding: 10px;
-          background-color: #fff;
+          background-color: $white ;
           margin-bottom: 1px;
           &--icon{
             height: 50px;
@@ -92,7 +92,7 @@
         &__none{
           color: rgb(175, 175, 175);
           padding: 150px 200px;
-          background-color: #fff;
+          background-color: $white;
         }
       }
     }
@@ -128,7 +128,7 @@
       &__tab{
         display: flex;
         list-style: none;
-        background-color: #fff;
+        background-color: $white;
         .tab_upper{
           width: 50%;
           height: 50px;
@@ -137,7 +137,7 @@
           background-color: rgb(216, 216, 216);
         }
         .tab_upper.active_upper{
-          background-color: #fff;
+          background-color: $white;
         }
       }
       .panel_upper{
@@ -153,7 +153,7 @@
           display: flex;
           height: auto;
           padding: 10px;
-          background-color: #fff;
+          background-color: $white;
           margin-bottom: 1px;
           &--icon{
             height: 50px;
@@ -192,7 +192,7 @@
         &__none{
           color: rgb(175, 175, 175);
           padding: 150px 200px;
-          background-color: #fff;
+          background-color: $white;
         }
       }
     }
@@ -203,7 +203,7 @@
       &__tab{
         display: flex;
         list-style: none;
-        background-color: #fff;
+        background-color: $white;
         .tab_lower{
           width: 50%;
           height: 50px;
@@ -212,7 +212,7 @@
           background-color: rgb(216, 216, 216);
         }
         .tab_lower.active_lower{
-          background-color: #fff;
+          background-color: $white;
         }
       }
       .panel_lower{
@@ -227,7 +227,7 @@
           display: flex;
           height: auto;
           padding: 10px;
-          background-color: #fff;
+          background-color: $white;
           margin-bottom: 1px;
           &--icon{
             height: 50px;
@@ -266,7 +266,7 @@
         &__none{
           color: rgb(175, 175, 175);
           padding: 150px 200px;
-          background-color: #fff;
+          background-color: $white;
 
         }
       }

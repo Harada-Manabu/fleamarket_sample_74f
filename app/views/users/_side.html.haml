@@ -107,7 +107,7 @@
         発送元・お届け先住所変更
       .show_main__left__list__area--next_icon
         ＞
-  = link_to credit_card_path do
+  = link_to credit_card_path(current_user) do
     .show_main__left__list__area
       .show_main__left__list__area--text
         支払い方法
@@ -131,7 +131,7 @@
         電話番号の確認
       .show_main__left__list__area--next_icon
         ＞
-  = link_to destroy_user_session_path, method: :delete do
+  = link_to "/users/#{current_user.id}/logout" do
     .show_main__left__list__area
       .show_main__left__list__area--text
         ログアウト
