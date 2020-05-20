@@ -1,8 +1,10 @@
 require 'rails_helper'
 describe CreditCard do
   describe '#create' do
-    it "user_idが無い場合は登録できないこと" do
-      credit_card = CreditCard.new(user_id: "", customer_id: "cus_123334444frg33rff", card_id: "car_kfjfd4456j90fji")
+    it "全て存在すれば登録できること" do
+      user = create(:user)
+      credit_card = build(:credit_card, user_id: user.id)
+      expect(credit_card).to be_valid
     end
   end
 end
