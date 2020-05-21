@@ -131,7 +131,7 @@
         電話番号の確認
       .show_main__left__list__area--next_icon
         ＞
-  = link_to "/users/#{current_user.id}/logout" do
+  = link_to user_logout_path(current_user) do
     .show_main__left__list__area
       .show_main__left__list__area--text
         ログアウト
