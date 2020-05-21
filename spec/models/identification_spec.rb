@@ -66,14 +66,5 @@ describe Identification do
     identification.valid?
     expect(identification.errors[:firstNameKana]).to include("は全角ひらがなで入力してください")
   end
-
-
-
-
-
-
-
-
-
   end
 end
