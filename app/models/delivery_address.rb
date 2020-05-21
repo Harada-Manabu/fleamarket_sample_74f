@@ -12,5 +12,5 @@ class DeliveryAddress < ApplicationRecord
                                               }
 
   validates :postCode, length: { is: 7}, presence: true
-                                                
+
 end
