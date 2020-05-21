@@ -16,17 +16,17 @@ class PurchasesController < ApplicationController
       @card_brand = @customer_card.brand
       case @card_brand
       when "Visa"
-        @card_src = "visa-logo"
+        @card_src = "visa-logo.gif"
       when "MasterCard"
-        @card_src = "mastercard-logo"
+        @card_src = "mastercard-logo.gif"
       when "JCB"
-        @card_src = "jcb-logo"
+        @card_src = "jcb-logo.gif"
       when "American Express"
-        @card_src = "amex-logo"
+        @card_src = "amex-logo.gif"
       when "Diners Club"
-        @card_src = "diners-logo"
+        @card_src = "diners-logo.gif"
       when "Discover"
-        @card_src = "discover-logo"
+        @card_src = "discover-logo.gif"
       end
 
       @exp_month = @customer_card.exp_month.to_s
