@@ -22,13 +22,13 @@ ja:
       identification:
         familyName: お名前（姓）
         firstName: お名前（名）
-        familyNameKana: お名前（せい）
-        firstNameKana: お名前（めい）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
       delivery_address: 
         familyName: お名前（姓）
         firstName: お名前（名）
-        familyNameKana: お名前（せい）
-        firstNameKana: お名前（めい）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
         postCode: 郵便番号
         prefecture_id: 都道府県
         city: 市区町村
