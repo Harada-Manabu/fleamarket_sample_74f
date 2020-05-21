@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      identification: 本人確認情報
       destination: 送付先住所
       item: 商品
     attributes:
@@ -17,6 +18,12 @@ ja:
         birth_year: 年
         birth_month: 月
         birth_day: 日
+        identification: 本人情報
+      identification:
+        familyName: お名前（姓）
+        firstName: お名前（名）
+        familyNameKana: お名前（せい）
+        firstNameKana: お名前（めい）
       destination: 
         post_code: 郵便番号
         prefecture_code: 都道府県
