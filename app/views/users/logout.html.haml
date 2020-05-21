@@ -15,6 +15,9 @@
       スマホでかんたんフリマアプリ
     .footer-image__text__bottom
       今すぐ無料ダウンロード！
-    %a{href: "", class:"app-store"}
-    %a{href: "", class:"google-play"}
+    .footer-image__text__appbtn 
+      =link_to "" do
+        = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
+      =link_to "h" do
+        = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
 = render partial: "/layouts/footer"

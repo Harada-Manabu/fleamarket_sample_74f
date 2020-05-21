@@ -31,7 +31,7 @@
       %h3.list__sub
         %span シンプル
         で使いやすい
-      %p.list__explain めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %p.list__explain めんどくさい入力は2必要なく、検索も購入もスムーズ！
     %li.list--last
       .list__gazo
         %span.number 3
@@ -224,8 +224,11 @@
       スマホでかんたんフリマアプリ
     .footer-image__text__bottom
       今すぐ無料ダウンロード！
-    %a{href: "", class:"app-store"}
-    %a{href: "", class:"google-play"}
+    .footer-image__text__appbtn 
+      =link_to "" do
+        = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
+      =link_to "" do
+        = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
 
 
 = render "layouts/footer"
