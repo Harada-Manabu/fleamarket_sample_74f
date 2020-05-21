@@ -7,7 +7,7 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "nicknameがなければ登録できない" do
+    it "ニックネームがなければ登録できない" do
       user = build(:user, nickname: nil)
       user.valid?
       expect(user.errors[:nickname]).to include("を入力してください")
