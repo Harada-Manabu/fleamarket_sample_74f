@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
     @deliveryAddress = DeliveryAddress.find_by(user_id: current_user.id)
 
     if current_user.credit_card.present?
-      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       @card = CreditCard.find_by(user_id: current_user.id)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @customer_card = customer.cards.retrieve(@card.card_id)
@@ -36,7 +36,7 @@ class PurchasesController < ApplicationController
 
   def pay
     @card = CreditCard.find_by(user_id: current_user.id)
-    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 
     charge = Payjp::Charge.create(
       amount: @good.price,
