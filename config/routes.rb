@@ -23,6 +23,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :users, only: :show
+  resources :users,  only: :show
   resources :credit_cards, only: [:new, :create, :show, :destroy]
 end
