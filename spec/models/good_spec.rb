@@ -17,49 +17,64 @@ describe Good do
     end
 
     it "goodsNameが空だと登録できない" do
-      good = build(:good, goodsName: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, goodsName: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:goodsName]).to include("を入力してください")
     end
 
     it "explanationが空だと登録できない" do
-      good = build(:good, explanation: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, explanation: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:explanation]).to include("を入力してください")
     end
 
     it "categoryが空だと登録できない" do
-      good = build(:good, category: nil)
+      user = create(:user)
+      good = build(:good, user_id: user.id)
       good.valid?
       expect(good.errors[:category]).to include("を入力してください")
     end
 
     it "goodsConditionが空だと登録できない" do
-      good = build(:good, goodsCondition: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, goodsCondition: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:goodsCondition]).to include("を入力してください")
     end
 
     it "deliveryFeeが空だと登録できない" do
-      good = build(:good, deliveryFee: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, deliveryFee: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:deliveryFee]).to include("を入力してください")
     end
 
     it "prefecture_idが空だと登録できない" do
-      good = build(:good, prefecture_id: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, prefecture_id: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:prefecture_id]).to include("を入力してください")
     end
 
     it "deliveryDayが空だと登録できない" do
-      good = build(:good, deliveryDay: "")
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, deliveryDay: "", user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:deliveryDay]).to include("を入力してください")
     end
 
     it "priceが空だと登録できない" do
-      good = build(:good, price: nil)
+      user = create(:user)
+      category = create(:category)
+      good = build(:good, price: nil, user_id: user.id, category_id: category.id)
       good.valid?
       expect(good.errors[:price]).to include("を入力してください")
     end
