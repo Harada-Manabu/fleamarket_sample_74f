@@ -1,16 +1,17 @@
 class GoodsController < ApplicationController
-  before_action :set_parents, only: [:new, :create, :edit, :update, :show]
+  before_action :set_parents, only: [:new, :create, :show, :edit, :update]
+  before_action :set_good, only: [:show, :edit, :update, :destroy]
+  # before_action :set_good, only: [:show, :edit, :update]
+  before_action :set_pictures, only: [:show, :edit, :update, :destroy]
+  # before_action :set_pictures, only: [:show, :edit, :update]
+
 
   def index
   end
 
   def new
     @good = Good.new
-    5.times{@good.pictures.new}
-
-
-    @pictures = Picture.where(id: @good.pictures.ids)
-
+    @good.pictures.new
   end
 
   def create
@@ -23,50 +24,48 @@ class GoodsController < ApplicationController
   end
 
   def show
-    # do rifactoring
-    @good = Good.find_by(id: params[:id])
     @user = User.find_by(params[:id])
-    @pictures = Picture.where(id: @good.pictures.ids)
     @category = Category.find_by(id: @good.category_id)
   end
 
-
   def edit
-    @good = Good.find_by(id: params[:id])
-    # 繰り返しプレビュー
-    # 5.times{@good.pictures.new}
-    # 10.times {
-    #   print("Hello¥n")
-    # }
-    # オブジェクト.times {|変数|
-    #   反復実行する処理1
-    #   反復実行する処理2
-    # }
-    @pictures = Picture.where(id: @good.pictures.ids)
-
-
   end
+
   def update
-    @good = Good.find_by(id: params[:id])
     if @good.update(good_params)
       redirect_to good_path(@good.id)
     else
       render :edit
     end
   end
+
   def destroy
-    good = Good.find(params[:id])
-    good.destroy
+    @good.destroy
     redirect_to root_path
   end
 
 
   private
   def good_params
-    params.require(:good).permit(:goodsName, :explanation, :category_id, :brand, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, pictures_attributes: [:goodsImage, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:good).permit(
+      :goodsName,
+      :explanation,
+      :category_id,
+      :brand,
+      :goodsCondition,
+      :deliveryFee,
+      :prefecture_id,
+      :deliveryDay,
+      :price,
+      pictures_attributes: [:goodsImage, :_destroy, :id]).merge(user_id: current_user.id)
   end
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
-
+  def set_good
+    @good = Good.find(params[:id])
+  end
+  def set_pictures
+    @pictures = Picture.where(id: @good.pictures.ids)
+  end
 end

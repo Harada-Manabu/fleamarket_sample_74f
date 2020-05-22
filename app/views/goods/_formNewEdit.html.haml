@@ -3,28 +3,44 @@
     = link_to(root_path) do
       = image_tag "logo.png", class: "goodsNew__logo--img", size: "185x49"
 
-
   .goodsNew__form
-    = form_with model: @good, class: :form, local: true do |f|
+    = form_with model: @good, class: "form", local: true do |f|
       .goodsNew__form__pic
         .pic__title
           %span.pic__title--text 出品画像
           %span.pic__title--must 必須
-        .pic__describe 最大5枚までアップロードできます
-        .pic__select
-          = f.fields_for :pictures do |p|
-            = p.label :goodsImage, class: 'pic__select__label' do
-              = p.file_field :goodsImage, class: "pic__select__label--form"
-              %i.fas.fa-camera
-              .pic__text クリックしてファイルをアップロード
-              -# = image_tag picture.name.url(:thumb) if picture.name?
-              - @pictures.each do |pics|
-                = image_tag pics.goodsImage.url, class: "photoOtherX", size: "124x120"
-              -# .pic__text クリックしてファイルをアップロード
-              -# = image_tag @good.images.first.name.to_s
-              -# - product.images.each do |image|
-              -#   = image_tag image.src.url
+        - if @good.goodsName?
+          .pic__describe 最大5枚までアップロードできます
+        - else
+          .pic__describe 最大5枚までアップロードできます
 
+        #image-box
+          #previews
+            - if @good.persisted?
+              - @good.pictures.each_with_index do |pic, k|
+                = image_tag pic.goodsImage.url, data: { index: k }, width: "110", height: "110"
+          = f.fields_for :pictures do |i|
+            .jsFileGroup{"data-index" => "#{i.index}"}
+              = i.label :goodsImage, class: "jsFileLabel" do
+                = i.file_field :goodsImage, class: "jsFile"
+                .jsRemove
+                  画像の削除
+                - if @good.goodsName?
+                  %i.fas.fa-camera 画像の追加/変更
+                  .pic__text
+                - else
+                  %i.fas.fa-camera 画像の追加/変更
+                  .pic__text
+            - if @good.persisted?
+              = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroy"
+          - if @good.persisted?
+            .jsFileGgroup{"data-index" => "#{@good.pictures.count}"}
+              = label_tag :goodsImage, class: "jsFileLabel" do
+                = file_field_tag :goodsImage, name: "good[pictures_attributes][#{@good.pictures.count}][goodsImage]", class: "jsFile"
+                .jsRemove
+                  画像の削除
+                %i.fas.fa-camera 画像の追加/変更
+                .pic__text
 
       .goodsNew__form__name
         .name__title
@@ -94,7 +110,7 @@
 
       .goodsNew__form__exibition
         - if @good.goodsName?
-          = f.submit '編集する', class: 'exibition__btn'
+          = f.submit '変更する', class: 'exibition__btn'
         - else
           = f.submit '出品する', class: 'exibition__btn'
         %button.draft__btn 下書きに保存
@@ -111,5 +127,4 @@
           などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
           %span> 加盟店規約
           に同意したことになります。
-
   = render partial: 'modules/footerSub'

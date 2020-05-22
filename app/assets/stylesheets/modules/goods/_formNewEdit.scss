@@ -55,28 +55,26 @@
           margin-top: 16px;
         }
 
-        .pic__select {
+        #image-box {
           text-align: center;
           margin-top: 16px;
-
-          &__label {
+          .jsFileLabel {
             display: inline-block;
             width: 620px;
-            height: 150px;
+            height: 130px;
             border: 1px dashed #cccccc;
             background-color: #f5f5f5;
             cursor: pointer;
-
-            &--form {
+            text-align: center;
+            line-height: 70px;
+            .jsFile {
               display: none;
+              // background-color: lightsalmon;
             }
-
             .fas {
               position: relative;
-              top: 50px;
-              font-size: 20px;
+              font-size: 18px;
             }
-
             .pic__text {
               position: relative;
               top: 53px;
