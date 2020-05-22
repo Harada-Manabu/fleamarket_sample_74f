@@ -1,39 +1,21 @@
-.creditBody
-  = render partial: "/layouts/header"
-  .cardShowBody
-    = render partial: "/users/side"  
-
-    .cardShowContent
-      .cardShowContent__head
-        %h2 支払い方法
-      .cardShowContent__main
-        .cardShowContent__main__info
-          .cardShowContent__main__info__card
-            .cardShowContent__main__info__card__message
-              %p 登録済みのクレジットカード
-            .cardShowContent__main__info__card__logo
-              = image_tag "#{@card_src}", class: "cardShowContent__main__info__card__logo__logomark", alt: @card_brand
-            .cardShowContent__main__info__card__number
-              = "**** **** **** " + @customer_card.last4
-            .cardShowContent__main__info__card__limit
-              = @exp_month + " / " + @exp_year
-          .cardShowContent__main__info__delete
-            = link_to credit_card_path, method: :delete, class: "cardShowContent__main__info__delete__btn" do 
+.cardShowBody
+  .cardShowContent
+    .cardShowContent__head
+      %h2 支払い方法
+    .cardShowContent__main
+      .cardShowContent__main__title 登録されているクレジットカード情報
+      .cardShowContent__main__info
+        .cardShowContent__main__info__card
+          .cardShowContent__main__info__card__logo
+            = image_tag "#{@card_src}", class: "cardShowContent__main__info__card__logo__logomark", alt: @card_brand
+          .cardShowContent__main__info__card__number
+            = "**** **** **** " + @customer_card.last4
+          .cardShowContent__main__info__card__limit
+            = @exp_month + " / " + @exp_year
+        .cardShowContent__main__info__delete
+          .cardShowContent__main__info__delete__link
+            = link_to credit_card_path, method: :delete, class: "cardShowContent__main__info__delete__link__btn" do 
               削除する
-
-  .footer-image
-    .footer-image__text
-      .footer-image__text__top
-        スマホでかんたんフリマアプリ
-      .footer-image__text__bottom
-        今すぐ無料ダウンロード！
-      .footer-image__text__appbtn 
-        =link_to "" do
-          = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
-        =link_to "" do
-          = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
-
-  = render partial: "/layouts/footer"
 
 
 
