@@ -8,6 +8,7 @@
 
     &__top {
       display: flex;
+
       a {
         .header__top__img {
           display: block;
@@ -46,7 +47,7 @@
 
       ul {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         li {
           font-size: 14px;
