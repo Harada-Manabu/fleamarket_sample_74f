@@ -2,7 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
-      destination: 送付先住所
+      identification: 本人確認情報
+      delivery_address: 商品お届け先住所
       item: 商品
     attributes:
       user:
@@ -17,11 +18,21 @@ ja:
         birth_year: 年
         birth_month: 月
         birth_day: 日
-      destination: 
-        post_code: 郵便番号
-        prefecture_code: 都道府県
+        identification: 本人情報
+      identification:
+        familyName: お名前（姓）
+        firstName: お名前（名）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
+      delivery_address: 
+        familyName: お名前（姓）
+        firstName: お名前（名）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
+        postCode: 郵便番号
+        prefecture_id: 都道府県
         city: 市区町村
-        house_number: 番地
+        address: 番地
         building: 建物名
         phone_number: 電話
       item:
