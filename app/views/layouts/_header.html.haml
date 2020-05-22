@@ -1,13 +1,11 @@
 .header
   .header__top
-    = link_to root_path do
-      %i{class: "fas fa-cube"}
-      %span{class: "header__top__logo"}
-        FRIMA
-  %form{:action => "", :method => "", class: "header__top__form"}
-    %input{:name => "content", :type => "text", class: "header__top__form--text_box", placeholder: "何かお探しですか？"}
-    %button{type:"submit", value: "" ,class: "header__top__form--btn"}
-      %i{class:"fas fa-search"}
+    = link_to(root_path) do
+      =image_tag "logo.png", class: "header__top__img", size: "140x40"
+    %form{:action => "", :method => "", class: "header__top__form"}
+      %input{:name => "content", :type => "text", class: "header__top__form--text_box", placeholder: "何かお探しですか？"}
+      %button{type:"submit", value: "" ,class: "header__top__form--btn"}
+        %i{class:"fas fa-search"}
   .header__bottom
     %ul
       %li
