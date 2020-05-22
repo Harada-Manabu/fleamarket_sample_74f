@@ -3,7 +3,7 @@
 
   .registerWrapper
     .registerWrapper__head
-      %h2 発送元・お届け先住所入力
+      %h2 商品お届け先住所入力
     .registerWrapper__content
       = form_for(@deliveryAddress, url: deliveryAddresses_path, method: :post) do |f|
         = render "devise/shared/error_messages", resource: @deliveryAddress
@@ -26,7 +26,7 @@
           = f.label :郵便番号, class: 'registerWrapper__content__formGroup__label'
           %span.registerWrapper__content__formGroup__label--must 必須
           %br/
-          = f.text_field :postCode, autofocus: true, autocomplete: "postCode", class: 'registerWrapper__content__formGroup__form', placeholder: '例) 123-4567'
+          = f.text_field :postCode, autofocus: true, autocomplete: "postCode", class: 'registerWrapper__content__formGroup__form', placeholder: '例) 1234567'
 
         .registerWrapper__content__formGroup
           = f.label :都道府県, class: 'registerWrapper__content__formGroup__label'

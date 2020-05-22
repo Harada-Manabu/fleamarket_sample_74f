@@ -12,8 +12,19 @@ Rails.application.routes.draw do
 
   root 'goods#index'
   resources :goods, except: :index do
-    resources :purchases, only: :index
+    collection do
+      get 'categoryChildren' 
+      get 'categoryGrandChildren'
+    end
+    resources :purchases, only: :index do
+      member do
+        post 'pay'
+        get 'done'
+      end
+    end
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    get 'logout' => "users#logout"
+  end
   resources :credit_cards, only: [:new, :create, :show, :destroy]
 end

@@ -1,0 +1,47 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      identification: 本人確認情報
+      delivery_address: 商品お届け先住所
+      item: 商品
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        family_name: お名前（姓）
+        first_name: お名前（名）
+        family_name_kana: お名前（セイ）
+        first_name_kana: お名前（メイ）
+        birth_year: 年
+        birth_month: 月
+        birth_day: 日
+        identification: 本人情報
+      identification:
+        familyName: お名前（姓）
+        firstName: お名前（名）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
+      delivery_address: 
+        familyName: お名前（姓）
+        firstName: お名前（名）
+        familyNameKana: お名前かな（せい）
+        firstNameKana: お名前かな（めい）
+        postCode: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        address: 番地
+        building: 建物名
+        phone_number: 電話
+      item:
+        images: 出品画像
+        name: 商品名
+        introduction: 商品の説明
+        category_id: カテゴリー
+        condition: 商品の状態
+        postage_payer: 配送料の負担
+        prefecture_code: 発送元の地域
+        preparation_day: 発送までの日数
+        price: 販売価格

@@ -65,15 +65,19 @@
             border: 1px dashed #cccccc;
             background-color: #f5f5f5;
             cursor: pointer;
-            text-align: center;
-            line-height: 70px;
-            .jsFile {
-              display: none;
-              // background-color: lightsalmon;
+
+            &--form {
+              font-size: 11px;
+              position: relative;
+              top: 95px;
+              left: 40px;
+              outline: none;
             }
             .fas {
               position: relative;
-              font-size: 18px;
+              top: 50px;
+              left: -125px;
+              font-size: 20px;
             }
             .pic__text {
               position: relative;
@@ -148,19 +152,51 @@
           }
         }
 
-        .selectBox {
-          display: flex;
-          position: relative;
+        .selectBoxCategory {
+          #parentsWrapper {
+            display: flex;
+            position: relative;
 
-          #good_category_id {
-            @include selectForm;
+            #parentsCategory {
+              @include selectForm;
+            }
+
+            #parentsCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
           }
 
-          #good_category_id:focus {
-            border-color: $borderFocus;
+          #childrenWrapper {
+            display: flex;
+            position: relative;
+
+            #childrenCategory {
+              @include selectForm;
+            }
+
+            #childrenCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
           }
 
-          @include dropDown;
+          #grandChildrenWrapper {
+            display: flex;
+            position: relative;
+
+            #grandChildrenCategory {
+              @include selectForm;
+            }
+
+            #grandChildrenCategory:focus {
+              border-color: $borderFocus;
+            }
+
+            @include dropDown;
+          }
         }
 
         .detail__brand {

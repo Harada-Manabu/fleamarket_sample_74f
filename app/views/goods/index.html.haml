@@ -31,7 +31,7 @@
       %h3.list__sub
         %span シンプル
         で使いやすい
-      %p.list__explain めんどくさい入力はh必要なく、検索も購入もスムーズ！
+      %p.list__explain めんどくさい入力は2必要なく、検索も購入もスムーズ！
     %li.list--last
       .list__gazo
         %span.number 3
@@ -81,6 +81,130 @@
         %li メンズ
         %li 家電・スマホ・カメラ
         %li おもちゃ・ボビー・グッズ
+%section.pickupbox 
+  %h2.pickupbox--title ピックアップカテゴリー
+  .pickupbox__category
+    .pickupbox__category__head
+      = link_to root_path do
+        %h3.pickupbox__category__head--title  新規投稿商品
+    .pickupbox__category__lists
+      - @goods.each do |good|
+        -if good.buyer_id.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+
+        -else
+          .pickupbox__category__list
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goodsName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
+    .pickupbox__category__lists
+      - @goods1.each do |good|
+        -if good.buyer_id.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+        -else
+          .pickupbox__category__list
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goodsName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
+    .pickupbox__category__lists
+      - @goods2.each do |good|
+        -if good.buyer_id.present?
+          .pickupbox__category__list
+            %figure.pickupbox__category__lists--image
+              .goods-box_photo__sold
+                .goods-box_photo__sold__inner
+                  SOLD
+              = image_tag good.pictures[0].goodsImage.url
+            .pickupbox__category__list--text
+              %h3.name 
+                = good.goodsName
+              .syosai
+                %ul
+                  %li<> 
+                    = good.price 
+                    円
+                  %li
+                    %i.fa  
+                    ★0
+                %p.zeikomi (税込)
+        -else
+          .pickupbox__category__list
+            = link_to good_path(good.id) do
+              %figure.pickupbox__category__lists--image
+                = image_tag good.pictures[0].goodsImage.url
+              .pickupbox__category__list--text
+                %h3.name 
+                  = good.goodsName
+                .syosai
+                  %ul
+                    %li<> 
+                      = good.price 
+                      円
+                    %li
+                      %i.fa  
+                      ★0
+                  %p.zeikomi (税込)
+
   .top-main__contents
     %h2 レディース新着アイテム
     = link_to "#", class:"link-blue" do
@@ -90,12 +214,9 @@
     .top-main__products
       - for j in 1..5
         .top-main__products__puroduct
-          = image_tag ""
           .top-main__products__puroducts__price
-            ¥2,000
           .top-main__products__puroducts__text
-            snoopy
-
+            
 
 .footer-image
   .footer-image__text
@@ -103,8 +224,11 @@
       スマホでかんたんフリマアプリ
     .footer-image__text__bottom
       今すぐ無料ダウンロード！
-    %a{href: "", class:"app-store"}
-    %a{href: "", class:"google-play"}
+    .footer-image__text__appbtn 
+      =link_to "" do
+        = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
+      =link_to "" do
+        = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
 
 
 = render "layouts/footer"

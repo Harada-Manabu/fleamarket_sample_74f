@@ -1,10 +1,15 @@
 class GoodsController < ApplicationController
+
   before_action :set_parents, only: [:new, :create, :show, :edit, :update]
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   before_action :set_pictures, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
 
 
   def index
+    @goods = Good.order('id DESC').limit(3)
+    @goods1 = Good.order('id DESC').limit(3).offset(3)
+    @goods2 = Good.order('id DESC').limit(3).offset(6)
   end
 
   def new
@@ -17,13 +22,22 @@ class GoodsController < ApplicationController
     if @good.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_good_path
     end
+  end
+
+  def categoryChildren
+    @categoryChildren = Category.find(params[:selectedCategory]).children
+  end
+
+  def categoryGrandChildren
+    @categoryGrandChildren = Category.find(params[:selectedCategory]).children
   end
 
   def show
     @user = User.find_by(params[:id])
-    @category = Category.find_by(id: @good.category_id)
+    # カテゴリ反映を想定し下記残置
+    # @category = Category.find_by(id: @good.category_id)
   end
 
   def edit
@@ -66,4 +80,8 @@ class GoodsController < ApplicationController
   def set_pictures
     @pictures = Picture.where(id: @good.pictures.ids)
   end
+  def login_check
+    redirect_to root_path unless user_signed_in?
+  end
+
 end
