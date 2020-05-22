@@ -7,7 +7,7 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     if params['payjp_token'].blank?
       redirect_to action: "new", alert: "クレジットカードが登録できませんでした。"
     else
@@ -31,23 +31,23 @@ class CreditCardsController < ApplicationController
     if @card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @customer_card = customer.cards.retrieve(@card.card_id)
       @card_brand = @customer_card.brand
       case @card_brand
       when "Visa"
-        @card_src = "visa-logo"
+        @card_src = "visa-logo.gif"
       when "MasterCard"
-        @card_src = "mastercard-logo"
+        @card_src = "mastercard-logo.gif"
       when "JCB"
-        @card_src = "jcb-logo"
+        @card_src = "jcb-logo.gif"
       when "American Express"
-        @card_src = "amex-logo"
+        @card_src = "amex-logo.gif"
       when "Diners Club"
-        @card_src = "diners-logo"
+        @card_src = "diners-logo.gif"
       when "Discover"
-        @card_src = "discover-logo"
+        @card_src = "discover-logo.gif"
       end
 
       @exp_month = @customer_card.exp_month.to_s
@@ -60,7 +60,7 @@ class CreditCardsController < ApplicationController
     if @card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete

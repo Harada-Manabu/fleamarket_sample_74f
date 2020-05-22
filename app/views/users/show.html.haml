@@ -1,0 +1,105 @@
+= render partial: "/layouts/header"
+.show_main
+  = render partial: "side"  
+  .show_main__right
+    .show_main__right__upper
+      .show_main__right__upper__userarea
+        .show_main__right__upper__userarea--text
+          = @user.nickname
+        .show_main__right__upper__userarea__data
+          .show_main__right__upper__userarea__data--in
+            出品数
+            ０
+          .show_main__right__upper__userarea__data--out
+            購入数
+            ０
+      %ul.show_main__right__upper__tab
+        %li.tab_upper.active_upper お知らせ
+        %li.tab_upper やることリスト
+      .panel-group
+        .panel_upper.show_upper 
+          .show_main__right__upper__list
+
+          = link_to "#" do
+            .show_main__right__upper__list__area
+              = image_tag "b.jpg",class:"show_main__right__upper__list__area--icon"
+              .show_main__right__upper__list__area__contents
+                .show_main__right__upper__list__area__contents--text
+                  あなたの取引が高評価を受けました
+                .show_main__right__upper__list__area__contents--time
+                  7分前
+              .show_main__right__upper__list__area--next_icon
+                ＞
+          = link_to "#" do
+            .show_main__right__upper__list__area
+              = image_tag "b.jpg",class:"show_main__right__upper__list__area--icon"
+              .show_main__right__upper__list__area__contents
+                .show_main__right__upper__list__area__contents--text
+                  あなたの取引が高評価を受けました
+                .show_main__right__upper__list__area__contents--time
+                  7分前
+              .show_main__right__upper__list__area--next_icon
+                ＞
+          = link_to "#" do
+            .show_main__right__upper__list__area
+              = image_tag "b.jpg",class:"show_main__right__upper__list__area--icon"
+              .show_main__right__upper__list__area__contents
+                .show_main__right__upper__list__area__contents--text
+                  あなたの取引が高評価を受けました
+                .show_main__right__upper__list__area__contents--time
+                  7時間前
+              .show_main__right__upper__list__area--next_icon
+                ＞
+          = link_to "#" do
+            .show_main__right__upper__list__area
+              = image_tag "b.jpg",class:"show_main__right__upper__list__area--icon"
+              .show_main__right__upper__list__area__contents
+                .show_main__right__upper__list__area__contents--text
+                  あなたの取引が高評価を受けました
+                .show_main__right__upper__list__area__contents--time
+                  7時間前
+              .show_main__right__upper__list__area--next_icon
+                ＞
+
+          = link_to "#" do
+            .show_main__right__upper__list__area
+              = image_tag "b.jpg",class:"show_main__right__upper__list__area--icon"
+              .show_main__right__upper__list__area__contents
+                .show_main__right__upper__list__area__contents--text
+                  あなたの取引が高評価を受けました
+                .show_main__right__upper__list__area__contents--time
+                  7日前
+              .show_main__right__upper__list__area--next_icon
+                ＞
+          .show_main__right__upper__list__area
+            = link_to "#" do
+              .show_main__right__upper__list__area__index_view
+                .show_main__right__upper__list__area__index_view--text
+                  一覧を見る
+        .panel_upper
+          .show_main__right__upper__list__none 
+            現在やることがありません
+    .show_main__right__lower
+      .show_main__right__lower__userarea
+        %ul.show_main__right__lower__tab
+          %li.tab_lower.active_lower 取引中
+          %li.tab_lower 過去の取引
+      .panel-group
+        .panel_lower.show_lower
+          .show_main__right__lower__list__none 
+            現在取引がありません
+        .panel_lower
+          .show_main__right__lower__list__none
+            過去に取引がありません
+.footer-image
+  .footer-image__text
+    .footer-image__text__top
+      スマホでかんたんフリマアプリ
+    .footer-image__text__bottom
+      今すぐ無料ダウンロード！
+    .footer-image__text__appbtn 
+      =link_to "" do
+        = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
+      =link_to "" do
+        = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
+= render partial: "/layouts/footer"

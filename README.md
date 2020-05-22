@@ -107,6 +107,7 @@ Flea Market app
 | prefecture_id  | integer | null: false                    |
 | deliveryDay    | string  | null: false                    |
 | price          | integer | null: false                    |
+| buyer_id       | integer |                                |
 
 ### Association
 
@@ -135,5 +136,6 @@ Flea Market app
 ### Association
 
 - has_many :goods
+
 
 ---

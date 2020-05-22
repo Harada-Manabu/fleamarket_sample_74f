@@ -3,8 +3,6 @@ class Good < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :pictures
-  has_one :purchase
-
   has_many :pictures, dependent: :destroy
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
