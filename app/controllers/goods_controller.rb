@@ -1,9 +1,7 @@
 class GoodsController < ApplicationController
   before_action :set_parents, only: [:new, :create, :show, :edit, :update]
   before_action :set_good, only: [:show, :edit, :update, :destroy]
-  # before_action :set_good, only: [:show, :edit, :update]
   before_action :set_pictures, only: [:show, :edit, :update, :destroy]
-  # before_action :set_pictures, only: [:show, :edit, :update]
 
 
   def index
