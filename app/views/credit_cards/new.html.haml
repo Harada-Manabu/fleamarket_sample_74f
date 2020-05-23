@@ -1,79 +1,81 @@
-.cardBody
-  .cardContent
-    .cardContent__head
-      %h2 クレジットカード情報入力
-    .cardContent__main
-      = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+.newcreditBody
+  = render partial: "/layouts/header"
+  .cardContents
+    = render partial: "/users/side"
+    .cardContent
+      .cardContent__head
+        %h2 クレジットカード情報入力
+      .cardContent__main
+        = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+          .cardContent__main__formGroup
+            .cardContent__main__formGroup__label カード番号
+            %span.cardContent__main__formGroup__label--must 必須
+            %br/
+            = text_field_tag 'payment_card_number', "", class: 'cardContent__main__formGroup__form', id: "payment_card_number", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+            %br/
+            .cardContent__main__formGroup__logo
+              = image_tag 'visa-logo.gif', alt: 'visa', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--visa'
+              = image_tag 'mastercard-logo.gif', alt: 'master', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--master'
+              = image_tag 'jcb-logo.gif', alt: 'jcb', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--jcb'
+              = image_tag 'amex-logo.gif', alt: 'amex', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--amex'
+              = image_tag 'diners-logo.gif', alt: 'diners', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--diners'
+              = image_tag 'discover-logo.gif', alt: 'discover', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--discover'
+          
+          .cardContent__main__formGroup
+            .cardContent__main__formGroup__label 有効期限
+            %span.cardContent__main__formGroup__label--must 必須
+            %br
+            .cardContent__main__formGroup__limit
+              .cardContent__main__formGroup__limit__month
+                %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
+                  %option{value: "1"} 01
+                  %option{value: "2"} 02
+                  %option{value: "3"} 03
+                  %option{value: "4"} 04
+                  %option{value: "5"} 05
+                  %option{value: "6"} 06
+                  %option{value: "7"} 07
+                  %option{value: "8"} 08
+                  %option{value: "9"} 09
+                  %option{value: "10"} 10
+                  %option{value: "11"} 11
+                  %option{value: "12"} 12
+                %span.cardContent__main__formGroup__limit__unit 月
+              
+              .cardContent__main__formGroup__limit__year
+                %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
+                  %option{value: "2020"} 20
+                  %option{value: "2021"} 21
+                  %option{value: "2022"} 22
+                  %option{value: "2023"} 23
+                  %option{value: "2024"} 24
+                  %option{value: "2025"} 25
+                  %option{value: "2026"} 26
+                  %option{value: "2027"} 27
+                  %option{value: "2028"} 28
+                  %option{value: "2029"} 29
+                  %option{value: "2030"} 30
+                %span.cardContent__main__formGroup__limit__unit 年
 
-        .cardContent__main__formGroup
-          .cardContent__main__formGroup__label
-          カード番号
-          %span.cardContent__main__formGroup__label--must 必須
-          %br/
-          = text_field_tag 'payment_card_number', "", class: 'cardContent__main__formGroup__form', id: "payment_card_number", placeholder: '半角数字のみ', type: "text", maxlength: "16"
-          %br/
-          .cardContent__main__formGroup__logo
-            = image_tag 'visa-logo.gif', alt: 'visa', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--visa'
-            = image_tag 'mastercard-logo.gif', alt: 'master', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--master'
-            = image_tag 'jcb-logo.gif', alt: 'jcb', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--jcb'
-            = image_tag 'amex-logo.gif', alt: 'amex', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--amex'
-            = image_tag 'diners-logo.gif', alt: 'diners', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--diners'
-            = image_tag 'discover-logo.gif', alt: 'discover', height: '30', width: '50', class: 'cardContent__main__formGroup__logo--discover'
-        
-        
-        
-        .cardContent__main__formGroup
-          .cardContent__main__formGroup__label
-          有効期限
-          %span.cardContent__main__formGroup__label--must 必須
-          %br
-          .cardContent__main__formGroup__limit
-            .cardContent__main__formGroup__limit__month
-              %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
-                %option{value: "1"} 01
-                %option{value: "2"} 02
-                %option{value: "3"} 03
-                %option{value: "4"} 04
-                %option{value: "5"} 05
-                %option{value: "6"} 06
-                %option{value: "7"} 07
-                %option{value: "8"} 08
-                %option{value: "9"} 09
-                %option{value: "10"} 10
-                %option{value: "11"} 11
-                %option{value: "12"} 12
-              %span.cardContent__main__formGroup__limit__unit
-              月
-            
-            .cardContent__main__formGroup__limit__year
-              %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
-                %option{value: "2020"} 20
-                %option{value: "2021"} 21
-                %option{value: "2022"} 22
-                %option{value: "2023"} 23
-                %option{value: "2024"} 24
-                %option{value: "2025"} 25
-                %option{value: "2026"} 26
-                %option{value: "2027"} 27
-                %option{value: "2028"} 28
-                %option{value: "2029"} 29
-                %option{value: "2030"} 30
-              %span.cardContent__main__formGroup__limit__unit
-              年
+          .cardContent__main__formGroup
+            .cardContent__main__formGroup__label セキュリティコード 
+            %span.cardContent__main__formGroup__label--must 必須
+            %br/
+            = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'cardContent__main__formGroup__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
 
-        .cardContent__main__formGroup
-          .cardContent__main__formGroup__label
-          セキュリティコード
-          %span.cardContent__main__formGroup__label--must 必須
-          %br/
-          = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'cardContent__main__formGroup__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+          .cardContent__main__submit
+            = submit_tag "登録する", class: "cardContent__main__submit__btn", id: "payment_card_submit-button"
 
-        .cardContent__main__submit
-          = submit_tag "登録する", class: "cardContent__main__submit__btn", id: "payment_card_submit-button"
+  .footer-image
+    .footer-image__text
+      .footer-image__text__top
+        スマホでかんたんフリマアプリ
+      .footer-image__text__bottom
+        今すぐ無料ダウンロード！
+      .footer-image__text__appbtn 
+        =link_to "" do
+          = image_tag "app-store.svg",class:"footer-image__text__appbtn--apple"
+        =link_to "" do
+          = image_tag "google-play.svg",class:"footer-image__text__appbtn--google"
 
-
-
-
-
-
-
+  = render partial: "/layouts/footer"
