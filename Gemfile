@@ -86,6 +86,7 @@ gem 'payjp'
 gem 'active_hash'
 gem 'ancestry'
 gem 'dotenv-rails'
+gem "jquery-turbolinks"
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'

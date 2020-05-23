@@ -1,4 +1,6 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("payment_card_submit-button") != null) {
+    let submit = document.getElementById("payment_card_submit-button");
 
   if (document.getElementById("payment_card_submit-button") != null) {
     let submit = document.getElementById("payment_card_submit-button");
