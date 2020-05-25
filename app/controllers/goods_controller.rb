@@ -35,7 +35,7 @@ class GoodsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @user = @good.user
     @grandChild = @good.category
     @child = @grandChild.parent
     @parent = @child.parent
