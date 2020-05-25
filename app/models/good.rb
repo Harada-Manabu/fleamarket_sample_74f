@@ -10,5 +10,10 @@ class Good < ApplicationRecord
 
   validates_associated :pictures
   validates :user_id, :goodsName, :explanation, :category_id, :goodsCondition, :deliveryFee, :prefecture_id, :deliveryDay, :price, :pictures, presence: true
+  validate :check_pictures_number
 
+  private
+  def check_pictures_number
+    errors.add(:pictures, "は５枚までです") if pictures.size > 5
+  end
 end
