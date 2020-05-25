@@ -25,16 +25,13 @@
                 = i.file_field :goodsImage, class: "jsFile"
                 .jsRemove
                   画像の削除
-                - if @good.goodsName?
-                  %i.fas.fa-camera 画像の追加/変更
-                  .pic__text
-                - else
-                  %i.fas.fa-camera 画像の追加/変更
-                  .pic__text
+                %i.fas.fa-camera 画像の追加/変更
+                .pic__text
             - if @good.persisted?
               = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroy"
+
           - if @good.persisted?
-            .jsFileGgroup{"data-index" => "#{@good.pictures.count}"}
+            .jsFileGroup{"data-index" => "#{@good.pictures.count}"}
               = label_tag :goodsImage, class: "jsFileLabel" do
                 = file_field_tag :goodsImage, name: "good[pictures_attributes][#{@good.pictures.count}][goodsImage]", class: "jsFile"
                 .jsRemove
