@@ -40,8 +40,8 @@ $(document).on("turbolinks:load", function () {
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hiddenDestroy`);
     if (hiddenCheck) hiddenCheck.prop("checked", true);
 
+    const animal = $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-    $(this).parent().parent().remove();
 
     if ($(".jsFile").length == 0)
       $("#image-box").append(buildFileField(fileIndex[0]));
