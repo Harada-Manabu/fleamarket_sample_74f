@@ -25,6 +25,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_identification
     @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
+    # if session["identification"].present?
+      # redirect_to root_path
+    # else
     unless @identification.valid?
       flash.now[:alert] = @identification.errors.full_messages
       render :new_identification and return
@@ -33,6 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["identification"] = @identification.attributes
     @deliveryAddress = @user.build_deliveryAddress
     render :new_deliveryAddress
+    # end
   end
 
   def create_deliveryAddress
