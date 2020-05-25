@@ -36,8 +36,7 @@ class GoodsController < ApplicationController
 
   def show
     @user = User.find_by(params[:id])
-    # カテゴリ反映を想定し下記残置
-    # @category = Category.find_by(id: @good.category_id)
+    @category = Category.find_by(id: @good.category_id)
   end
 
   def edit
