@@ -100,18 +100,22 @@
                 // border-bottom: 1 solid red;
                 padding: 2px;
                 margin: 0px 0px 2px 2px;
+
                 .iconDown {
                   font-size: 20px;
                 }
+
                 .moreList {
                   font-size: 15px;
                   letter-spacing: 1px;
                   background-color: white;
+
                   .moreEdit {
                     margin-right: 2px;
                     margin-left: 2px;
                     border-bottom: 1px solid rgb(73, 72, 72);
                   }
+
                   .moreDelete {
                     margin-right: 2px;
                     margin-left: 2px;
@@ -140,13 +144,16 @@
           margin-top: 15px;
           margin-bottom: 15px;
           text-align: center;
+
           &__selectPriceBoxMoney {
             margin: 0 auto;
             width: 610px;
             height: 55px;
+
             .iconYen {
               font-size: 38px;
             }
+
             .spanMoney {
               font-weight: bold;
               font-size: 38px;
@@ -158,13 +165,13 @@
             width: 620px;
             height: 25px;
             margin-left: 40px;
+
             &__selectPriceBoxSuppTax {
-              .spanTax {
-              }
+              .spanTax {}
             }
+
             &__selectPriceBoxSuppShippingFee {
-              .spanShippingFee {
-              }
+              .spanShippingFee {}
             }
           }
         }
@@ -174,6 +181,7 @@
           text-align: center;
           font-weight: bold;
           margin: 0px 0px 10px 0px;
+
           &__selectPurchaceMove {
             margin: 0 auto;
             width: 90%;
@@ -186,6 +194,10 @@
               color: white;
               border-style: none;
             }
+
+            a {
+              color: $white;
+            }
           }
         }
 
@@ -194,6 +206,7 @@
           width: 620px;
           height: 160px;
           margin-bottom: 30px;
+
           &__selectDescriptionBody {
             .selectDescriptionBodyExplain {
               font-size: 17px;
@@ -210,8 +223,7 @@
               margin: 0 auto;
             }
 
-            table tr {
-            }
+            table tr {}
 
             table th {
               background-color: #eeeeee;
@@ -280,14 +292,11 @@
                   font-size: 16px;
                   border-color: orange;
 
-                  .iconStar {
-                  }
+                  .iconStar {}
 
-                  .spanStarWord {
-                  }
+                  .spanStarWord {}
 
-                  .spanStarNumber {
-                  }
+                  .spanStarNumber {}
                 }
               }
             }
@@ -304,11 +313,9 @@
                   padding: 10px 12px 10px 12px;
                   border-radius: 5px;
 
-                  .iconFlag {
-                  }
+                  .iconFlag {}
 
-                  .spanFlag {
-                  }
+                  .spanFlag {}
                 }
               }
             }
