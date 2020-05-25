@@ -58,6 +58,7 @@
         #image-box {
           text-align: center;
           margin-top: 16px;
+
           .jsFileLabel {
             display: inline-block;
             width: 620px;
@@ -73,12 +74,14 @@
               left: 40px;
               outline: none;
             }
+
             .fas {
               position: relative;
               top: 50px;
               left: -125px;
               font-size: 20px;
             }
+
             .pic__text {
               position: relative;
               top: 53px;
@@ -413,6 +416,7 @@
           font-weight: 600;
           border: 1px solid transparent;
           cursor: pointer;
+          outline: none;
         }
 
         .draft__btn {
@@ -426,6 +430,7 @@
           font-weight: 600;
           outline: none;
           cursor: pointer;
+          border: none;
         }
 
         .back__top__link {

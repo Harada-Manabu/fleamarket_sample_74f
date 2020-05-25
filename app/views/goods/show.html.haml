@@ -7,11 +7,11 @@
       .asideCategoryBox__asideCategoryBoxInfo__asideCategoryBoxInfolist
         = link_to "FURIMA", root_path, class: "cateTop"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to @category.categoryName, "#", class: "cateCate"
+        = link_to @parent.categoryName, "#", class: "cateCate"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to @good.category_id, "#", class: "cateCateSub"
+        = link_to @child.categoryName, "#", class: "cateCateSub"
         %i.fas.fa-chevron-right.iconChevronRight
-        = link_to @good.category_id, "#", class: "cateCateSubSub"
+        = link_to @grandChild.categoryName, "#", class: "cateCateSubSub"
         %i.fas.fa-chevron-right.iconChevronRight
         = link_to @good.goodsName, "#", class: "cateProductName"
 .showGoods
@@ -54,9 +54,9 @@
                 %p.selectPurchaceMoveForm
                   出品頂いた商品です
               - elsif current_user.id != @good.user_id
-                %a.selectPurchaceMoveForm{href: "#"} 購入画面に進む
+                =link_to "購入画面に進む", good_purchases_path(@good)
             - elsif not user_signed_in?
-              %a.selectPurchaceMoveForm{href: "http://localhost:3000/users/sign_in"} ログインして購入へ
+              = link_to "ログインして購入へ", new_user_session_path
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
@@ -73,11 +73,11 @@
                 %th
                   カテゴリー
                   %td
-                    = link_to @category.categoryName, "#", class: "exhibitionCategory"
+                    = link_to @parent.categoryName, "#", class: "exhibitionCategory"
                     %br
-                    = link_to @good.category_id, "#", class: "exhibitionCategorySub"
+                    = link_to @child.categoryName, "#", class: "exhibitionCategorySub"
                     %br
-                    = link_to @good.category_id, "#", class: "exhibitionCategorySubSub"
+                    = link_to @grandChild.categoryName, "#", class: "exhibitionCategorySubSub"
               %tr
                 %th
                   ブランド

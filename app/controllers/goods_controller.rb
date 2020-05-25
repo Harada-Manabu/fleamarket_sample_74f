@@ -35,8 +35,10 @@ class GoodsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
-    @category = Category.find_by(id: @good.category_id)
+    @user = @good.user
+    @grandChild = @good.category
+    @child = @grandChild.parent
+    @parent = @child.parent
   end
 
   def edit
@@ -74,7 +76,7 @@ class GoodsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
   def set_good
-    @good = Good.find(params[:id])
+    @good = Good.find_by(id: params[:id])
   end
   def set_pictures
     @pictures = Picture.where(id: @good.pictures.ids)
