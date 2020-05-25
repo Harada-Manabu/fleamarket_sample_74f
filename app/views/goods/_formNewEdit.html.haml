@@ -57,9 +57,10 @@
         .detail__category
           %span.detail__category--text カテゴリー
           %span.detail__category--must 必須
-        .selectBox
-          = f.collection_select :category_id, @parents, :id, :categoryName, prompt: "選択してください"
-          %i.fas.fa-chevron-down
+        .selectBoxCategory
+          #parentsWrapper
+            = f.collection_select :category_id, @parents, :id, :categoryName, { prompt: "選択してください" }, { id: "parentsCategory" }
+            %i.fas.fa-chevron-down
         .detail__brand
           %span.detail__brand--text ブランド
           %span.detail__brand--option 任意
