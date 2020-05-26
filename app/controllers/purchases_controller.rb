@@ -57,24 +57,24 @@ class PurchasesController < ApplicationController
     @good.update(buyer_id: current_user.id)
   end
 
-  
+
   private
   def login_check
     redirect_to root_path unless user_signed_in?
   end
 
   def own_goods
-    @good = Good.find(params[:good_id])
+    good = Good.find(params[:good_id])
     if
-      @good.user_id == current_user.id
+      good.user_id == current_user.id
       redirect_to root_path
     end
   end
 
   def sold_out
-    @good = Good.find(params[:good_id])
+    good = Good.find(params[:good_id])
     if
-      @good.buyer_id.present?
+      good.buyer_id.present?
       redirect_to root_path
     end
   end
