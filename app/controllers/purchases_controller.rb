@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
 
+  before_action :login_check
   before_action :set_good, only: [:index, :pay]
   require "payjp"
 
@@ -50,6 +51,10 @@ class PurchasesController < ApplicationController
   def done
     @good = Good.find(params[:good_id])
     @good.update(buyer_id: current_user.id)
+  end
+
+  def login_check
+    redirect_to root_path unless user_signed_in?
   end
 
   def set_good
