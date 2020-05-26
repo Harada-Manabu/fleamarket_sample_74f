@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'goods#index'
   resources :goods, except: :index do
-    collection do
+    member do
       get 'categoryChildren' 
       get 'categoryGrandChildren'
     end
