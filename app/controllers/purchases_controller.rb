@@ -37,16 +37,18 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @card = CreditCard.find_by(user_id: current_user.id)
-    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    unless
+      @good.user_id == current_user.id
+        @card = CreditCard.find_by(user_id: current_user.id)
+        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 
-    charge = Payjp::Charge.create(
-      amount: @good.price,
-      customer: Payjp::Customer.retrieve(@card.customer_id),
-      currency: 'jpy'
-    )
-    
-    redirect_to action: 'done'
+        charge = Payjp::Charge.create(
+          amount: @good.price,
+          customer: Payjp::Customer.retrieve(@card.customer_id),
+          currency: 'jpy'
+        )
+        redirect_to action: 'done'
+    end
   end
 
   def done
