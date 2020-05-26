@@ -4,6 +4,7 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   before_action :set_pictures, only: [:show, :edit, :update, :destroy]
   before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
+  before_action :seller_check, only: [:edit, :update, :destroy]
 
 
   def index
@@ -42,21 +43,16 @@ class GoodsController < ApplicationController
   end
 
   def edit
-
     grandchild_category = @good.category
     child_category = grandchild_category.parent
-
-
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent
     end
-
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
       @category_children_array << children
     end
-
     @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
@@ -102,6 +98,9 @@ class GoodsController < ApplicationController
   end
   def login_check
     redirect_to root_path unless user_signed_in?
+  end
+  def seller_check
+    redirect_to root_path unless user_signed_in? && current_user.id == @good.user_id
   end
 
 end

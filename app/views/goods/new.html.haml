@@ -22,8 +22,6 @@
                 = i.file_field :goodsImage, class: "jsFile"
                 .jsRemove
                   画像の削除
-                %i.fas.fa-camera 画像の追加/変更
-                .pic__text
             - if @good.persisted?
               = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroy"
 
@@ -33,8 +31,6 @@
                 = file_field_tag :goodsImage, name: "good[pictures_attributes][#{@good.pictures.count}][goodsImage]", class: "jsFile"
                 .jsRemove
                   画像の削除
-                %i.fas.fa-camera 画像の追加/変更
-                .pic__text
 
       .goodsNew__form__name
         .name__title
