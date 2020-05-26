@@ -57,6 +57,8 @@ class PurchasesController < ApplicationController
     @good.update(buyer_id: current_user.id)
   end
 
+  
+  private
   def login_check
     redirect_to root_path unless user_signed_in?
   end
@@ -76,8 +78,6 @@ class PurchasesController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 
   def set_good
     @good = Good.find(params[:good_id])
