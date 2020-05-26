@@ -32,6 +32,8 @@ $(function () {
   }
 
   $(document).on("change", "#parentsCategory", function () {
+    $("#childrenWrapper").remove();
+    $("#grandChildrenWrapper").remove();
     let selectedCategory = document.getElementById("parentsCategory").value;
     if (selectedCategory != "") {
       $.ajax({
@@ -48,10 +50,6 @@ $(function () {
             insertHTML += appendOption(child);
           });
           appendChidrenBox(insertHTML);
-          $(document).on("change", "#parentsCategory", function () {
-            $("#childrenWrapper").remove();
-            $("#grandChildrenWrapper").remove();
-          });
         })
         .fail(function () {
           alert("カテゴリー取得に失敗しました");
@@ -60,6 +58,7 @@ $(function () {
   });
 
   $(document).on("change", "#childrenCategory", function () {
+    $("#grandChildrenWrapper").remove();
     let selectedCategory = document.getElementById("childrenCategory").value;
     if (selectedCategory != "") {
       $.ajax({
@@ -76,9 +75,6 @@ $(function () {
             insertHTML += appendOption(grandchild);
           });
           appendgrandChidrenBox(insertHTML);
-          $(document).on("change", "#childrenCategory", function () {
-            $("#grandChildrenWrapper").remove();
-          });
         })
         .fail(function () {
           alert("カテゴリー取得に失敗しました");

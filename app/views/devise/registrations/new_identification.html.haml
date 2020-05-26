@@ -5,7 +5,7 @@
     .registerWrapper__head
       %h2 本人確認情報入力
     .registerWrapper__content
-      = form_for(@identification, url: identifications_path, method: :post) do |f|
+      = form_for(@identification, url: identifications_path) do |f|
         = render "devise/shared/error_messages", resource: @identification
         
         .registerWrapper__content__formGroup

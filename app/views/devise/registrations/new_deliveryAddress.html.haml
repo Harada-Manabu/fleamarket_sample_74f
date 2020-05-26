@@ -5,7 +5,7 @@
     .registerWrapper__head
       %h2 商品お届け先住所入力
     .registerWrapper__content
-      = form_for(@deliveryAddress, url: deliveryAddresses_path, method: :post) do |f|
+      = form_for(@deliveryAddress, url: deliveryAddresses_path) do |f|
         = render "devise/shared/error_messages", resource: @deliveryAddress
 
         .registerWrapper__content__formGroup
