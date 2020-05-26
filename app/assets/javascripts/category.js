@@ -1,13 +1,11 @@
 $(function () {
   function appendOption(category) {
     let html = `<option value="${category.id}">${category.categoryName}</option>`;
-    // console.log(html);
     return html;
   }
 
   function appendChidrenBox(insertHTML) {
     let childHtml = "";
-    // console.log(childHtml);
 
     childHtml = `<div id = 'childrenWrapper'>
                    <select id="childrenCategory" name="good[category_id]">
