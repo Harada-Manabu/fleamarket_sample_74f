@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
 
   before_action :login_check
   before_action :own_goods
-  before_action :sold_out
+  # before_action :sold_out
   before_action :set_good, only: [:index, :pay]
   require "payjp"
 
@@ -39,7 +39,7 @@ class PurchasesController < ApplicationController
 
   def pay
     unless
-      @good.user_id == current_user.id
+      @good.user_id == current_user.id || @good.buyer_id.present?
         @card = CreditCard.find_by(user_id: current_user.id)
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 
@@ -69,13 +69,13 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def sold_out
-    @good = Good.find(params[:good_id])
-    if
-      @good.buyer_id.present?
-      redirect_to root_path
-    end
-  end
+  # def sold_out
+  #   @good = Good.find(params[:good_id])
+  #   if
+  #     @good.buyer_id.present?
+  #     redirect_to root_path
+  #   end
+  # end
 
 
 
