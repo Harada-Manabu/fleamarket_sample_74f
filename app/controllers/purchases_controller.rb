@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
 
   before_action :login_check
   before_action :own_goods
+  before_action :sold_out
   before_action :set_good, only: [:index, :pay]
   require "payjp"
 
@@ -67,6 +68,15 @@ class PurchasesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def sold_out
+    @good = Good.find(params[:good_id])
+    if
+      @good.buyer_id.present?
+      redirect_to root_path
+    end
+  end
+
 
 
   def set_good
