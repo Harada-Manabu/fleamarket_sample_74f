@@ -3,9 +3,7 @@ $(document).on("turbolinks:load", function () {
     const html = `<div class="jsFileGroup" data-index="${index}">
                   <label class="jsFileLabel" for="good_pictures_attributes_${index}_goodsImage">
                   <input class="jsFile" type="file" name="good[pictures_attributes][${index}][goodsImage]" id="good_pictures_attributes_${index}_goodsImage">
-                  <div class="jsRemove">画像の削除</div>
-                  <i class="fas fa-camera">画像の追加/変更</i>
-                  <div class="pic__text"></div></label></div>`;
+                  <div class="jsRemove">画像の削除</div></label></div>`;
     return html;
   };
   const buildImg = function (index, url) {
@@ -40,8 +38,8 @@ $(document).on("turbolinks:load", function () {
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hiddenDestroy`);
     if (hiddenCheck) hiddenCheck.prop("checked", true);
 
-    const animal = $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
+    $(this).parent().parent().remove();
 
     if ($(".jsFile").length == 0)
       $("#image-box").append(buildFileField(fileIndex[0]));

@@ -36,7 +36,18 @@
     }
   }
 }
-
+.breadcrumbs_list {
+  position: relative;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  height: 48px;
+  font-size: 14px;
+  padding: 16px;
+  display: flex;
+  width: 1050px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 .top-syoukai {
   padding: 60px 20px;
 
@@ -332,9 +343,11 @@
           right: 0;
           width: 50%;
           height: 1.5em;
-          background: linear-gradient(to right,
-              rgba(255, 255, 255, 0),
-              #fff 72%);
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            #fff 72%
+          );
         }
       }
     }
@@ -493,7 +506,7 @@ a {
       a {
         font-size: 24px;
         text-decoration: none;
-        color: #3CCACE;
+        color: #3ccace;
       }
 
       h3 {

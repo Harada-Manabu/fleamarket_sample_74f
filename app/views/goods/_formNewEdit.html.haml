@@ -1,128 +1,128 @@
-.goodsNew
-  .goodsNew__logo
-    = link_to(root_path) do
-      = image_tag "logo.png", class: "goodsNew__logo--img", size: "185x49"
+-# .goodsNew
+-#   .goodsNew__logo
+-#     = link_to(root_path) do
+-#       = image_tag "logo.png", class: "goodsNew__logo--img", size: "185x49"
 
-  .goodsNew__form
-    = form_with model: @good, class: "form", local: true do |f|
-      .goodsNew__form__pic
-        .pic__title
-          %span.pic__title--text 出品画像
-          %span.pic__title--must 必須
-        - if @good.goodsName?
-          .pic__describe 最大5枚までアップロードできます
-        - else
-          .pic__describe 最大5枚までアップロードできます
+-#   .goodsNew__form
+-#     = form_with model: @good, class: "form", local: true do |f|
+-#       .goodsNew__form__pic
+-#         .pic__title
+-#           %span.pic__title--text 出品画像
+-#           %span.pic__title--must 必須
+-#         - if @good.goodsName?
+-#           .pic__describe 最大5枚までアップロードできます
+-#         - else
+-#           .pic__describe 最大5枚までアップロードできます
 
-        #image-box
-          #previews
-            - if @good.persisted?
-              - @good.pictures.each_with_index do |pic, k|
-                = image_tag pic.goodsImage.url, data: { index: k }, width: "110", height: "110"
-          = f.fields_for :pictures do |i|
-            .jsFileGroup{"data-index" => "#{i.index}"}
-              = i.label :goodsImage, class: "jsFileLabel" do
-                = i.file_field :goodsImage, class: "jsFile"
-                .jsRemove
-                  画像の削除
-                %i.fas.fa-camera 画像の追加/変更
-                .pic__text
-            - if @good.persisted?
-              = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroy"
+-#         #image-box
+-#           #previews
+-#             - if @good.persisted?
+-#               - @good.pictures.each_with_index do |pic, k|
+-#                 = image_tag pic.goodsImage.url, data: { index: k }, width: "110", height: "110"
+-#           = f.fields_for :pictures do |i|
+-#             .jsFileGroup{"data-index" => "#{i.index}"}
+-#               = i.label :goodsImage, class: "jsFileLabel" do
+-#                 = i.file_field :goodsImage, class: "jsFile"
+-#                 .jsRemove
+-#                   画像の削除
+-#                 -# %i.fas.fa-camera 画像の追加/変更
+-#                 -# .pic__text
+-#             - if @good.persisted?
+-#               = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroy"
 
-          - if @good.persisted?
-            .jsFileGroup{"data-index" => "#{@good.pictures.count}"}
-              = label_tag :goodsImage, class: "jsFileLabel" do
-                = file_field_tag :goodsImage, name: "good[pictures_attributes][#{@good.pictures.count}][goodsImage]", class: "jsFile"
-                .jsRemove
-                  画像の削除
-                %i.fas.fa-camera 画像の追加/変更
-                .pic__text
+-#           - if @good.persisted?
+-#             .jsFileGroup{"data-index" => "#{@good.pictures.count}"}
+-#               = label_tag :goodsImage, class: "jsFileLabel" do
+-#                 = file_field_tag :goodsImage, name: "good[pictures_attributes][#{@good.pictures.count}][goodsImage]", class: "jsFile"
+-#                 .jsRemove
+-#                   画像の削除
+-#                 -# %i.fas.fa-camera 画像の追加/変更
+-#                 -# .pic__text
 
-      .goodsNew__form__name
-        .name__title
-          %span.name__title--text 商品名
-          %span.name__title--must 必須
-        = f.text_field :goodsName, class: 'name__title--form', placeholder: '40文字まで'
-        .name__explanation
-          %span.name__explanation--text 商品の説明
-          %span.name__explanation--must 必須
-        = f.text_area :explanation, class: 'explanation__form', placeholder: '商品の説明（必須 1,000文字以内）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe, rows: 7
+-#       .goodsNew__form__name
+-#         .name__title
+-#           %span.name__title--text 商品名
+-#           %span.name__title--must 必須
+-#         = f.text_field :goodsName, class: 'name__title--form', placeholder: '40文字まで'
+-#         .name__explanation
+-#           %span.name__explanation--text 商品の説明
+-#           %span.name__explanation--must 必須
+-#         = f.text_area :explanation, class: 'explanation__form', placeholder: '商品の説明（必須 1,000文字以内）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe, rows: 7
 
-      .goodsNew__form__detail
-        .detail__heading.sectinDescribe 商品の詳細
-        .detail__category
-          %span.detail__category--text カテゴリー
-          %span.detail__category--must 必須
-        .selectBoxCategory
-          #parentsWrapper
-            = f.collection_select :category_id, @parents, :id, :categoryName, { prompt: "選択してください" }, { id: "parentsCategory" }
-            %i.fas.fa-chevron-down
-        .detail__brand
-          %span.detail__brand--text ブランド
-          %span.detail__brand--option 任意
-        = f.text_field :brand, class: 'detail__brand--form', placeholder: '例） シャネル'
-        .detail__condition
-          %span.detail__condition--text 商品の状態
-          %span.detail__condition--must 必須
-        .selectBox
-          = f.select :goodsCondition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "選択してください", class: 'detail__condition--fork'
-          %i.fas.fa-chevron-down
+-#       .goodsNew__form__detail
+-#         .detail__heading.sectinDescribe 商品の詳細
+-#         .detail__category
+-#           %span.detail__category--text カテゴリー
+-#           %span.detail__category--must 必須
+-#         .selectBoxCategory
+-#           #parentsWrapper
+-#             = f.collection_select :category_id, @parents, :id, :categoryName, { prompt: "選択してください" }, { id: "parentsCategory" }
+-#             %i.fas.fa-chevron-down
+-#         .detail__brand
+-#           %span.detail__brand--text ブランド
+-#           %span.detail__brand--option 任意
+-#         = f.text_field :brand, class: 'detail__brand--form', placeholder: '例） シャネル'
+-#         .detail__condition
+-#           %span.detail__condition--text 商品の状態
+-#           %span.detail__condition--must 必須
+-#         .selectBox
+-#           = f.select :goodsCondition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "選択してください", class: 'detail__condition--fork'
+-#           %i.fas.fa-chevron-down
 
-      .goodsNew__form__delivery
-        .delivery__heading.sectinDescribe 配送について
-        .delivery__fee
-          %span.delivery__fee--text 配送料の負担
-          %span.delivery__fee--must 必須
-        .selectBox
-          = f.select :deliveryFee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], prompt: "選択してください", class: 'delivery__fee--form'
-          %i.fas.fa-chevron-down
-        .delivery__prefecture
-          %span.delivery__prefecture--text 発送の地域
-          %span.delivery__prefecture--must 必須
-        .selectBox
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-          %i.fas.fa-chevron-down
-        .delivery__day
-          %span.delivery__day--text 発送までの日数
-          %span.delivery__day--must 必須
-        .selectBox
-          = f.select :deliveryDay, [["1~2日で発送"],["2~3日で発送"],["3~7日で発送"]], prompt: "選択してください", class: 'delivery__day--form'
-          %i.fas.fa-chevron-down
+-#       .goodsNew__form__delivery
+-#         .delivery__heading.sectinDescribe 配送について
+-#         .delivery__fee
+-#           %span.delivery__fee--text 配送料の負担
+-#           %span.delivery__fee--must 必須
+-#         .selectBox
+-#           = f.select :deliveryFee, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], prompt: "選択してください", class: 'delivery__fee--form'
+-#           %i.fas.fa-chevron-down
+-#         .delivery__prefecture
+-#           %span.delivery__prefecture--text 発送の地域
+-#           %span.delivery__prefecture--must 必須
+-#         .selectBox
+-#           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+-#           %i.fas.fa-chevron-down
+-#         .delivery__day
+-#           %span.delivery__day--text 発送までの日数
+-#           %span.delivery__day--must 必須
+-#         .selectBox
+-#           = f.select :deliveryDay, [["1~2日で発送"],["2~3日で発送"],["3~7日で発送"]], prompt: "選択してください", class: 'delivery__day--form'
+-#           %i.fas.fa-chevron-down
 
-      .goodsNew__form__price
-        .price__heading.sectinDescribe 価格（¥300〜9,999,999）
-        .price__wrap
-          .price__wrap__title
-            %span.price__wrap__title--text 販売価格
-            %span.price__wrap__title--must 必須
-          .price__wrap__form
-            %span.price__wrap__form--yen ¥
-            = f.number_field :price, class: 'price__form', placeholder: '0'
-        .price__fee__wrap
-          .price__fee__wrap--text 販売手数料（10%）
-          .price__fee__wrap--result ―
-        .price__profit__wrap
-          .price__profit__wrap--text 販売利益
-          .price__profit__wrap--result ―
+-#       .goodsNew__form__price
+-#         .price__heading.sectinDescribe 価格（¥300〜9,999,999）
+-#         .price__wrap
+-#           .price__wrap__title
+-#             %span.price__wrap__title--text 販売価格
+-#             %span.price__wrap__title--must 必須
+-#           .price__wrap__form
+-#             %span.price__wrap__form--yen ¥
+-#             = f.number_field :price, class: 'price__form', placeholder: '0'
+-#         .price__fee__wrap
+-#           .price__fee__wrap--text 販売手数料（10%）
+-#           .price__fee__wrap--result ―
+-#         .price__profit__wrap
+-#           .price__profit__wrap--text 販売利益
+-#           .price__profit__wrap--result ―
 
-      .goodsNew__form__exibition
-        - if @good.goodsName?
-          = f.submit '変更する', class: 'exibition__btn'
-        - else
-          = f.submit '出品する', class: 'exibition__btn'
-        %button.draft__btn 下書きに保存
-        = link_to 'もどる', root_path, class: 'back__top__link'
-        %p.exibitionNote
-          禁止されている
-          %span> 行為
-          および
-          %span> 出品物
-          を必ずご確認ください。
-          %span> 偽ブランド品
-          や
-          %span> 盗品物
-          などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-          %span> 加盟店規約
-          に同意したことになります。
-  = render partial: 'modules/footerSub'
+-#       .goodsNew__form__exibition
+-#         - if @good.goodsName?
+-#           = f.submit '変更する', class: 'exibition__btn'
+-#         - else
+-#           = f.submit '出品する', class: 'exibition__btn'
+-#         %button.draft__btn 下書きに保存
+-#         = link_to 'もどる', root_path, class: 'back__top__link'
+-#         %p.exibitionNote
+-#           禁止されている
+-#           %span> 行為
+-#           および
+-#           %span> 出品物
+-#           を必ずご確認ください。
+-#           %span> 偽ブランド品
+-#           や
+-#           %span> 盗品物
+-#           などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+-#           %span> 加盟店規約
+-#           に同意したことになります。
+-#   = render partial: 'modules/footerSub'
