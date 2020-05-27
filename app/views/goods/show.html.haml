@@ -49,14 +49,19 @@
               %span.spanShippingFee
         .selectPurchace
           .selectPurchace__selectPurchaceMove
-            - if user_signed_in?
-              - if current_user.id == @good.user_id
-                %p.selectPurchaceMoveForm
-                  出品頂いた商品です
-              - elsif current_user.id != @good.user_id
-                =link_to "購入画面に進む", good_purchases_path(@good)
-            - elsif not user_signed_in?
-              = link_to "ログインして購入へ", new_user_session_path
+            - if @good.buyer_id.present?
+              %p.selectPurchaceMoveForm
+                売り切れです
+            - else
+              - if user_signed_in?
+                - if current_user.id == @good.user_id
+                  %p.selectPurchaceMoveForm
+                    出品頂いた商品です
+                - elsif current_user.id != @good.user_id
+                  =link_to "購入画面に進む", good_purchases_path(@good)
+              - elsif not user_signed_in?
+                = link_to "ログインして購入へ", new_user_session_path
+
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain

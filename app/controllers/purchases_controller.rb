@@ -1,5 +1,8 @@
 class PurchasesController < ApplicationController
 
+  before_action :login_check
+  before_action :own_goods
+  before_action :sold_out
   before_action :set_good, only: [:index, :pay]
   require "payjp"
 
@@ -35,21 +38,45 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @card = CreditCard.find_by(user_id: current_user.id)
-    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    unless
+      @good.user_id == current_user.id || @good.buyer_id.present?
+        @card = CreditCard.find_by(user_id: current_user.id)
+        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 
-    charge = Payjp::Charge.create(
-      amount: @good.price,
-      customer: Payjp::Customer.retrieve(@card.customer_id),
-      currency: 'jpy'
-    )
-    
-    redirect_to action: 'done'
+        charge = Payjp::Charge.create(
+          amount: @good.price,
+          customer: Payjp::Customer.retrieve(@card.customer_id),
+          currency: 'jpy'
+        )
+        redirect_to action: 'done'
+    end
   end
 
   def done
     @good = Good.find(params[:good_id])
     @good.update(buyer_id: current_user.id)
+  end
+
+
+  private
+  def login_check
+    redirect_to root_path unless user_signed_in?
+  end
+
+  def own_goods
+    good = Good.find(params[:good_id])
+    if
+      good.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def sold_out
+    good = Good.find(params[:good_id])
+    if
+      good.buyer_id.present?
+      redirect_to root_path
+    end
   end
 
   def set_good
