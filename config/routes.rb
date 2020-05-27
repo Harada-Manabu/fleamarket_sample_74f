@@ -20,10 +20,6 @@ Rails.application.routes.draw do
       get 'categoryChildren'
       get 'categoryGrandChildren'
     end
-    member do
-      get 'categoryChildren' 
-      get 'categoryGrandChildren'
-    end
     resources :purchases, only: :index do
       member do
         post 'pay'
