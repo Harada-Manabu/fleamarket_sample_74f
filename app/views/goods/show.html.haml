@@ -14,9 +14,11 @@
         = link_to @grandChild.categoryName, "#", class: "cateCateSubSub"
         %i.fas.fa-chevron-right.iconChevronRight
         = link_to @good.goodsName, "#", class: "cateProductName"
+
 .showGoods
   .showGoods__showGoodsBody
     .showGoods__showGoodsBody__showGoodsBodyMain
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainSelect
         %h1.selectItemName
           = @good.goodsName
@@ -61,7 +63,6 @@
                   =link_to "購入画面に進む", good_purchases_path(@good)
               - elsif not user_signed_in?
                 = link_to "ログインして購入へ", new_user_session_path
-
         .selectDescription
           .selectDescription__selectDescriptionBody
             %p.selectDescriptionBodyExplain
@@ -128,6 +129,7 @@
                   .i.fas.fa-flag.iconFlag
                   %span.spanFlag
                     不適切な商品の通報
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainComment__showGoodsBodyMainCommentContent
           .mainCommentContentBody
@@ -140,6 +142,7 @@
               .mainCommentContentBodyTag
                 %i.fas.fa-comment.iconComment
                 = button_tag "コメントする", type: 'submit', class: "mainCommentContentBodyTagBtn"
+
       .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem
         .showGoods__showGoodsBody__showGoodsBodyMain__showGoodsBodyMainOtherItem__showGoodsBodyMainOtherItemBox
           %ul.mainOtherItemBoxUl
